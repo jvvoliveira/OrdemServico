@@ -1,4 +1,3 @@
-
 package entidades;
 
 import java.util.ArrayList;
@@ -8,8 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-
 public class Main {
+
     public static void main(String[] args) {
         Pessoa pessoa = new Pessoa();
         preencherUsuario(pessoa);
@@ -25,53 +24,62 @@ public class Main {
             et = em.getTransaction(); //Recupera objeto responsável pelo gerenciamento de transação.
             et.begin();
             em.persist(pessoa);
-//            em.persist(func);
+            em.persist(func);
             et.commit();
         } catch (Exception ex) {
-            if (et != null)
+            System.out.println(ex);
+            if (et != null) {
                 et.rollback();
+            }
         } finally {
-            if (em != null)
-                em.close();       
-            if (emf != null)
+            if (em != null) {
+                em.close();
+            }
+            if (emf != null) {
                 emf.close();
+            }
         }
     }
 
     private static void preencherUsuario(Pessoa pessoa) {
         pessoa.setNome("Fulano");
         pessoa.setCpf("145.397.025-31");
-        pessoa.setEndereco(preencherEndereco("52090-260", "Recife", "Casa", 7574, "Avenida Norte"));
-        
+        pessoa.setEndereco(preencherEndereco("52090-260", "Recife", "Casa", 7574, "Avenida Norte", pessoa));
+
         List<Telefone> telefones = new ArrayList();
-        telefones.add(preencherTelefone("8196683265"));
-        telefones.add(preencherTelefone("8132683268"));
-        telefones.add(preencherTelefone("8199996666"));
+        telefones.add(preencherTelefone("8196683265", pessoa));
+        telefones.add(preencherTelefone("8132683268", pessoa));
+        telefones.add(preencherTelefone("8199996666", pessoa));
         pessoa.setTelefones(telefones);
     }
+
     private static void preencherFuncionario(Funcionario pessoa) {
         pessoa.setNome("Beltrano");
         pessoa.setCpf("643.225.215-06");
-        pessoa.setEndereco(preencherEndereco("55982-693", "Recife", "Casa", 306, "Casa Forte"));
+        pessoa.setEndereco(preencherEndereco("55982-693", "Recife", "Casa", 306, "Casa Forte", pessoa));
         pessoa.setMatricula("123456");
         pessoa.setCargo("Desenvolvedor");
-        
+
         List<Telefone> telefones = new ArrayList();
-        telefones.add(preencherTelefone("8162986598"));
+        telefones.add(preencherTelefone("8162986598", pessoa));
         pessoa.setTelefones(telefones);
     }
-    private static Endereco preencherEndereco(String cep, String cidade, String complemento, int numero, String rua){
+
+    private static Endereco preencherEndereco(String cep, String cidade, String complemento, int numero, String rua, Pessoa pessoa) {
         Endereco endereco = new Endereco();
         endereco.setCep(cep);
         endereco.setCidade(cidade);
         endereco.setComplemento(complemento);
         endereco.setNumero(numero);
         endereco.setRua(rua);
+        endereco.setPessoa(pessoa);
         return endereco;
     }
-    private static Telefone preencherTelefone(String telefone){
+
+    private static Telefone preencherTelefone(String telefone, Pessoa pessoa) {
         Telefone t = new Telefone();
         t.setNumero(telefone);
+        t.setPessoa(pessoa);
         return t;
     }
 }

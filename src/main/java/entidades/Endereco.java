@@ -34,7 +34,7 @@ public class Endereco implements Serializable {
     @Column(name = "TB_CEP", nullable = false, length = 9)
     private String cep;
     
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne
     @JoinColumn(name = "COL_ID_PESSOA", referencedColumnName = "ID")
     private Pessoa pessoa;
 

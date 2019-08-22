@@ -11,14 +11,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "TB_PESSOA")
-@DiscriminatorColumn(name = "COL_TIPO", discriminatorType = DiscriminatorType.CHAR)
-@DiscriminatorValue(value = "P")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "COL_TIPO", discriminatorType = DiscriminatorType.STRING, length = 1)
+@DiscriminatorValue(value = "C")
 public class Pessoa implements Serializable {
     
     @Id

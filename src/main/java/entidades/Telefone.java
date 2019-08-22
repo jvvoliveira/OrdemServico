@@ -23,8 +23,8 @@ public class Telefone implements Serializable {
     @Column(name = "COL_NUMERO", nullable = false, length = 12)
     private String numero;
     
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "COL_ID_PESSOA", referencedColumnName = "ID")
+    @ManyToOne
+    @JoinColumn(name = "COL_ID_PESSOA", referencedColumnName = "ID", nullable = false)
     private Pessoa pessoa;
 
     @Override

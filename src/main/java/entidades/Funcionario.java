@@ -9,10 +9,10 @@ import javax.persistence.Entity;
 @DiscriminatorValue(value = "F")
 public class Funcionario extends Pessoa implements Serializable {
     
-    @Column(name = "COL_MATRICULA", length = 10, nullable = false)
+    @Column(name = "COL_MATRICULA", length = 10)
     private String matricula;
     
-    @Column(name = "COL_MATRICULA", length = 30, nullable = false)
+    @Column(name = "COL_CARGO", length = 30)
     private String cargo;
 
     public String getMatricula() {
