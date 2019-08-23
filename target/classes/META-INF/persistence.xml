@@ -6,6 +6,8 @@
     <class>entidades.Funcionario</class>
     <class>entidades.Telefone</class>
     <class>entidades.Endereco</class>
+    <class>entidades.Servico</class>
+    <class>entidades.Equipamento</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ordemservico?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
