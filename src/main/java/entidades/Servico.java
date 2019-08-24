@@ -35,7 +35,6 @@ public class Servico implements Serializable {
     private Date fim;
     
     @Transient //não armazenado, calculado
-    @Column(name = "COL_CUSTO_PECAS")
     private double custoPecas;
     
     @Column(name = "COL_MAO_OBRA")
