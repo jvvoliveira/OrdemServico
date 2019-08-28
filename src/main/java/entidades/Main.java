@@ -15,9 +15,20 @@ public class Main {
         Funcionario func = new Funcionario();
         preencherFuncionario(func);
         
+        Funcionario tec = new Funcionario();
+        preencherTecnico(tec);
+        
         Servico servico = new Servico();
         servico.setCliente(pessoa);
         servico.setAtendente(func);
+        
+        Equipamento equip1 = new Equipamento();
+        equip1.setModelo("X45");
+        equip1.setDefeito("Ta ruim");
+        equip1.setSerie("458asd");
+        equip1.setCustoPecas(45.52);
+        equip1.setMaoObra(36.98);
+        equip1.setServico(servico);
         
         EntityManagerFactory emf = null;
         EntityManager em = null;
@@ -30,7 +41,9 @@ public class Main {
             et.begin();
             em.persist(pessoa);
             em.persist(func);
+            em.persist(tec);
             em.persist(servico);
+            em.persist(equip1);
             et.commit();
         } catch (Exception ex) {
             System.out.println(ex);
@@ -69,6 +82,18 @@ public class Main {
         List<Telefone> telefones = new ArrayList();
         telefones.add(preencherTelefone("8162986598", pessoa));
         telefones.add(preencherTelefone("8199996666", pessoa));
+        pessoa.setTelefones(telefones);
+    }
+    
+        private static void preencherTecnico(Funcionario pessoa) {
+        pessoa.setNome("Beltrano");
+        pessoa.setCpf("643.225.215-06");
+        pessoa.setEndereco(preencherEndereco("55422-693", "Recife", "casa", 56, "Casa Amarela"));
+        pessoa.setMatricula("51644");
+        pessoa.setCargo("Tecnico");
+
+        List<Telefone> telefones = new ArrayList();
+        telefones.add(preencherTelefone("41545458", pessoa));
         pessoa.setTelefones(telefones);
     }
 

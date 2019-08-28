@@ -2,6 +2,8 @@ package entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -60,7 +63,9 @@ public class Servico implements Serializable {
     @JoinColumn(name = "FK_FUNC_ID", referencedColumnName = "PESS_ID")
     private Funcionario atendente;
     
-//    private List<Equipamento> equipamentos;
+    @OneToMany(mappedBy = "servico", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Equipamento> equipamentos;
 
     @Override
     public int hashCode() {
@@ -166,4 +171,17 @@ public class Servico implements Serializable {
     public void setAtendente(Funcionario atendente) {
         this.atendente = atendente;
     }
+
+    public List<Equipamento> getEquipamentos() {
+        return equipamentos;
+    }
+
+    public void setEquipamento(Equipamento equipamentos) {
+        this.equipamentos.add(equipamentos);
+    }
+
+    public void setEquipamentos(List<Equipamento> equipamentos) {
+        this.equipamentos = equipamentos;
+    }
+    
 }

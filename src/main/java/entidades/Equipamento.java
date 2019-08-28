@@ -4,9 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -55,7 +58,9 @@ public class Equipamento implements Serializable {
     @Column(name = "EQUIP_FIM")
     private Date fimManutencao;
     
-//    private Servico servico;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "FK_SERV_ID", referencedColumnName = "SERV_ID")
+    private Servico servico;
 
     @Override
     public int hashCode() {
@@ -179,6 +184,13 @@ public class Equipamento implements Serializable {
         this.fimManutencao = fimManutencao;
     }
 
+    public Servico getServico() {
+        return servico;
+    }
+
+    public void setServico(Servico servico) {
+        this.servico = servico;
+    }
     
     
     
