@@ -54,7 +54,6 @@ public class Pessoa implements Serializable {
     @JoinColumn(name = "FK_END_ID", referencedColumnName = "END_ID")
     private Endereco endereco;
     
-    
     //Listas de serviço de um cliente
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST)
     private List<Servico> servicos;

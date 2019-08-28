@@ -15,8 +15,9 @@ public class Main {
         Funcionario func = new Funcionario();
         preencherFuncionario(func);
         
-        Funcionario tec = new Funcionario();
-        preencherTecnico(tec);
+        Funcionario tec1 = new Funcionario();
+        Funcionario tec2 = new Funcionario();
+        preencherTecnico(tec1, tec2);
         
         Servico servico = new Servico();
         servico.setCliente(pessoa);
@@ -29,6 +30,16 @@ public class Main {
         equip1.setCustoPecas(45.52);
         equip1.setMaoObra(36.98);
         equip1.setServico(servico);
+        equip1.setTecnico(tec2);
+        
+        Equipamento equip2 = new Equipamento();
+        equip2.setModelo("S6");
+        equip2.setDefeito("Telatrincada");
+        equip2.setSerie("As54d1");
+        equip2.setCustoPecas(500.52);
+        equip2.setMaoObra(50.98);
+        equip2.setServico(servico);
+        equip2.setTecnico(tec1);
         
         EntityManagerFactory emf = null;
         EntityManager em = null;
@@ -41,9 +52,11 @@ public class Main {
             et.begin();
             em.persist(pessoa);
             em.persist(func);
-            em.persist(tec);
+            em.persist(tec1);
+            em.persist(tec2);
             em.persist(servico);
             em.persist(equip1);
+            em.persist(equip2);
             et.commit();
         } catch (Exception ex) {
             System.out.println(ex);
@@ -85,16 +98,27 @@ public class Main {
         pessoa.setTelefones(telefones);
     }
     
-        private static void preencherTecnico(Funcionario pessoa) {
-        pessoa.setNome("Beltrano");
-        pessoa.setCpf("643.225.215-06");
-        pessoa.setEndereco(preencherEndereco("55422-693", "Recife", "casa", 56, "Casa Amarela"));
-        pessoa.setMatricula("51644");
-        pessoa.setCargo("Tecnico");
+        private static void preencherTecnico(Funcionario tec1, Funcionario tec2) {
+        tec1.setNome("Beltrano");
+        tec1.setCpf("643.225.215-06");
+        tec1.setEndereco(preencherEndereco("55422-693", "Recife", "casa", 56, "Casa Amarela"));
+        tec1.setMatricula("51644");
+        tec1.setCargo("Tecnico");
 
         List<Telefone> telefones = new ArrayList();
-        telefones.add(preencherTelefone("41545458", pessoa));
-        pessoa.setTelefones(telefones);
+        telefones.add(preencherTelefone("41545458", tec1));
+        
+        tec2.setTelefones(telefones);
+        tec2.setNome("Zurilano");
+        tec2.setCpf("643.225.215-06");
+        tec2.setEndereco(preencherEndereco("55422-693", "Olinda", "casa", 56, "Peixinhos"));
+        tec2.setMatricula("5454");
+        tec2.setCargo("Tecnico");
+
+        telefones = new ArrayList();
+        telefones.add(preencherTelefone("75454589", tec2));
+        telefones.add(preencherTelefone("47565558", tec2));
+        tec2.setTelefones(telefones);
     }
 
     private static Endereco preencherEndereco(String cep, String cidade, String complemento, int numero, String rua) {

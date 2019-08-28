@@ -61,6 +61,10 @@ public class Equipamento implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "FK_SERV_ID", referencedColumnName = "SERV_ID")
     private Servico servico;
+    
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "FK_FUNC_ID", referencedColumnName = "PESS_ID")
+    private Funcionario tecnico;
 
     @Override
     public int hashCode() {
@@ -191,6 +195,15 @@ public class Equipamento implements Serializable {
     public void setServico(Servico servico) {
         this.servico = servico;
     }
+
+    public Funcionario getTecnico() {
+        return tecnico;
+    }
+
+    public void setTecnico(Funcionario tecnico) {
+        this.tecnico = tecnico;
+    }
+    
     
     
     

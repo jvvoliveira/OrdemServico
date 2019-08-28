@@ -21,6 +21,10 @@ public class Funcionario extends Pessoa implements Serializable {
     //Listas de servicos atendidos
     @OneToMany(mappedBy = "atendente", cascade = CascadeType.PERSIST)
     private List<Servico> servicos;
+    
+    //Listas de Equipamento reparados
+    @OneToMany(mappedBy = "tecnico", cascade = CascadeType.PERSIST)
+    private List<Equipamento> equipamentos;
 
     public String getMatricula() {
         return matricula;
@@ -45,6 +49,14 @@ public class Funcionario extends Pessoa implements Serializable {
 
     public void setServicos(Servico servico) {
         this.servicos.add(servico);
+    }
+
+    public List<Equipamento> getEquipamentos() {
+        return equipamentos;
+    }
+
+    public void setEquipamento(Equipamento equipamento) {
+        this.equipamentos.add(equipamento);
     }
     
     
