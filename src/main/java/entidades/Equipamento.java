@@ -1,37 +1,59 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "TB_EQUIPAMENTO")
 public class Equipamento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "EQUIP_ID")
     private long id;
     
-    @Column(name = "TB_DESCRICAO", length = 150, nullable = false)
+    @Column(name = "EQUIP_DESCRICAO", length = 300)
     private String descricao;
     
-    @Column(name = "TB_MARCA", length = 30)
+    @Column(name = "EQUIP_MARCA", length = 30)
     private String marca;
     
-    @Column(name = "TB_MODELO", length = 30, nullable = false)
+    @Column(name = "EQUIP_MODELO", length = 30, nullable = false)
     private String modelo;
     
-    @Column(name = "TB_DEFEITO", length = 150, nullable = false)
+    @Column(name = "EQUIP_SERIE", length = 30, nullable = false)
+    private String serie;
+    
+    @Column(name = "EQUIP_DEFEITO", length = 300, nullable = false)
     private String defeito;
     
-    @Column(name = "TB_SOLUCAO", length = 150)
+    @Column(name = "EQUIP_SOLUCAO", length = 400)
     private String solucao;
     
-    @Column(name = "TB_CUSTO")
-    private double custo;
+    @Column(name = "EQUIP_MAO_OBRA")
+    private double maoObra;
+    
+    @Column(name = "EQUIP_CUSTO_PECAS")
+    private double custoPecas;
+    
+    @Transient
+    private double valorTotal;
+    
+    @Temporal(TemporalType.DATE)
+    @Column(name = "EQUIP_INICIO")
+    private Date inicioManutencao;
+    
+    @Temporal(TemporalType.DATE)
+    @Column(name = "EQUIP_FIM")
+    private Date fimManutencao;
     
 //    private Servico servico;
 
@@ -92,6 +114,14 @@ public class Equipamento implements Serializable {
         this.modelo = modelo;
     }
 
+    public String getSerie() {
+        return serie;
+    }
+
+    public void setSerie(String serie) {
+        this.serie = serie;
+    }
+
     public String getDefeito() {
         return defeito;
     }
@@ -108,13 +138,48 @@ public class Equipamento implements Serializable {
         this.solucao = solucao;
     }
 
-    public double getCusto() {
-        return custo;
+    public double getMaoObra() {
+        return maoObra;
     }
 
-    public void setCusto(double custo) {
-        this.custo = custo;
+    public void setMaoObra(double maoObra) {
+        this.maoObra = maoObra;
     }
+
+    public double getCustoPecas() {
+        return custoPecas;
+    }
+
+    public void setCustoPecas(double custoPecas) {
+        this.custoPecas = custoPecas;
+    }
+
+    public double getValorTotal() {
+        this.setValorTotal();
+        return valorTotal;
+    }
+
+    public void setValorTotal() {
+        this.valorTotal = this.getCustoPecas()+this.getMaoObra();
+    }
+
+    public Date getInicioManutencao() {
+        return inicioManutencao;
+    }
+
+    public void setInicioManutencao(Date inicioManutencao) {
+        this.inicioManutencao = inicioManutencao;
+    }
+
+    public Date getFimManutencao() {
+        return fimManutencao;
+    }
+
+    public void setFimManutencao(Date fimManutencao) {
+        this.fimManutencao = fimManutencao;
+    }
+
+    
     
     
     
