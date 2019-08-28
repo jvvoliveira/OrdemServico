@@ -1,42 +1,42 @@
 package entidades;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "TB_ENDERECO")
 public class Endereco implements Serializable {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
-    @Column(name = "TB_CIDADE", nullable = false, length = 30)
+    @Column(name = "END_CIDADE", nullable = false, length = 80)
     private String cidade;
     
-    @Column(name = "TB_RUA", nullable = false, length = 30)
+    @Column(name = "END_LOGRADOURO", nullable = false, length = 100)
     private String rua;
     
-    @Column(name = "TB_COMPLEMENTO", nullable = true, length = 30)
+    @Column(name = "END_COMPLEMENTO", nullable = true, length = 150)
     private String complemento;
     
-    @Column(name = "TB_NUMERO", nullable = false)
+    @Column(name = "END_BAIRRO", nullable = true, length = 100)
+    private String bairro;
+    
+    @Column(name = "END_NUMERO", nullable = false)
     private int numero;
     
-    @Column(name = "TB_CEP", nullable = false, length = 9)
+    @Column(name = "END_CEP", nullable = false, length = 9)
     private String cep;
     
-    @OneToOne
-    @JoinColumn(name = "COL_ID_PESSOA", referencedColumnName = "ID")
-    private Pessoa pessoa;
+    //@OneToOne
+    //@JoinColumn(name = "FK_PESS_ID", referencedColumnName = "PESS_ID")
+   // private Pessoa pessoa;
 
     @Override
     public int hashCode() {
@@ -95,6 +95,14 @@ public class Endereco implements Serializable {
         this.complemento = complemento;
     }
 
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
     public int getNumero() {
         return numero;
     }
@@ -109,14 +117,6 @@ public class Endereco implements Serializable {
 
     public void setCep(String cep) {
         this.cep = cep;
-    }
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
     }
     
 }

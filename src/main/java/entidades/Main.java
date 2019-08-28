@@ -42,9 +42,9 @@ public class Main {
     }
 
     private static void preencherUsuario(Pessoa pessoa) {
-        pessoa.setNome("Fulano");
+        pessoa.setNome("Citana");
         pessoa.setCpf("145.397.025-31");
-        pessoa.setEndereco(preencherEndereco("52090-260", "Recife", "Casa", 7574, "Avenida Norte", pessoa));
+        pessoa.setEndereco(preencherEndereco("52090-260", "Recife", "Casa", 7574, "Avenida Norte"));
 
         List<Telefone> telefones = new ArrayList();
         telefones.add(preencherTelefone("8196683265", pessoa));
@@ -54,9 +54,9 @@ public class Main {
     }
 
     private static void preencherFuncionario(Funcionario pessoa) {
-        pessoa.setNome("Beltrano");
+        pessoa.setNome("Sicratrano");
         pessoa.setCpf("643.225.215-06");
-        pessoa.setEndereco(preencherEndereco("55982-693", "Recife", "Casa", 306, "Casa Forte", pessoa));
+        pessoa.setEndereco(preencherEndereco("55982-693", "Recife", "Casa", 306, "Casa Forte"));
         pessoa.setMatricula("123456");
         pessoa.setCargo("Desenvolvedor");
 
@@ -65,14 +65,13 @@ public class Main {
         pessoa.setTelefones(telefones);
     }
 
-    private static Endereco preencherEndereco(String cep, String cidade, String complemento, int numero, String rua, Pessoa pessoa) {
+    private static Endereco preencherEndereco(String cep, String cidade, String complemento, int numero, String rua) {
         Endereco endereco = new Endereco();
         endereco.setCep(cep);
         endereco.setCidade(cidade);
         endereco.setComplemento(complemento);
         endereco.setNumero(numero);
         endereco.setRua(rua);
-        endereco.setPessoa(pessoa);
         return endereco;
     }
 
