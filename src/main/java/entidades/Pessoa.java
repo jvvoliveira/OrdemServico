@@ -53,6 +53,11 @@ public class Pessoa implements Serializable {
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "FK_END_ID", referencedColumnName = "END_ID")
     private Endereco endereco;
+    
+    
+    //Listas de serviço de um cliente
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST)
+    private List<Servico> servicos;
 
     @Override
     public int hashCode() {
@@ -139,4 +144,14 @@ public class Pessoa implements Serializable {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    public List<Servico> getServicos() {
+        return servicos;
+    }
+
+    public void setServico(Servico servico) {
+        this.servicos.add(servico);
+    }
+    
+    
 }

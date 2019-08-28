@@ -6,9 +6,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -48,8 +51,14 @@ public class Servico implements Serializable {
     @Transient
     private double valorTotal;
     
-//    private Cliente cliente
-//    private List<Funcionario> funcionarios;
+    
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "FK_PESS_ID", referencedColumnName = "PESS_ID")
+    private Pessoa cliente;
+
+    //@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    //@JoinColumn(name = "FK_FUNC_ID", referencedColumnName = "FUNC_ID")
+    //private Funcionario atendente;
 //    private List<Equipamento> equipamentos;
 
     @Override
@@ -140,6 +149,13 @@ public class Servico implements Serializable {
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
-    
+
+    public Pessoa getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Pessoa cliente) {
+        this.cliente = cliente;
+    }
     
 }

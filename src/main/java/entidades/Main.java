@@ -14,6 +14,10 @@ public class Main {
         preencherUsuario(pessoa);
         Funcionario func = new Funcionario();
         preencherFuncionario(func);
+        
+        Servico servico = new Servico();
+        servico.setCliente(pessoa);
+        
         EntityManagerFactory emf = null;
         EntityManager em = null;
         EntityTransaction et = null;
@@ -25,6 +29,7 @@ public class Main {
             et.begin();
             em.persist(pessoa);
             em.persist(func);
+            em.persist(servico);
             et.commit();
         } catch (Exception ex) {
             System.out.println(ex);
