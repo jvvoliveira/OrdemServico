@@ -49,7 +49,7 @@ public class Main {
         List<Telefone> telefones = new ArrayList();
         telefones.add(preencherTelefone("8196683265", pessoa));
         telefones.add(preencherTelefone("8132683268", pessoa));
-        telefones.add(preencherTelefone("8199996666", pessoa));
+        telefones.add(preencherTelefone("9468465335", pessoa));
         pessoa.setTelefones(telefones);
     }
 
@@ -62,6 +62,7 @@ public class Main {
 
         List<Telefone> telefones = new ArrayList();
         telefones.add(preencherTelefone("8162986598", pessoa));
+        telefones.add(preencherTelefone("8199996666", pessoa));
         pessoa.setTelefones(telefones);
     }
 

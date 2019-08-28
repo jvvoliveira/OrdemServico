@@ -1,6 +1,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,6 +19,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "TB_PESSOA")
@@ -28,19 +31,27 @@ public class Pessoa implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     @Column(name = "PESS_ID")
     private long id;
     
-    @Column(name = "COL_CPF", nullable = false, length = 14)
+    @Column(name = "PESS_CPF", nullable = false, length = 14)
     private String cpf;
     
-    @Column(name = "COL_NOME", nullable = false, length = 50)
+    @Column(name = "PESS_NOME", nullable = false, length = 100)
     private String nome;
+    
+    @Column(name = "PESS_EMAIL", length = 100)
+    private String email;
+    
+    @Temporal(TemporalType.DATE)
+    @Column(name = "PESS_DATA_NASCIMENTO")
+    private Date dataNasc;
     
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.PERSIST)
     private List<Telefone> telefones;
     
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "FK_END_ID", referencedColumnName = "ID")
+    @JoinColumn(name = "FK_END_ID", referencedColumnName = "END_ID")
     private Endereco endereco;
 
     @Override
@@ -84,6 +95,23 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getDataNasc() {
+        return dataNasc;
+    }
+
+    public void setDataNasc(Date dataNasc) {
+        this.dataNasc = dataNasc;
+    }
+
+    
     public String getCpf() {
         return cpf;
     }
@@ -96,10 +124,14 @@ public class Pessoa implements Serializable {
         return telefones;
     }
 
+    public void setTelefone(Telefone telefones) {
+        this.telefones.add(telefones);
+    }
+
     public void setTelefones(List<Telefone> telefones) {
         this.telefones = telefones;
     }
-
+    
     public Endereco getEndereco() {
         return endereco;
     }

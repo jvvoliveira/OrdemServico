@@ -1,10 +1,8 @@
 package entidades;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,13 +16,17 @@ import javax.persistence.Table;
 public class Telefone implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     @Column(name = "TEL_ID")
     private long id;
     
-    @Column(name = "COL_NUMERO", nullable = false, length = 12)
+    @Column(name = "TEL_NUMERO", nullable = false, length = 12)
     private String numero;
     
+    @Column(name = "TEL_DDD", nullable = false)
+    private int ddd;
+    
     @ManyToOne
-    @JoinColumn(name = "COL_ID_PESSOA", referencedColumnName = "ID", nullable = false)
+    @JoinColumn(name = "TEL_ID_PESSOA", referencedColumnName = "PESS_ID", nullable = false)
     private Pessoa pessoa;
 
     @Override
@@ -58,6 +60,14 @@ public class Telefone implements Serializable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public int getDdd() {
+        return ddd;
+    }
+
+    public void setDdd(int ddd) {
+        this.ddd = ddd;
     }
 
     public String getNumero() {
