@@ -17,6 +17,7 @@ public class Main {
         
         Servico servico = new Servico();
         servico.setCliente(pessoa);
+        servico.setAtendente(func);
         
         EntityManagerFactory emf = null;
         EntityManager em = null;

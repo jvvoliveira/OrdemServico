@@ -1,19 +1,26 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue(value = "F")
 public class Funcionario extends Pessoa implements Serializable {
     
-    @Column(name = "COL_MATRICULA", length = 10)
+    @Column(name = "FUNC_MATRICULA", length = 10)
     private String matricula;
     
-    @Column(name = "COL_CARGO", length = 30)
+    @Column(name = "FUNC_CARGO", length = 30)
     private String cargo;
+    
+    //Listas de servicos atendidos
+    @OneToMany(mappedBy = "atendente", cascade = CascadeType.PERSIST)
+    private List<Servico> servicos;
 
     public String getMatricula() {
         return matricula;
@@ -30,5 +37,15 @@ public class Funcionario extends Pessoa implements Serializable {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
+
+    @Override
+    public List<Servico> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(Servico servico) {
+        this.servicos.add(servico);
+    }
+    
     
 }

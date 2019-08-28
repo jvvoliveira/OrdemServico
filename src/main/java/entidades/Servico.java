@@ -56,9 +56,10 @@ public class Servico implements Serializable {
     @JoinColumn(name = "FK_PESS_ID", referencedColumnName = "PESS_ID")
     private Pessoa cliente;
 
-    //@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    //@JoinColumn(name = "FK_FUNC_ID", referencedColumnName = "FUNC_ID")
-    //private Funcionario atendente;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "FK_FUNC_ID", referencedColumnName = "PESS_ID")
+    private Funcionario atendente;
+    
 //    private List<Equipamento> equipamentos;
 
     @Override
@@ -157,5 +158,12 @@ public class Servico implements Serializable {
     public void setCliente(Pessoa cliente) {
         this.cliente = cliente;
     }
-    
+
+    public Funcionario getAtendente() {
+        return atendente;
+    }
+
+    public void setAtendente(Funcionario atendente) {
+        this.atendente = atendente;
+    }
 }
