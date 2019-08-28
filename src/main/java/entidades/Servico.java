@@ -20,25 +20,33 @@ import utils.Status;
 public class Servico implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "SERV_ID")
     private long id;
     
     @Enumerated(EnumType.STRING)
-    @Column(name = "COL_STATUS")
+    @Column(name = "SERV_STATUS")
     private Status status;
     
     @Temporal(TemporalType.DATE)
-    @Column(name = "COL_DATA_INICIO")
+    @Column(name = "SERV_DATA_INICIO")
     private Date inicio;
     
     @Temporal(TemporalType.DATE)
-    @Column(name = "COL_DATA_FIM")
+    @Column(name = "SERV_DATA_FIM")
     private Date fim;
     
-    @Transient //não armazenado, calculado
+    @Temporal(TemporalType.DATE)
+    @Column(name = "SERV_PREV_DATA_FIM")
+    private Date prevFim;
+    
+    @Column(name = "SERV_CUSTO_PECAS")
     private double custoPecas;
     
-    @Column(name = "COL_MAO_OBRA")
+    @Column(name = "SERV_MAO_OBRA")
     private double MaoDeObra;
+    
+    @Transient
+    private double valorTotal;
     
 //    private Cliente cliente
 //    private List<Funcionario> funcionarios;
@@ -115,6 +123,22 @@ public class Servico implements Serializable {
 
     public void setMaoDeObra(double MaoDeObra) {
         this.MaoDeObra = MaoDeObra;
+    }
+
+    public Date getPrevFim() {
+        return prevFim;
+    }
+
+    public void setPrevFim(Date prevFim) {
+        this.prevFim = prevFim;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
     
     
