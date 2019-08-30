@@ -10,36 +10,22 @@ import javax.persistence.Persistence;
 public class Main {
 
     public static void main(String[] args) {
-        Pessoa pessoa = new Pessoa();
-        preencherUsuario(pessoa);
-        Funcionario func = new Funcionario();
-        preencherFuncionario(func);
+        Cliente c1 = preencherCliente("Bia", "123546");
+        Funcionario func = preencherFuncionario("cicrano", "2019");
+        Telefone t1 = preencherTelefone("32683268", c1);
+        Telefone t2 = preencherTelefone("32686584", c1);
+        Endereco end1 = preencherEndereco("123", "Recife", "casa", 54, "rua", c1);
+//        c1.setEndereco(end1);
+        List<Telefone> ts = new ArrayList();
+        ts.add(t1);
+        ts.add(t2);
+        c1.setTelefones(ts);
         
-        Funcionario tec1 = new Funcionario();
-        Funcionario tec2 = new Funcionario();
-        preencherTecnico(tec1, tec2);
+        Servico serv = new Servico();
+        serv.setCliente(c1);
+        serv.setFuncionario(func);
         
-        Servico servico = new Servico();
-        servico.setCliente(pessoa);
-        servico.setAtendente(func);
-        
-        Equipamento equip1 = new Equipamento();
-        equip1.setModelo("X45");
-        equip1.setDefeito("Ta ruim");
-        equip1.setSerie("458asd");
-        equip1.setCustoPecas(45.52);
-        equip1.setMaoObra(36.98);
-        equip1.setServico(servico);
-        equip1.setTecnico(tec2);
-        
-        Equipamento equip2 = new Equipamento();
-        equip2.setModelo("S6");
-        equip2.setDefeito("Telatrincada");
-        equip2.setSerie("As54d1");
-        equip2.setCustoPecas(500.52);
-        equip2.setMaoObra(50.98);
-        equip2.setServico(servico);
-        equip2.setTecnico(tec1);
+        Equipamento eq = preencherEquipamento("Samsung", "S10", "uefhru", "explosão", serv);
         
         EntityManagerFactory emf = null;
         EntityManager em = null;
@@ -50,13 +36,7 @@ public class Main {
             em = emf.createEntityManager(); //Criação do EntityManager.
             et = em.getTransaction(); //Recupera objeto responsável pelo gerenciamento de transação.
             et.begin();
-            em.persist(pessoa);
-            em.persist(func);
-            em.persist(tec1);
-            em.persist(tec2);
-            em.persist(servico);
-            em.persist(equip1);
-            em.persist(equip2);
+            em.persist(eq);
             et.commit();
         } catch (Exception ex) {
             System.out.println(ex);
@@ -73,68 +53,45 @@ public class Main {
         }
     }
 
-    private static void preencherUsuario(Pessoa pessoa) {
-        pessoa.setNome("Citana");
-        pessoa.setCpf("145.397.025-31");
-        pessoa.setEndereco(preencherEndereco("52090-260", "Recife", "Casa", 7574, "Avenida Norte"));
-
-        List<Telefone> telefones = new ArrayList();
-        telefones.add(preencherTelefone("8196683265", pessoa));
-        telefones.add(preencherTelefone("8132683268", pessoa));
-        telefones.add(preencherTelefone("9468465335", pessoa));
-        pessoa.setTelefones(telefones);
-    }
-
-    private static void preencherFuncionario(Funcionario pessoa) {
-        pessoa.setNome("Sicratrano");
-        pessoa.setCpf("643.225.215-06");
-        pessoa.setEndereco(preencherEndereco("55982-693", "Recife", "Casa", 306, "Casa Forte"));
-        pessoa.setMatricula("123456");
-        pessoa.setCargo("Desenvolvedor");
-
-        List<Telefone> telefones = new ArrayList();
-        telefones.add(preencherTelefone("8162986598", pessoa));
-        telefones.add(preencherTelefone("8199996666", pessoa));
-        pessoa.setTelefones(telefones);
+    private static Cliente preencherCliente(String nome, String cpf) {
+        Cliente c  = new Cliente();
+        c.setNome(nome);
+        c.setCpf(cpf);
+        return c;
     }
     
-        private static void preencherTecnico(Funcionario tec1, Funcionario tec2) {
-        tec1.setNome("Beltrano");
-        tec1.setCpf("643.225.215-06");
-        tec1.setEndereco(preencherEndereco("55422-693", "Recife", "casa", 56, "Casa Amarela"));
-        tec1.setMatricula("51644");
-        tec1.setCargo("Tecnico");
+    private static Funcionario preencherFuncionario(String nome, String matricula) {
+        Funcionario f  = new Funcionario();
+        f.setNome(nome);
+        f.setMatricula(matricula);
+        return f;
+    }
 
-        List<Telefone> telefones = new ArrayList();
-        telefones.add(preencherTelefone("41545458", tec1));
+    private static Endereco preencherEndereco(String cep, String cidade, String complemento, int numero, String rua, Cliente cliente) {
+        Endereco end = new Endereco();
+        end.setCep(cep);
+        end.setCidade(cidade);
+        end.setCliente(cliente);
         
-        tec2.setTelefones(telefones);
-        tec2.setNome("Zurilano");
-        tec2.setCpf("643.225.215-06");
-        tec2.setEndereco(preencherEndereco("55422-693", "Olinda", "casa", 56, "Peixinhos"));
-        tec2.setMatricula("5454");
-        tec2.setCargo("Tecnico");
-
-        telefones = new ArrayList();
-        telefones.add(preencherTelefone("75454589", tec2));
-        telefones.add(preencherTelefone("47565558", tec2));
-        tec2.setTelefones(telefones);
+        return end;
     }
 
-    private static Endereco preencherEndereco(String cep, String cidade, String complemento, int numero, String rua) {
-        Endereco endereco = new Endereco();
-        endereco.setCep(cep);
-        endereco.setCidade(cidade);
-        endereco.setComplemento(complemento);
-        endereco.setNumero(numero);
-        endereco.setRua(rua);
-        return endereco;
-    }
-
-    private static Telefone preencherTelefone(String telefone, Pessoa pessoa) {
+    private static Telefone preencherTelefone(String numero, Cliente cliente) {
         Telefone t = new Telefone();
-        t.setNumero(telefone);
-        t.setPessoa(pessoa);
+        t.setCliente(cliente);
+        t.setNumero(numero);
+        
         return t;
+    }
+    
+    private static Equipamento preencherEquipamento(String marca, String modelo, String serie,String defeito, Servico servico){
+        Equipamento eq = new Equipamento();
+        eq.setDefeito(defeito);
+        eq.setMarca(marca);
+        eq.setSerie(serie);
+        eq.setModelo(modelo);
+        eq.setServico(servico);
+        
+        return eq;
     }
 }

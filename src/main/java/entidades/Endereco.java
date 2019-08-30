@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -35,9 +36,8 @@ public class Endereco implements Serializable {
     @Column(name = "END_CEP", nullable = false, length = 9)
     private String cep;
     
-    //@OneToOne
-    //@JoinColumn(name = "FK_PESS_ID", referencedColumnName = "PESS_ID")
-   // private Pessoa pessoa;
+    @OneToOne(mappedBy = "endereco")
+    private Cliente cliente;
 
     @Override
     public int hashCode() {
@@ -118,6 +118,14 @@ public class Endereco implements Serializable {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
     
 }

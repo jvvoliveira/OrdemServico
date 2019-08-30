@@ -13,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -42,29 +44,27 @@ public class Servico implements Serializable {
     private Date fim;
     
     @Temporal(TemporalType.DATE)
-    @Column(name = "SERV_PREV_DATA_FIM")
+    @Column(name = "SERV_DATA_PREV_FIM")
     private Date prevFim;
     
-    @Column(name = "SERV_CUSTO_PECAS")
-    private double custoPecas;
-    
-    @Column(name = "SERV_MAO_OBRA")
-    private double MaoDeObra;
+    @Transient
+    private double custoPecas; //soma de peças de todos os equipamentos
     
     @Transient
-    private double valorTotal;
+    private double MaoDeObra; //soma da mão de obra de todos os equipamentos
     
+    @Transient
+    private double valorTotal; //mão de obra + custo de peças
+   
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "FK_CLI", nullable = false, referencedColumnName = "PESS_ID")
+    private Cliente cliente;
     
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "FK_PESS_ID", referencedColumnName = "PESS_ID")
-    private Pessoa cliente;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "FK_FUNC_ID", referencedColumnName = "PESS_ID")
-    private Funcionario atendente;
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "FK_FUNC", nullable = false, referencedColumnName = "PESS_ID")
+    private Funcionario funcionario;
     
-    @OneToMany(mappedBy = "servico", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "servico", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<Equipamento> equipamentos;
 
     @Override
@@ -124,6 +124,14 @@ public class Servico implements Serializable {
         this.fim = fim;
     }
 
+    public Date getPrevFim() {
+        return prevFim;
+    }
+
+    public void setPrevFim(Date prevFim) {
+        this.prevFim = prevFim;
+    }
+
     public double getCustoPecas() {
         return custoPecas;
     }
@@ -140,14 +148,6 @@ public class Servico implements Serializable {
         this.MaoDeObra = MaoDeObra;
     }
 
-    public Date getPrevFim() {
-        return prevFim;
-    }
-
-    public void setPrevFim(Date prevFim) {
-        this.prevFim = prevFim;
-    }
-
     public double getValorTotal() {
         return valorTotal;
     }
@@ -156,32 +156,29 @@ public class Servico implements Serializable {
         this.valorTotal = valorTotal;
     }
 
-    public Pessoa getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(Pessoa cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    public Funcionario getAtendente() {
-        return atendente;
+    public Funcionario getFuncionario() {
+        return funcionario;
     }
 
-    public void setAtendente(Funcionario atendente) {
-        this.atendente = atendente;
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
 
     public List<Equipamento> getEquipamentos() {
         return equipamentos;
     }
 
-    public void setEquipamento(Equipamento equipamentos) {
-        this.equipamentos.add(equipamentos);
-    }
-
     public void setEquipamentos(List<Equipamento> equipamentos) {
         this.equipamentos = equipamentos;
     }
+    
     
 }

@@ -26,8 +26,8 @@ public class Telefone implements Serializable {
     private int ddd;
     
     @ManyToOne
-    @JoinColumn(name = "TEL_ID_PESSOA", referencedColumnName = "PESS_ID", nullable = false)
-    private Pessoa pessoa;
+    @JoinColumn(name = "FK_ID_CLIE", referencedColumnName = "PESS_ID", nullable = false)
+    private Cliente cliente;
 
     @Override
     public int hashCode() {
@@ -78,12 +78,12 @@ public class Telefone implements Serializable {
         this.numero = numero;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
     
 }

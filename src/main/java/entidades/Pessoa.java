@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -26,16 +27,12 @@ import javax.persistence.TemporalType;
 @Table(name = "TB_PESSOA")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "COL_TIPO", discriminatorType = DiscriminatorType.STRING, length = 1)
-@DiscriminatorValue(value = "C")
-public class Pessoa implements Serializable {
+public abstract class Pessoa implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     @Column(name = "PESS_ID")
+    @Column(name = "PESS_ID")
     private long id;
-    
-    @Column(name = "PESS_CPF", nullable = false, length = 14)
-    private String cpf;
     
     @Column(name = "PESS_NOME", nullable = false, length = 100)
     private String nome;
@@ -46,17 +43,7 @@ public class Pessoa implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(name = "PESS_DATA_NASCIMENTO")
     private Date dataNasc;
-    
-    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.PERSIST)
-    private List<Telefone> telefones;
-    
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "FK_END_ID", referencedColumnName = "END_ID")
-    private Endereco endereco;
-    
-    //Listas de serviço de um cliente
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST)
-    private List<Servico> servicos;
+   
 
     @Override
     public int hashCode() {
@@ -113,43 +100,6 @@ public class Pessoa implements Serializable {
 
     public void setDataNasc(Date dataNasc) {
         this.dataNasc = dataNasc;
-    }
-
-    
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public List<Telefone> getTelefones() {
-        return telefones;
-    }
-
-    public void setTelefone(Telefone telefones) {
-        this.telefones.add(telefones);
-    }
-
-    public void setTelefones(List<Telefone> telefones) {
-        this.telefones = telefones;
-    }
-    
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
-    public List<Servico> getServicos() {
-        return servicos;
-    }
-
-    public void setServico(Servico servico) {
-        this.servicos.add(servico);
     }
     
     

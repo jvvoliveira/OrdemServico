@@ -6,25 +6,21 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue(value = "F")
 public class Funcionario extends Pessoa implements Serializable {
     
-    @Column(name = "FUNC_MATRICULA", length = 10)
+    @Column(name = "FUNC_MATRICULA", length = 10, nullable = true, unique = true)
     private String matricula;
     
-    @Column(name = "FUNC_CARGO", length = 30)
+    @Column(name = "FUNC_CARGO", length = 30, nullable = true)
     private String cargo;
-    
-    //Listas de servicos atendidos
-    @OneToMany(mappedBy = "atendente", cascade = CascadeType.PERSIST)
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "cliente")
     private List<Servico> servicos;
-    
-    //Listas de Equipamento reparados
-    @OneToMany(mappedBy = "tecnico", cascade = CascadeType.PERSIST)
-    private List<Equipamento> equipamentos;
 
     public String getMatricula() {
         return matricula;
@@ -42,21 +38,12 @@ public class Funcionario extends Pessoa implements Serializable {
         this.cargo = cargo;
     }
 
-    @Override
     public List<Servico> getServicos() {
         return servicos;
     }
 
-    public void setServicos(Servico servico) {
-        this.servicos.add(servico);
-    }
-
-    public List<Equipamento> getEquipamentos() {
-        return equipamentos;
-    }
-
-    public void setEquipamento(Equipamento equipamento) {
-        this.equipamentos.add(equipamento);
+    public void setServicos(List<Servico> servicos) {
+        this.servicos = servicos;
     }
     
     

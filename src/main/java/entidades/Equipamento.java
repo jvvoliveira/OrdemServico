@@ -2,6 +2,8 @@ package entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -26,7 +29,7 @@ public class Equipamento implements Serializable {
     @Column(name = "EQUIP_DESCRICAO", length = 300)
     private String descricao;
     
-    @Column(name = "EQUIP_MARCA", length = 30)
+    @Column(name = "EQUIP_MARCA", length = 30, nullable = false)
     private String marca;
     
     @Column(name = "EQUIP_MODELO", length = 30, nullable = false)
@@ -48,23 +51,11 @@ public class Equipamento implements Serializable {
     private double custoPecas;
     
     @Transient
-    private double valorTotal;
+    private double valorTotal; //mão de obra + custo de peças
     
-    @Temporal(TemporalType.DATE)
-    @Column(name = "EQUIP_INICIO")
-    private Date inicioManutencao;
-    
-    @Temporal(TemporalType.DATE)
-    @Column(name = "EQUIP_FIM")
-    private Date fimManutencao;
-    
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "FK_SERV_ID", referencedColumnName = "SERV_ID")
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "FK_SERV", referencedColumnName = "SERV_ID")
     private Servico servico;
-    
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "FK_FUNC_ID", referencedColumnName = "PESS_ID")
-    private Funcionario tecnico;
 
     @Override
     public int hashCode() {
@@ -164,28 +155,11 @@ public class Equipamento implements Serializable {
     }
 
     public double getValorTotal() {
-        this.setValorTotal();
         return valorTotal;
     }
 
-    public void setValorTotal() {
-        this.valorTotal = this.getCustoPecas()+this.getMaoObra();
-    }
-
-    public Date getInicioManutencao() {
-        return inicioManutencao;
-    }
-
-    public void setInicioManutencao(Date inicioManutencao) {
-        this.inicioManutencao = inicioManutencao;
-    }
-
-    public Date getFimManutencao() {
-        return fimManutencao;
-    }
-
-    public void setFimManutencao(Date fimManutencao) {
-        this.fimManutencao = fimManutencao;
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
     public Servico getServico() {
@@ -195,17 +169,6 @@ public class Equipamento implements Serializable {
     public void setServico(Servico servico) {
         this.servico = servico;
     }
-
-    public Funcionario getTecnico() {
-        return tecnico;
-    }
-
-    public void setTecnico(Funcionario tecnico) {
-        this.tecnico = tecnico;
-    }
-    
-    
-    
     
     
 }

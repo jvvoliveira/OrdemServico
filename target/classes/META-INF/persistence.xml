@@ -3,6 +3,7 @@
   <persistence-unit name="ordemservico" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entidades.Pessoa</class>
+    <class>entidades.Cliente</class>
     <class>entidades.Funcionario</class>
     <class>entidades.Telefone</class>
     <class>entidades.Endereco</class>
