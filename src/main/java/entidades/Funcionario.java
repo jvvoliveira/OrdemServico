@@ -21,6 +21,9 @@ public class Funcionario extends Pessoa implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "cliente")
     private List<Servico> servicos;
+    
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "funcionario")
+    private List<Equipamento> equipamentos;
 
     public String getMatricula() {
         return matricula;

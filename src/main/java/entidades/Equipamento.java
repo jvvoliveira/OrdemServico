@@ -57,6 +57,10 @@ public class Equipamento implements Serializable {
     @JoinColumn(name = "FK_SERV", referencedColumnName = "SERV_ID")
     private Servico servico;
 
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "FK_FUNC", referencedColumnName = "PESS_ID")
+    private Funcionario funcionario;
+    
     @Override
     public int hashCode() {
         int hash = 3;
