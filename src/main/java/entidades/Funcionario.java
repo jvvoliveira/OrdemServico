@@ -1,6 +1,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -32,8 +33,7 @@ public class Funcionario extends Pessoa implements Serializable {
     }
 
     public void setMatricula() {
-        GregorianCalendar.getInstance().get(Calendar.YEAR);
-        this.matricula = GregorianCalendar.getInstance().get(Calendar.YEAR)+this.getDataNasc().getMonth()+"OS"+this.getId();
+        this.matricula = Calendar.getInstance().get(Calendar.YEAR)+"OS"+this.getId();
     }
 
     public String getCargo() {

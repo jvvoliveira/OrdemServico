@@ -1,6 +1,7 @@
 package entidades;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,11 +16,9 @@ public class Main {
         Telefone t1 = preencherTelefone("32683268", c1);
         Telefone t2 = preencherTelefone("32686584", c1);
         Endereco end1 = preencherEndereco("123", "Recife", "casa", 54, "rua", c1);
-//        c1.setEndereco(end1);
-        List<Telefone> ts = new ArrayList();
-        ts.add(t1);
-        ts.add(t2);
-        c1.setTelefones(ts);
+        c1.setEndereco(end1);
+        //c1.setTelefones(t1);
+        //c1.setTelefones(t2);
         
         Servico serv = new Servico();
         serv.setCliente(c1);
@@ -63,7 +62,7 @@ public class Main {
     private static Funcionario preencherFuncionario(String nome, String matricula) {
         Funcionario f  = new Funcionario();
         f.setNome(nome);
-        f.setMatricula(matricula);
+        f.setMatricula();
         return f;
     }
 
