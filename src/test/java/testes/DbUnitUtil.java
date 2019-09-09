@@ -12,6 +12,7 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.ext.mysql.MySqlDataTypeFactory;
 import org.dbunit.ext.mysql.MySqlMetadataHandler;
 import org.dbunit.operation.DatabaseOperation;
+import org.dbunit.util.SQLHelper;
 
 public class DbUnitUtil {
 
@@ -32,7 +33,9 @@ public class DbUnitUtil {
             builder.setColumnSensing(true);
             InputStream in = DbUnitUtil.class.getResourceAsStream(XML_FILE);
             IDataSet dataSet = builder.build(in);
-            DatabaseOperation.CLEAN_INSERT.execute(db_conn, dataSet);
+            System.out.println("------------------começou----------------");
+//            DatabaseOperation.CLEAN_INSERT.execute(db_conn, dataSet);
+            System.out.println("------------------terminou----------------");
         } catch (Exception ex) {
             throw new RuntimeException(ex.getMessage(), ex);
         } finally {

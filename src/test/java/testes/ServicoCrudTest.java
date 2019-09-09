@@ -30,7 +30,15 @@ public class ServicoCrudTest extends GenericTest{
     @Test
     public void persistirServico() {
         logger.info("Executando persistirServico()");
-        Servico servico = criarServico();
+        Servico servico = criarServico(Status.ANDAMENTO);
+        Funcionario funcionario = criarFuncionario("funcBeltrano", "Atendente", "teste123@gmail.com", "654321");
+        Cliente cliente = criarCliente("Cicrano", "cicrano.21@teste.com", "999666325-56");
+        Equipamento equipamento = criarEquipamento("note 7", "toques na tela não funcionam", "redmi", "25ght6p", "celular com capinha transparente");
+        
+        servico.setFuncionario(funcionario);
+        servico.setCliente(cliente);
+        servico.setEquipamentos(equipamento);
+        
         em.persist(servico);
         em.flush();
         
@@ -97,97 +105,5 @@ public class ServicoCrudTest extends GenericTest{
         
         Servico checkServico = em.find(Servico.class, 1L);
         assertNull(checkServico);
-    }
-
-    private Cliente criarCliente() {
-        Cliente cliente = new Cliente();
-        cliente.setNome("Sicrano da Silva");
-        cliente.setEmail("sicrano@gmail.com");
-        
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, 1999);
-        c.set(Calendar.MONTH, Calendar.MARCH);
-        c.set(Calendar.DAY_OF_MONTH, 14);
-        cliente.setDataNasc(c.getTime());
-       
-        cliente.setCpf("534.585.765-40");
-
-        cliente.setTelefones(preencherTelefone("32683268"));
-        cliente.setTelefones(preencherTelefone("32689952"));
-        cliente.setEndereco(criarEndereco());
-
-        return cliente;
-    }
-    
-    private Funcionario criarFuncionario() {
-        Funcionario funcionario = new Funcionario();
-        funcionario.setNome("Sicrano da Silva");
-        funcionario.setEmail("sicrano@gmail.com");
-        
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, 1999);
-        c.set(Calendar.MONTH, Calendar.MARCH);
-        c.set(Calendar.DAY_OF_MONTH, 14);
-        funcionario.setDataNasc(c.getTime());
-       
-        funcionario.setCargo("Gerente");
-        funcionario.setMatricula("123456");
-
-        return funcionario;
-    }
-
-    private Telefone preencherTelefone(String numero) {
-        Telefone t1 = new Telefone();
-        t1.setDdd(81);
-        t1.setNumero(numero);
-        return t1;
-    }
-
-    public Endereco criarEndereco() {
-        Endereco endereco = new Endereco();
-        endereco.setBairro("Casa Forte");
-        endereco.setCidade("Recife");
-        endereco.setCep("50690-220");
-        endereco.setNumero(550);
-        endereco.setRua("17 de Agosto");
-        endereco.setComplemento("casa");
-        return endereco;
-    }
-    
-    public Equipamento criarEquipamentos(){
-        Equipamento equi = new Equipamento();
-        equi.setModelo("xrr-54");
-        equi.setCustoPecas(62.50);
-        equi.setDefeito("Tela trincada");
-        equi.setMarca("samsung");
-        equi.setSerie("123456");
-        equi.setDescricao("Celular com arranhão na parte lateral direita");
-        return equi;
-    }
-
-    private Servico criarServico() {
-        Servico servico = new Servico();
-        servico.setEquipamentos(criarEquipamentos());
-        servico.setStatus(Status.ABERTO);
-        
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, 2019);
-        c.set(Calendar.MONTH, Calendar.SEPTEMBER);
-        c.set(Calendar.DAY_OF_MONTH, 2);
-        servico.setInicio(c.getTime());
-        
-        Calendar c2 = Calendar.getInstance();
-        c2.set(Calendar.YEAR, 2019);
-        c2.set(Calendar.MONTH, Calendar.SEPTEMBER);
-        c2.set(Calendar.DAY_OF_MONTH, 17);
-        servico.setPrevFim(c2.getTime());
-        
-        Cliente cliente = criarCliente();
-        servico.setCliente(cliente);
-        Funcionario funcionario = criarFuncionario();
-        servico.setFuncionario(funcionario);
-        servico.setEquipamentos(criarEquipamentos());
-        
-        return servico;
     }
 }
