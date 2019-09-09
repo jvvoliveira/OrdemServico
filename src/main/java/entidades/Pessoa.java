@@ -26,7 +26,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "TB_PESSOA")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "COL_TIPO", discriminatorType = DiscriminatorType.STRING, length = 1)
+@DiscriminatorColumn(name = "PESS_TIPO", discriminatorType = DiscriminatorType.STRING, length = 1)
 public abstract class Pessoa implements Serializable {
     
     @Id

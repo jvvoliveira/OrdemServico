@@ -26,7 +26,7 @@ public class Telefone implements Serializable {
     private int ddd;
     
     @ManyToOne
-    @JoinColumn(name = "FK_ID_CLIE", referencedColumnName = "PESS_ID", nullable = false)
+    @JoinColumn(name = "FK_ID_CLI", referencedColumnName = "PESS_ID", nullable = false)
     private Cliente cliente;
 
     @Override

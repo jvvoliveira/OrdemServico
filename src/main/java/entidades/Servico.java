@@ -133,27 +133,42 @@ public class Servico implements Serializable {
     }
 
     public double getCustoPecas() {
+        this.setCustoPecas();
         return custoPecas;
     }
 
-    public void setCustoPecas(double custoPecas) {
-        this.custoPecas = custoPecas;
+    public void setCustoPecas() {
+        double valEquips = 0.0;
+        for(Equipamento equip :equipamentos){
+            valEquips += equip.getCustoPecas();
+        }
+        this.custoPecas = valEquips;
     }
 
     public double getMaoDeObra() {
+        this.setMaoDeObra();
         return MaoDeObra;
     }
 
-    public void setMaoDeObra(double MaoDeObra) {
-        this.MaoDeObra = MaoDeObra;
+    public void setMaoDeObra() {
+        double valEquips = 0.0;
+        for(Equipamento equip :equipamentos){
+            valEquips += equip.getMaoObra();
+        }
+        this.MaoDeObra = valEquips;
     }
 
     public double getValorTotal() {
+        this.setValorTotal();
         return valorTotal;
     }
 
-    public void setValorTotal(double valorTotal) {
-        this.valorTotal = valorTotal;
+    public void setValorTotal() {
+        double valEquips = 0.0;
+        for(Equipamento equip : equipamentos){
+            valEquips += equip.getValorTotal();
+        }
+        this.valorTotal = valEquips;
     }
 
     public Cliente getCliente() {
@@ -172,12 +187,17 @@ public class Servico implements Serializable {
         this.funcionario = funcionario;
     }
 
-    public List<Equipamento> getEquipamentos() {
-        return equipamentos;
+    public Equipamento getEquipamentos(long id) {
+        for(Equipamento equip :equipamentos){
+            if(equip.getId() == id){
+                return equip;
+            }
+        }
+        return null;
     }
 
-    public void setEquipamentos(List<Equipamento> equipamentos) {
-        this.equipamentos = equipamentos;
+    public void setEquipamentos(Equipamento equipamento) {
+        this.equipamentos.add(equipamento);
     }
     
     
