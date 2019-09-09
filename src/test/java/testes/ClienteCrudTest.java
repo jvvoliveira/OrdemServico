@@ -45,9 +45,7 @@ public class ClienteCrudTest extends GenericTest {
         Long id = 1L; //saber ID exato do cliente
         Cliente cliente = em.find(Cliente.class, id);
         cliente.setEmail(novoEmail);
-        List<Telefone> telefones = new ArrayList();
-        telefones.add(telefone);
-        cliente.setTelefones(telefones);
+        cliente.setTelefones(telefone);
         em.flush();
         
         String jpql = "SELECT c FROM Pessoa c WHERE c.id = ?1";
@@ -71,9 +69,7 @@ public class ClienteCrudTest extends GenericTest {
         Long id = 1L;
         Cliente cliente = em.find(Cliente.class, id);
         cliente.setEmail(novoEmail);
-        List<Telefone> telefones = new ArrayList();
-        telefones.add(telefone);
-        cliente.setTelefones(telefones);
+        cliente.setTelefones(telefone);
         
         em.clear();
         em.merge(cliente);
@@ -111,19 +107,16 @@ public class ClienteCrudTest extends GenericTest {
         cliente.setTelefones(preencherTelefone("32683268"));
         cliente.setEndereco(criarEndereco());
         
-        List<Servico> servicos = criarServicos();
-        cliente.setServicos(servicos);
+        cliente.setServicos(criarServico());
 
         return cliente;
     }
 
-    private List<Telefone> preencherTelefone(String numero) {
-        List<Telefone> list = new ArrayList();
+    private Telefone preencherTelefone(String numero) {
         Telefone t1 = new Telefone();
         t1.setDdd(81);
         t1.setNumero(numero);
-        list.add(t1);
-        return list;
+        return t1;
     }
 
     public Endereco criarEndereco() {
@@ -137,10 +130,9 @@ public class ClienteCrudTest extends GenericTest {
         return endereco;
     }
     
-    public List<Servico> criarServicos(){
-        List<Servico> servicos = new ArrayList();
+    public Servico criarServico(){
         Servico servico = new Servico();
-        servico.setEquipamentos(criarEquipamentos());
+        servico.setEquipamentos(criarEquipamento());
         servico.setStatus(Status.ABERTO);
         
         Calendar c = Calendar.getInstance();
@@ -155,11 +147,9 @@ public class ClienteCrudTest extends GenericTest {
         c2.set(Calendar.DAY_OF_MONTH, 17);
         servico.setPrevFim(c2.getTime());
         
-        servicos.add(servico);
-        return servicos;
+        return servico;
     }
-    public List<Equipamento> criarEquipamentos(){
-        List<Equipamento> lista = new ArrayList();
+    public Equipamento criarEquipamento(){
         Equipamento equi = new Equipamento();
         equi.setModelo("xrr-54");
         equi.setCustoPecas(62.50);
@@ -167,7 +157,6 @@ public class ClienteCrudTest extends GenericTest {
         equi.setMarca("samsung");
         equi.setSerie("123456");
         equi.setDescricao("Celular com arranhão na parte lateral direita");
-        lista.add(equi);
-        return lista;
+        return equi;
     }
 }

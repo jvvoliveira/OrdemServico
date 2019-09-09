@@ -2,6 +2,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -29,6 +30,11 @@ public class Cliente extends Pessoa implements Serializable{
     
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "cliente")
     private List<Servico> servicos;
+    
+    public Cliente(){
+        this.telefones = new ArrayList();
+        this.servicos = new ArrayList();
+    }
 
     public String getCpf() {
         return cpf;
@@ -42,10 +48,9 @@ public class Cliente extends Pessoa implements Serializable{
         return telefones;
     }
 
-    public void setTelefones(List<Telefone> telefones) {
-        this.telefones = telefones;
+    public void setTelefones(Telefone telefone) {
+        this.telefones.add(telefone);
     }
-
     public Endereco getEndereco() {
         return endereco;
     }
@@ -57,11 +62,17 @@ public class Cliente extends Pessoa implements Serializable{
     public List<Servico> getServicos() {
         return servicos;
     }
-
-    public void setServicos(List<Servico> servicos) {
-        this.servicos = servicos;
+    
+    public Servico getServico(long id){
+        for(Servico serv :servicos){
+            if(serv.getId() == id){
+                return serv;
+            }
+        }
+        return null;
     }
-    
-    
-    
+
+    public void setServicos(Servico servico) {
+        this.servicos.add(servico);
+    }
 }

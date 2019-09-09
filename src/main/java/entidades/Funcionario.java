@@ -1,6 +1,10 @@
 package entidades;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,12 +23,17 @@ public class Funcionario extends Pessoa implements Serializable {
     @Column(name = "FUNC_CARGO", length = 30, nullable = true)
     private String cargo;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "cliente")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "funcionario")
     private List<Servico> servicos;
     
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "funcionario")
     private List<Equipamento> equipamentos;
 
+    public Funcionario(){
+        this.servicos = new ArrayList();
+        this.equipamentos = new ArrayList();
+    }
+    
     public String getMatricula() {
         return matricula;
     }
@@ -45,8 +54,8 @@ public class Funcionario extends Pessoa implements Serializable {
         return servicos;
     }
 
-    public void setServicos(List<Servico> servicos) {
-        this.servicos = servicos;
+    public void setServicos(Servico servico) {
+        this.servicos.add(servico);
     }
     
     

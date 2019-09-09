@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="testes.ClienteCrudTest" time="28.699" errors="1" skipped="0">
+<testsuite tests="1" failures="0" name="testes.ClienteCrudTest" time="38.97" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin"/>
@@ -63,7 +63,7 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="testes.ClienteCrudTest" name="testes.ClienteCrudTest" time="0">
-    <error type="java.lang.RuntimeException">java.lang.RuntimeException
+    <error message="TB_PESS" type="java.lang.RuntimeException">java.lang.RuntimeException: TB_PESS
 	at testes.DbUnitUtil.inserirDados(DbUnitUtil.java:37)
 	at testes.GenericTest.setUpClass(GenericTest.java:30)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -88,96 +88,79 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-Caused by: java.lang.NullPointerException
-	at org.dbunit.dataset.xml.FlatXmlProducer.isNewTable(FlatXmlProducer.java:255)
-	at org.dbunit.dataset.xml.FlatXmlProducer.startElement(FlatXmlProducer.java:429)
-	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.startElement(AbstractSAXParser.java:509)
-	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.startElement(XMLDTDValidator.java:745)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanStartElement(XMLDocumentFragmentScannerImpl.java:1359)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$ContentDriver.scanRootElementHook(XMLDocumentScannerImpl.java:1289)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3132)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:852)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
-	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
-	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
-	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
-	at org.dbunit.dataset.xml.FlatXmlProducer.produce(FlatXmlProducer.java:365)
-	at org.dbunit.dataset.CachedDataSet.&lt;init&gt;(CachedDataSet.java:97)
-	at org.dbunit.dataset.xml.FlatXmlDataSet.&lt;init&gt;(FlatXmlDataSet.java:110)
-	at org.dbunit.dataset.xml.FlatXmlDataSetBuilder.buildInternal(FlatXmlDataSetBuilder.java:264)
-	at org.dbunit.dataset.xml.FlatXmlDataSetBuilder.build(FlatXmlDataSetBuilder.java:147)
-	at testes.DbUnitUtil.inserirDados(DbUnitUtil.java:34)
+Caused by: org.dbunit.dataset.NoSuchTableException: TB_PESS
+	at org.dbunit.database.DatabaseDataSet.getTableMetaData(DatabaseDataSet.java:305)
+	at org.dbunit.operation.DeleteAllOperation.execute(DeleteAllOperation.java:109)
+	at org.dbunit.operation.CompositeOperation.execute(CompositeOperation.java:79)
+	at testes.DbUnitUtil.inserirDados(DbUnitUtil.java:35)
 	... 23 more
 </error>
-    <system-out>[EL Config]: metadata: 2019-09-08 11:24:23.437--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Pessoa] is set to [FIELD].
-[EL Config]: metadata: 2019-09-08 11:24:23.465--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Funcionario] is set to [FIELD].
-[EL Config]: metadata: 2019-09-08 11:24:23.473--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class entidades.Servico.
-[EL Config]: metadata: 2019-09-08 11:24:23.474--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field equipamentos] is being defaulted to: class entidades.Equipamento.
-[EL Config]: metadata: 2019-09-08 11:24:23.474--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Equipamento] is set to [FIELD].
-[EL Config]: metadata: 2019-09-08 11:24:23.478--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field funcionario] is being defaulted to: class entidades.Funcionario.
-[EL Config]: metadata: 2019-09-08 11:24:23.479--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field servico] is being defaulted to: class entidades.Servico.
-[EL Config]: metadata: 2019-09-08 11:24:23.479--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Telefone] is set to [FIELD].
-[EL Config]: metadata: 2019-09-08 11:24:23.479--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
-[EL Config]: metadata: 2019-09-08 11:24:23.48--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Cliente] is set to [FIELD].
-[EL Config]: metadata: 2019-09-08 11:24:23.48--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class entidades.Servico.
-[EL Config]: metadata: 2019-09-08 11:24:23.481--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field endereco] is being defaulted to: class entidades.Endereco.
-[EL Config]: metadata: 2019-09-08 11:24:23.481--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field telefones] is being defaulted to: class entidades.Telefone.
-[EL Config]: metadata: 2019-09-08 11:24:23.481--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Endereco] is set to [FIELD].
-[EL Config]: metadata: 2019-09-08 11:24:23.482--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
-[EL Config]: metadata: 2019-09-08 11:24:23.482--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Servico] is set to [FIELD].
-[EL Config]: metadata: 2019-09-08 11:24:23.483--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
-[EL Config]: metadata: 2019-09-08 11:24:23.483--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field funcionario] is being defaulted to: class entidades.Funcionario.
-[EL Config]: metadata: 2019-09-08 11:24:23.484--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field equipamentos] is being defaulted to: class entidades.Equipamento.
-[EL Config]: metadata: 2019-09-08 11:24:23.485--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Funcionario] is being defaulted to: Funcionario.
-[EL Config]: metadata: 2019-09-08 11:24:23.486--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Pessoa] is being defaulted to: Pessoa.
-[EL Config]: metadata: 2019-09-08 11:24:23.516--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Equipamento] is being defaulted to: Equipamento.
-[EL Config]: metadata: 2019-09-08 11:24:23.517--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Telefone] is being defaulted to: Telefone.
-[EL Config]: metadata: 2019-09-08 11:24:23.518--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Cliente] is being defaulted to: Cliente.
-[EL Config]: metadata: 2019-09-08 11:24:23.518--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Endereco] is being defaulted to: Endereco.
-[EL Config]: metadata: 2019-09-08 11:24:23.52--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Servico] is being defaulted to: Servico.
-[EL Config]: weaver: 2019-09-08 11:24:23.555--ServerSession(246399377)--Thread(Thread[main,5,main])--Class entidades.Servico could not be weaved for change tracking as it is not supported by its mappings.
-[EL Info]: 2019-09-08 11:24:24.065--ServerSession(246399377)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd
-[EL Config]: connection: 2019-09-08 11:24:24.072--ServerSession(246399377)--Connection(1939990953)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+    <system-out>[EL Config]: metadata: 2019-09-09 17:51:08.169--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Pessoa] is set to [FIELD].
+[EL Config]: metadata: 2019-09-09 17:51:08.194--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Funcionario] is set to [FIELD].
+[EL Config]: metadata: 2019-09-09 17:51:08.202--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class entidades.Servico.
+[EL Config]: metadata: 2019-09-09 17:51:08.203--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field equipamentos] is being defaulted to: class entidades.Equipamento.
+[EL Config]: metadata: 2019-09-09 17:51:08.203--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Equipamento] is set to [FIELD].
+[EL Config]: metadata: 2019-09-09 17:51:08.207--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field funcionario] is being defaulted to: class entidades.Funcionario.
+[EL Config]: metadata: 2019-09-09 17:51:08.208--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field servico] is being defaulted to: class entidades.Servico.
+[EL Config]: metadata: 2019-09-09 17:51:08.208--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Telefone] is set to [FIELD].
+[EL Config]: metadata: 2019-09-09 17:51:08.209--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
+[EL Config]: metadata: 2019-09-09 17:51:08.209--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Cliente] is set to [FIELD].
+[EL Config]: metadata: 2019-09-09 17:51:08.21--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class entidades.Servico.
+[EL Config]: metadata: 2019-09-09 17:51:08.21--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field endereco] is being defaulted to: class entidades.Endereco.
+[EL Config]: metadata: 2019-09-09 17:51:08.211--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field telefones] is being defaulted to: class entidades.Telefone.
+[EL Config]: metadata: 2019-09-09 17:51:08.211--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Endereco] is set to [FIELD].
+[EL Config]: metadata: 2019-09-09 17:51:08.211--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
+[EL Config]: metadata: 2019-09-09 17:51:08.212--ServerSession(246399377)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Servico] is set to [FIELD].
+[EL Config]: metadata: 2019-09-09 17:51:08.212--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
+[EL Config]: metadata: 2019-09-09 17:51:08.213--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field funcionario] is being defaulted to: class entidades.Funcionario.
+[EL Config]: metadata: 2019-09-09 17:51:08.213--ServerSession(246399377)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field equipamentos] is being defaulted to: class entidades.Equipamento.
+[EL Config]: metadata: 2019-09-09 17:51:08.215--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Funcionario] is being defaulted to: Funcionario.
+[EL Config]: metadata: 2019-09-09 17:51:08.215--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Pessoa] is being defaulted to: Pessoa.
+[EL Config]: metadata: 2019-09-09 17:51:08.24--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Equipamento] is being defaulted to: Equipamento.
+[EL Config]: metadata: 2019-09-09 17:51:08.241--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Telefone] is being defaulted to: Telefone.
+[EL Config]: metadata: 2019-09-09 17:51:08.241--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Cliente] is being defaulted to: Cliente.
+[EL Config]: metadata: 2019-09-09 17:51:08.242--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Endereco] is being defaulted to: Endereco.
+[EL Config]: metadata: 2019-09-09 17:51:08.243--ServerSession(246399377)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Servico] is being defaulted to: Servico.
+[EL Config]: weaver: 2019-09-09 17:51:08.275--ServerSession(246399377)--Thread(Thread[main,5,main])--Class entidades.Servico could not be weaved for change tracking as it is not supported by its mappings.
+[EL Info]: 2019-09-09 17:51:08.723--ServerSession(246399377)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd
+[EL Config]: connection: 2019-09-09 17:51:08.729--ServerSession(246399377)--Connection(1939990953)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
 	platform=&gt;MySQLPlatform
 	user name=&gt; &quot;root&quot;
 	datasource URL=&gt; &quot;jdbc:mysql://localhost:3306/ordemservico?zeroDateTimeBehavior=convertToNull&quot;
 ))
-[EL Config]: connection: 2019-09-08 11:24:24.905--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--Connected: jdbc:mysql://localhost:3306/ordemservico?zeroDateTimeBehavior=convertToNull
+[EL Config]: connection: 2019-09-09 17:51:09.339--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--Connected: jdbc:mysql://localhost:3306/ordemservico?zeroDateTimeBehavior=convertToNull
 	User: root@localhost
 	Database: MySQL  Version: 8.0.17
 	Driver: MySQL Connector Java  Version: mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )
-[EL Info]: connection: 2019-09-08 11:24:25.044--ServerSession(246399377)--Thread(Thread[main,5,main])--file:/C:/Users/Victor Oliveira/Documents/IFPE/5° periodo/Software_Corporativo/OrdemServico/target/classes/_ordemservico login successful
-[EL Fine]: sql: 2019-09-08 11:24:25.075--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_PESSOA DROP FOREIGN KEY FK_TB_PESSOA_FK_END
-[EL Fine]: sql: 2019-09-08 11:24:25.627--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_TELEFONE DROP FOREIGN KEY FK_TB_TELEFONE_FK_ID_CLIE
-[EL Fine]: sql: 2019-09-08 11:24:25.97--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO DROP FOREIGN KEY FK_TB_SERVICO_FK_CLI
-[EL Fine]: sql: 2019-09-08 11:24:26.382--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO DROP FOREIGN KEY FK_TB_SERVICO_FK_FUNC
-[EL Fine]: sql: 2019-09-08 11:24:26.744--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO DROP FOREIGN KEY FK_TB_EQUIPAMENTO_FK_FUNC
-[EL Fine]: sql: 2019-09-08 11:24:27.053--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO DROP FOREIGN KEY FK_TB_EQUIPAMENTO_FK_SERV
-[EL Fine]: sql: 2019-09-08 11:24:27.252--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--DROP TABLE TB_PESSOA
-[EL Fine]: sql: 2019-09-08 11:24:27.87--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--DROP TABLE TB_TELEFONE
-[EL Fine]: sql: 2019-09-08 11:24:29.08--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--DROP TABLE TB_ENDERECO
-[EL Fine]: sql: 2019-09-08 11:24:29.599--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--DROP TABLE TB_SERVICO
-[EL Fine]: sql: 2019-09-08 11:24:30.128--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--DROP TABLE TB_EQUIPAMENTO
-[EL Fine]: sql: 2019-09-08 11:24:30.779--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--CREATE TABLE TB_PESSOA (PESS_ID BIGINT AUTO_INCREMENT NOT NULL, COL_TIPO VARCHAR(1), PESS_DATA_NASCIMENTO DATE, PESS_EMAIL VARCHAR(100), PESS_NOME VARCHAR(100) NOT NULL, CLI_CPF VARCHAR(18) UNIQUE, FK_END BIGINT, FUNC_CARGO VARCHAR(30), FUNC_MATRICULA VARCHAR(10) UNIQUE, PRIMARY KEY (PESS_ID))
-[EL Fine]: sql: 2019-09-08 11:24:31.849--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--CREATE TABLE TB_TELEFONE (TEL_ID BIGINT AUTO_INCREMENT NOT NULL, TEL_DDD INTEGER NOT NULL, TEL_NUMERO VARCHAR(12) NOT NULL, FK_ID_CLIE BIGINT NOT NULL, PRIMARY KEY (TEL_ID))
-[EL Fine]: sql: 2019-09-08 11:24:32.351--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--CREATE TABLE TB_ENDERECO (END_ID BIGINT AUTO_INCREMENT NOT NULL, END_BAIRRO VARCHAR(100), END_CEP VARCHAR(9) NOT NULL, END_CIDADE VARCHAR(80) NOT NULL, END_COMPLEMENTO VARCHAR(150), END_NUMERO INTEGER NOT NULL, END_LOGRADOURO VARCHAR(100) NOT NULL, PRIMARY KEY (END_ID))
-[EL Fine]: sql: 2019-09-08 11:24:33.09--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--CREATE TABLE TB_SERVICO (SERV_ID BIGINT AUTO_INCREMENT NOT NULL, SERV_DATA_FIM DATE, SERV_DATA_INICIO DATE, SERV_DATA_PREV_FIM DATE, SERV_STATUS VARCHAR(255), FK_CLI BIGINT NOT NULL, FK_FUNC BIGINT NOT NULL, PRIMARY KEY (SERV_ID))
-[EL Fine]: sql: 2019-09-08 11:24:33.784--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--CREATE TABLE TB_EQUIPAMENTO (EQUIP_ID BIGINT AUTO_INCREMENT NOT NULL, EQUIP_CUSTO_PECAS DOUBLE, EQUIP_DEFEITO VARCHAR(300) NOT NULL, EQUIP_DESCRICAO VARCHAR(300), EQUIP_MAO_OBRA DOUBLE, EQUIP_MARCA VARCHAR(30) NOT NULL, EQUIP_MODELO VARCHAR(30) NOT NULL, EQUIP_SERIE VARCHAR(30) NOT NULL, EQUIP_SOLUCAO VARCHAR(400), FK_FUNC BIGINT, FK_SERV BIGINT, PRIMARY KEY (EQUIP_ID))
-[EL Fine]: sql: 2019-09-08 11:24:35.231--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_PESSOA ADD CONSTRAINT FK_TB_PESSOA_FK_END FOREIGN KEY (FK_END) REFERENCES TB_ENDERECO (END_ID)
-[EL Fine]: sql: 2019-09-08 11:24:39.145--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_TELEFONE ADD CONSTRAINT FK_TB_TELEFONE_FK_ID_CLIE FOREIGN KEY (FK_ID_CLIE) REFERENCES TB_PESSOA (PESS_ID)
-[EL Fine]: sql: 2019-09-08 11:24:41.136--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO ADD CONSTRAINT FK_TB_SERVICO_FK_CLI FOREIGN KEY (FK_CLI) REFERENCES TB_PESSOA (PESS_ID)
-[EL Fine]: sql: 2019-09-08 11:24:42.985--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO ADD CONSTRAINT FK_TB_SERVICO_FK_FUNC FOREIGN KEY (FK_FUNC) REFERENCES TB_PESSOA (PESS_ID)
-[EL Fine]: sql: 2019-09-08 11:24:44.923--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO ADD CONSTRAINT FK_TB_EQUIPAMENTO_FK_FUNC FOREIGN KEY (FK_FUNC) REFERENCES TB_PESSOA (PESS_ID)
-[EL Fine]: sql: 2019-09-08 11:24:47.287--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO ADD CONSTRAINT FK_TB_EQUIPAMENTO_FK_SERV FOREIGN KEY (FK_SERV) REFERENCES TB_SERVICO (SERV_ID)
-[EL Config]: connection: 2019-09-08 11:24:51.508--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--disconnect
-[EL Info]: connection: 2019-09-08 11:24:51.508--ServerSession(246399377)--Thread(Thread[main,5,main])--file:/C:/Users/Victor Oliveira/Documents/IFPE/5° periodo/Software_Corporativo/OrdemServico/target/classes/_ordemservico logout successful
-[EL Config]: connection: 2019-09-08 11:24:51.509--ServerSession(246399377)--Connection(1939990953)--Thread(Thread[main,5,main])--disconnect
+[EL Info]: connection: 2019-09-09 17:51:09.467--ServerSession(246399377)--Thread(Thread[main,5,main])--file:/C:/Users/Victor Oliveira/Documents/IFPE/5° periodo/Software_Corporativo/OrdemServico/target/classes/_ordemservico login successful
+[EL Fine]: sql: 2019-09-09 17:51:09.496--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_PESSOA DROP FOREIGN KEY FK_TB_PESSOA_FK_END
+[EL Fine]: sql: 2019-09-09 17:51:12.17--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_TELEFONE DROP FOREIGN KEY FK_TB_TELEFONE_FK_ID_CLI
+[EL Fine]: sql: 2019-09-09 17:51:12.378--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO DROP FOREIGN KEY FK_TB_SERVICO_FK_CLI
+[EL Fine]: sql: 2019-09-09 17:51:12.994--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO DROP FOREIGN KEY FK_TB_SERVICO_FK_FUNC
+[EL Fine]: sql: 2019-09-09 17:51:13.197--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO DROP FOREIGN KEY FK_TB_EQUIPAMENTO_FK_FUNC
+[EL Fine]: sql: 2019-09-09 17:51:13.404--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO DROP FOREIGN KEY FK_TB_EQUIPAMENTO_FK_SERV
+[EL Fine]: sql: 2019-09-09 17:51:13.614--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--DROP TABLE TB_PESSOA
+[EL Fine]: sql: 2019-09-09 17:51:14.213--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--DROP TABLE TB_TELEFONE
+[EL Fine]: sql: 2019-09-09 17:51:14.929--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--DROP TABLE TB_ENDERECO
+[EL Fine]: sql: 2019-09-09 17:51:15.613--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--DROP TABLE TB_SERVICO
+[EL Fine]: sql: 2019-09-09 17:51:16.538--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--DROP TABLE TB_EQUIPAMENTO
+[EL Fine]: sql: 2019-09-09 17:51:17.181--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--CREATE TABLE TB_PESSOA (PESS_ID BIGINT AUTO_INCREMENT NOT NULL, PESS_TIPO VARCHAR(1), PESS_DATA_NASCIMENTO DATE, PESS_EMAIL VARCHAR(100), PESS_NOME VARCHAR(100) NOT NULL, CLI_CPF VARCHAR(18) UNIQUE, FK_END BIGINT, FUNC_CARGO VARCHAR(30), FUNC_MATRICULA VARCHAR(10) UNIQUE, PRIMARY KEY (PESS_ID))
+[EL Fine]: sql: 2019-09-09 17:51:18.392--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--CREATE TABLE TB_TELEFONE (TEL_ID BIGINT AUTO_INCREMENT NOT NULL, TEL_DDD INTEGER NOT NULL, TEL_NUMERO VARCHAR(12) NOT NULL, FK_ID_CLI BIGINT NOT NULL, PRIMARY KEY (TEL_ID))
+[EL Fine]: sql: 2019-09-09 17:51:19.23--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--CREATE TABLE TB_ENDERECO (END_ID BIGINT AUTO_INCREMENT NOT NULL, END_BAIRRO VARCHAR(100), END_CEP VARCHAR(9) NOT NULL, END_CIDADE VARCHAR(80) NOT NULL, END_COMPLEMENTO VARCHAR(150), END_NUMERO INTEGER NOT NULL, END_LOGRADOURO VARCHAR(100) NOT NULL, PRIMARY KEY (END_ID))
+[EL Fine]: sql: 2019-09-09 17:51:19.969--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--CREATE TABLE TB_SERVICO (SERV_ID BIGINT AUTO_INCREMENT NOT NULL, SERV_DATA_FIM DATE, SERV_DATA_INICIO DATE, SERV_DATA_PREV_FIM DATE, SERV_STATUS VARCHAR(255), FK_CLI BIGINT NOT NULL, FK_FUNC BIGINT NOT NULL, PRIMARY KEY (SERV_ID))
+[EL Fine]: sql: 2019-09-09 17:51:21.851--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--CREATE TABLE TB_EQUIPAMENTO (EQUIP_ID BIGINT AUTO_INCREMENT NOT NULL, EQUIP_CUSTO_PECAS DOUBLE, EQUIP_DEFEITO VARCHAR(300) NOT NULL, EQUIP_DESCRICAO VARCHAR(300), EQUIP_MAO_OBRA DOUBLE, EQUIP_MARCA VARCHAR(30) NOT NULL, EQUIP_MODELO VARCHAR(30) NOT NULL, EQUIP_SERIE VARCHAR(30) NOT NULL, EQUIP_SOLUCAO VARCHAR(400), FK_FUNC BIGINT, FK_SERV BIGINT, PRIMARY KEY (EQUIP_ID))
+[EL Fine]: sql: 2019-09-09 17:51:22.451--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_PESSOA ADD CONSTRAINT FK_TB_PESSOA_FK_END FOREIGN KEY (FK_END) REFERENCES TB_ENDERECO (END_ID)
+[EL Fine]: sql: 2019-09-09 17:51:27.952--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_TELEFONE ADD CONSTRAINT FK_TB_TELEFONE_FK_ID_CLI FOREIGN KEY (FK_ID_CLI) REFERENCES TB_PESSOA (PESS_ID)
+[EL Fine]: sql: 2019-09-09 17:51:30.293--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO ADD CONSTRAINT FK_TB_SERVICO_FK_CLI FOREIGN KEY (FK_CLI) REFERENCES TB_PESSOA (PESS_ID)
+[EL Fine]: sql: 2019-09-09 17:51:34.924--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO ADD CONSTRAINT FK_TB_SERVICO_FK_FUNC FOREIGN KEY (FK_FUNC) REFERENCES TB_PESSOA (PESS_ID)
+[EL Fine]: sql: 2019-09-09 17:51:38.232--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO ADD CONSTRAINT FK_TB_EQUIPAMENTO_FK_FUNC FOREIGN KEY (FK_FUNC) REFERENCES TB_PESSOA (PESS_ID)
+[EL Fine]: sql: 2019-09-09 17:51:40.991--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO ADD CONSTRAINT FK_TB_EQUIPAMENTO_FK_SERV FOREIGN KEY (FK_SERV) REFERENCES TB_SERVICO (SERV_ID)
+[EL Config]: connection: 2019-09-09 17:51:46.517--ServerSession(246399377)--Connection(20094719)--Thread(Thread[main,5,main])--disconnect
+[EL Info]: connection: 2019-09-09 17:51:46.518--ServerSession(246399377)--Thread(Thread[main,5,main])--file:/C:/Users/Victor Oliveira/Documents/IFPE/5° periodo/Software_Corporativo/OrdemServico/target/classes/_ordemservico logout successful
+[EL Config]: connection: 2019-09-09 17:51:46.518--ServerSession(246399377)--Connection(1939990953)--Thread(Thread[main,5,main])--disconnect
 </system-out>
-    <system-err>Sun Sep 08 11:24:24 GFT 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-Sun Sep 08 11:24:50 GFT 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+    <system-err>Mon Sep 09 17:51:08 GFT 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Mon Sep 09 17:51:46 GFT 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
 SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.

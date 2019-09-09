@@ -1,6 +1,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -66,6 +67,10 @@ public class Servico implements Serializable {
     
     @OneToMany(mappedBy = "servico", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<Equipamento> equipamentos;
+    
+    public Servico(){
+        this.equipamentos = new ArrayList();
+    }
 
     @Override
     public int hashCode() {
@@ -133,27 +138,42 @@ public class Servico implements Serializable {
     }
 
     public double getCustoPecas() {
+        this.setCustoPecas();
         return custoPecas;
     }
 
-    public void setCustoPecas(double custoPecas) {
-        this.custoPecas = custoPecas;
+    private void setCustoPecas() {
+        double valEquips = 0.0;
+        for(Equipamento equip :equipamentos){
+            valEquips += equip.getCustoPecas();
+        }
+        this.custoPecas = valEquips;
     }
 
     public double getMaoDeObra() {
+        this.setMaoDeObra();
         return MaoDeObra;
     }
 
-    public void setMaoDeObra(double MaoDeObra) {
-        this.MaoDeObra = MaoDeObra;
+    private void setMaoDeObra() {
+        double valEquips = 0.0;
+        for(Equipamento equip :equipamentos){
+            valEquips += equip.getMaoObra();
+        }
+        this.MaoDeObra = valEquips;
     }
 
     public double getValorTotal() {
+        this.setValorTotal();
         return valorTotal;
     }
 
-    public void setValorTotal(double valorTotal) {
-        this.valorTotal = valorTotal;
+    private void setValorTotal() {
+        double valEquips = 0.0;
+        for(Equipamento equip : equipamentos){
+            valEquips += equip.getValorTotal();
+        }
+        this.valorTotal = valEquips;
     }
 
     public Cliente getCliente() {
@@ -175,9 +195,18 @@ public class Servico implements Serializable {
     public List<Equipamento> getEquipamentos() {
         return equipamentos;
     }
+    
+    public Equipamento getEquipamento(long id) {
+        for(Equipamento equip :equipamentos){
+            if(equip.getId() == id){
+                return equip;
+            }
+        }
+        return null;
+    }
 
-    public void setEquipamentos(List<Equipamento> equipamentos) {
-        this.equipamentos = equipamentos;
+    public void setEquipamentos(Equipamento equipamento) {
+        this.equipamentos.add(equipamento);
     }
     
     

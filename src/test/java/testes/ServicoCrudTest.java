@@ -113,6 +113,7 @@ public class ServicoCrudTest extends GenericTest{
         cliente.setCpf("534.585.765-40");
 
         cliente.setTelefones(preencherTelefone("32683268"));
+        cliente.setTelefones(preencherTelefone("32689952"));
         cliente.setEndereco(criarEndereco());
 
         return cliente;
@@ -130,18 +131,16 @@ public class ServicoCrudTest extends GenericTest{
         funcionario.setDataNasc(c.getTime());
        
         funcionario.setCargo("Gerente");
-        funcionario.setMatricula("123321");
+        funcionario.setMatricula("123456");
 
         return funcionario;
     }
 
-    private List<Telefone> preencherTelefone(String numero) {
-        List<Telefone> list = new ArrayList();
+    private Telefone preencherTelefone(String numero) {
         Telefone t1 = new Telefone();
         t1.setDdd(81);
         t1.setNumero(numero);
-        list.add(t1);
-        return list;
+        return t1;
     }
 
     public Endereco criarEndereco() {
@@ -155,8 +154,7 @@ public class ServicoCrudTest extends GenericTest{
         return endereco;
     }
     
-    public List<Equipamento> criarEquipamentos(){
-        List<Equipamento> lista = new ArrayList();
+    public Equipamento criarEquipamentos(){
         Equipamento equi = new Equipamento();
         equi.setModelo("xrr-54");
         equi.setCustoPecas(62.50);
@@ -164,8 +162,7 @@ public class ServicoCrudTest extends GenericTest{
         equi.setMarca("samsung");
         equi.setSerie("123456");
         equi.setDescricao("Celular com arranhão na parte lateral direita");
-        lista.add(equi);
-        return lista;
+        return equi;
     }
 
     private Servico criarServico() {

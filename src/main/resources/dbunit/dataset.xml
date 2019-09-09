@@ -1,5 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<root>
+<dataset>
+    <!-- ========================= FUNCIONÁRIO =============================== -->
+    <!-- Funcionario Pessoa(1) -->
+    <TB_PESS pess_tipo="F" pess_nome="Camila Alvarenga Moraes" pess_mail="camila.moraes@mail.com" pess_data_nascimento="1993-11-09" 
+        func_matricula="201811OS1"/>
+    <!-- Funcionario Pessoa(2) -->
+    <TB_PESS pess_tipo="F" pess_nome="Pedro Marcell Dias Rabello" pess_mail="pedro.rabello@mail.com" pess_data_nascimento="1995-05-16" 
+        func_matricula="20175OS2"/>
+    <!-- Funcionario Pessoa(3) -->
+    <TB_PESS pess_tipo="F" pess_nome="Natalia Shonda Feltrao Silva" pess_mail="natalia.silva@mail.com" pess_data_nascimento="1994-08-27" 
+        func_matricula="20188OS3"/>
+    <!-- Funcionario Pessoa(4) -->
+    <TB_PESS pess_tipo="F" pess_nome="Natanael Maior Couto" pess_mail="natanael.couto@mail.com" pess_data_nascimento="1995-12-21" 
+        func_matricula="201812OS4"/>
+    <!-- ============================================================== -->
     
-</root>
+    <!-- ########################## CLIENTE ############################################ -->
+    <!-- Endereco(1) -->
+    <TB_ENDERECO end_cidade="Recife" end_logradouro="R. des Virgílio de Sá Pereira" end_complemento="Próximo ao hospital Getúlio Vargas" end_bairro="Cordeiro" end_numero="200" end_cep="50721040"/>
+    <!-- Cliente Pessoa(1) -->
+    <TB_PESS pess_tipo="C" pess_nome="Amanda Costa e Silva" pess_mail="a_costaesilva@mail.com" pess_data_nascimento="1986-03-09" 
+        cli_cpf="29712152022" fk_end="2"/>
+    <!-- telefone(1) -->
+    <TB_TELEFONE tel_numero="34648400" tel_ddd="81" fk_id_cli="1"/>
+    <!-- telefone(2) -->
+    <TB_TELEFONE tel_numero="998753008" tel_ddd="81" fk_id_cli="1"/>
+    <!-- telefone(3) -->
+    <TB_TELEFONE tel_numero="987652079" tel_ddd="81" fk_id_cli="1"/>
+    <!-- ******************* SERVICOS DESTE CLIENTE ****************************** -->
+    <!-- Servico(1) -->
+    <TB_SERVICO serv_status="FINALIZADO" serv_data_inicio="2019-08-28" serv_data_fim="" serv_data_prev_fim="2019-09-06" 
+        fk_cli="1" fk_func="2"/>
+    <!-- ******************** EQUIPAMENTOS DESTE CLIENTE ************************ -->
+    <!-- Equipamento(1) -->
+    <TB_EQUIPAMENTO equip_descricao="O celular está com mau com defeito nos botões de volume, veio sem nenhum acessório. Tem arranhões na carcaça." 
+        equip_marca="Motorola" equip_modelo="MotoG G4" equip_serie="YI879AN" 
+        equip_defeito="Bateria está descarregando rápido e o celular desliga com frequência" equip_solucao="Troca da bateria do aparelho"
+        equip_mao_obra="57.90" equip_custo_pecas="267.98" fk_serv="1" fk_func="4"/>
+    <!-- ############################################################################### -->
+    
+    <!-- ########################## CLIENTE ############################################ -->
+    <!-- Endereco(2) -->
+    <TB_ENDERECO end_cidade="" end_logradouro="R. da Baixa Verde" end_complemento="Rua paralela à praça do Derby" end_bairro="Derby" end_numero="409" end_cep="52010140"/>
+    <!-- Cliente Pessoa(2) -->
+    <TB_PESS pess_tipo="C" pess_nome="Arlindo Cavalcanti Filho" pess_mail="acf@mail.com" pess_data_nascimento="1984-04-19" 
+        cli_cpf="02569683060" fk_end="2"/>
+    <!-- telefone(4) -->
+    <TB_TELEFONE tel_numero="35679007" tel_ddd="81" fk_id_cli="2"/>
+    <!-- telefone(5) -->
+    <TB_TELEFONE tel_numero="987600987" tel_ddd="81" fk_id_cli="2"/>
+    <!-- *********************** SERVICOS DESTE CLIENTE *********************** -->
+    <!-- Servico(2) -->
+    <TB_SERVICO serv_status="ENTREGUE" serv_data_inicio="2019-02-20" serv_data_fim="2019-03-02" serv_data_prev_fim="2019-02-04" 
+        fk_cli="2" fk_func="3"/>
+    <!-- Servico(3) -->
+    <TB_SERVICO serv_status="ABERTO" serv_data_inicio="2019-08-30" serv_data_fim="" serv_data_prev_fim="2019-09-15" 
+        fk_cli="2" fk_func="4"/>
+    <!-- *********************** EQUIPAMENTOS DESTE CLIENTE *********************** -->
+    <!-- Equipamento(2) -->
+    <TB_EQUIPAMENTO equip_descricao="Notebook em boas condições, na garantia de fábrica" equip_marca="dell" 
+        equip_modelo="i15-3567-A15P" equip_serie="AFGB86JH83JDS7" equip_defeito="Está com propagandas que interrompem o uso"
+        equip_solucao="Formatação da máquina, restaurar para os padrões de fábrica" equip_mao_obra="95.0" equip_custo_pecas="0.0" fk_serv="2"  fk_func="3"/>
+    <!-- Equipamento(3) -->
+    <TB_EQUIPAMENTO equip_descricao="Celular bem gasto com trincos na tela, veio com capa transparente" equip_marca="Samsung" equip_modelo="Galaxy S5" equip_serie="AKG98" 
+        equip_defeito="Esqueceu a senha do celular" equip_solucao="Resetar o android do celular" equip_mao_obra="48.67" equip_custo_pecas="0" fk_serv="3"  fk_func="2"/>
+    <!-- Equipamento(4) -->
+    <TB_EQUIPAMENTO equip_descricao="Celular em bom estado, sem acessórios" equip_marca="Sony" equip_modelo="xperia z5" equip_serie="HJ8756OI" 
+        equip_defeito="Entrada e fone de ouvido está com mau contato" equip_solucao="" equip_mao_obra="" equip_custo_pecas="" fk_serv="3"  fk_func="1"/>
+    <!-- ############################################################################### -->
+    
+    <!-- ########################## CLIENTE ############################################ -->
+    <!-- Endereco(3) -->
+    <TB_ENDERECO end_cidade="Recife" end_logradouro="R. da Santa Cruz" end_complemento="Na rua do mercado da boa vista"
+        end_bairro="Boa Vista" end_numero="172" end_cep="50060230"/>
+    <!-- Cliente Pessoa(3) -->
+    <TB_PESS pess_tipo="C" pess_nome="Boa Vista Paraiso das Frutas ME" pess_mail="bvpf@parisofrutas.com" pess_data_nascimento="1975-09-27" 
+        cli_cpf="81230771000177" fk_end="3"/>
+    <!-- telefone(6) -->
+    <TB_TELEFONE tel_numero="34658709" tel_ddd="81" fk_id_cli="3"/>
+    <!-- telefone(7) -->
+    <TB_TELEFONE tel_numero="34658708" tel_ddd="81" fk_id_cli="3"/>
+    <!-- *********************** SERVICOS DESTE CLIENTE *********************** -->
+    <!-- Servico(4) -->
+    <TB_SERVICO serv_status="ANDAMENTO" serv_data_inicio="2019-09-09" serv_data_fim="" serv_data_prev_fim="2019-09-22" 
+        fk_cli="3" fk_func="4"/>
+    <!-- *********************** EQUIPAMENTOS DESTE CLIENTE *********************** -->
+    <!-- Equipamento(5) -->
+    <TB_EQUIPAMENTO equip_descricao="Computador bem gasto, com bastante uso" equip_marca="CorPC " equip_modelo="16100" equip_serie="ASD8766" 
+        equip_defeito="Computador lento, para limpeza e atualização de drives e softwares" equip_solucao="" 
+        equip_mao_obra="" equip_custo_pecas="" fk_serv="4" fk_func="3"/>
+    <!-- Equipamento(6) -->
+    <TB_EQUIPAMENTO equip_descricao="Computador bem gasto, com bastante uso" equip_marca="CorPC " equip_modelo="16100" equip_serie="AKJ987YHj" 
+        equip_defeito="Computador lento, para limpeza e atualização de drives e softwares" equip_solucao="" 
+        equip_mao_obra="" equip_custo_pecas="" fk_serv="4" fk_func="3"/>
+    <!-- Equipamento(7) -->
+    <TB_EQUIPAMENTO equip_descricao="Computador bem gasto, com bastante uso" equip_marca="CorPC " equip_modelo="16100" equip_serie="IJK877KJ" 
+        equip_defeito="Computador lento, para limpeza e atualização de drives e softwares" equip_solucao="" 
+        equip_mao_obra="" equip_custo_pecas="" fk_serv="4" fk_func="1"/>
+    <!-- ############################################################################### -->
+    
+    <!-- ########################## CLIENTE ############################################ -->
+    <!-- Endereco(4) -->
+    <TB_ENDERECO end_cidade="Olinda" end_logradouro="Av. Nacional" end_complemento="No fim da avida, casa" end_bairro="Peixinhos" end_numero="379" end_cep="52171011"/>
+    <!-- Cliente Pessoa(4) -->
+    <TB_PESS pess_tipo="C" pess_nome="Bruna Amancio Vilanova" pess_mail="brunavilanova@mail.com" pess_data_nascimento="1995-08-30" 
+        cli_cpf="32739258097" fk_end="4"/>
+    <!-- telefone(8) -->
+    <TB_TELEFONE tel_numero="987609908" tel_ddd="81" fk_id_cli="4"/>
+    <!-- ========================= SERVICOS DESTE CLIENTE ======================= -->
+    <!-- Servico(5) -->
+    <TB_SERVICO serv_status="CANCELADO" serv_data_inicio="2019-09-03" serv_data_fim="2019-09-04" serv_data_prev_fim="2019-09-09" 
+        fk_cli="4" fk_func="4"/>
+    <!-- ============================================================================ -->
+    <!-- ========================= EQUIPAMENTOS DESTE CLIENTE ======================= -->
+    <!-- Equipamento() -->
+    <TB_EQUIPAMENTO equip_descricao="Notebook novo ainda na garantia" equip_marca="asus" equip_modelo="vivobook X510ua-BR1160T" equip_serie="X510uaDF60T" 
+        equip_defeito="Cooler fazendo muito barulho" 
+        equip_solucao="Manutenção cancelada, o cooler estava mau conectado por ter sido violado, e a loja vendora ter trocado peças do hardware por peças menos valiosa e inferiores as defábrica do aparelho"
+        equip_mao_obra="0.0" equip_custo_pecas="0.0" fk_serv="5" fk_func="4"/>
+    <!-- ============================================================================ -->
+    <!-- ############################################################################### -->
+</dataset>

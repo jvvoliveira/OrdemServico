@@ -1,9 +1,9 @@
 -------------------------------------------------------------------------------
 Test set: testes.ClienteCrudTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 28.698 sec <<< FAILURE!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 38.97 sec <<< FAILURE!
 testes.ClienteCrudTest  Time elapsed: 0 sec  <<< ERROR!
-java.lang.RuntimeException
+java.lang.RuntimeException: TB_PESS
 	at testes.DbUnitUtil.inserirDados(DbUnitUtil.java:37)
 	at testes.GenericTest.setUpClass(GenericTest.java:30)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -28,26 +28,9 @@ java.lang.RuntimeException
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-Caused by: java.lang.NullPointerException
-	at org.dbunit.dataset.xml.FlatXmlProducer.isNewTable(FlatXmlProducer.java:255)
-	at org.dbunit.dataset.xml.FlatXmlProducer.startElement(FlatXmlProducer.java:429)
-	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.startElement(AbstractSAXParser.java:509)
-	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.startElement(XMLDTDValidator.java:745)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanStartElement(XMLDocumentFragmentScannerImpl.java:1359)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$ContentDriver.scanRootElementHook(XMLDocumentScannerImpl.java:1289)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3132)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:852)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
-	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
-	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
-	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
-	at org.dbunit.dataset.xml.FlatXmlProducer.produce(FlatXmlProducer.java:365)
-	at org.dbunit.dataset.CachedDataSet.<init>(CachedDataSet.java:97)
-	at org.dbunit.dataset.xml.FlatXmlDataSet.<init>(FlatXmlDataSet.java:110)
-	at org.dbunit.dataset.xml.FlatXmlDataSetBuilder.buildInternal(FlatXmlDataSetBuilder.java:264)
-	at org.dbunit.dataset.xml.FlatXmlDataSetBuilder.build(FlatXmlDataSetBuilder.java:147)
-	at testes.DbUnitUtil.inserirDados(DbUnitUtil.java:34)
+Caused by: org.dbunit.dataset.NoSuchTableException: TB_PESS
+	at org.dbunit.database.DatabaseDataSet.getTableMetaData(DatabaseDataSet.java:305)
+	at org.dbunit.operation.DeleteAllOperation.execute(DeleteAllOperation.java:109)
+	at org.dbunit.operation.CompositeOperation.execute(CompositeOperation.java:79)
+	at testes.DbUnitUtil.inserirDados(DbUnitUtil.java:35)
 	... 23 more

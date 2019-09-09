@@ -61,6 +61,10 @@ public class Equipamento implements Serializable {
     @JoinColumn(name = "FK_FUNC", referencedColumnName = "PESS_ID")
     private Funcionario funcionario;
     
+    public Equipamento(){
+        
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -159,11 +163,12 @@ public class Equipamento implements Serializable {
     }
 
     public double getValorTotal() {
+        this.setValorTotal();
         return valorTotal;
     }
 
-    public void setValorTotal(double valorTotal) {
-        this.valorTotal = valorTotal;
+    public void setValorTotal() {
+        this.valorTotal = this.getCustoPecas() + this.getMaoObra();
     }
 
     public Servico getServico() {
@@ -173,6 +178,15 @@ public class Equipamento implements Serializable {
     public void setServico(Servico servico) {
         this.servico = servico;
     }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+    
     
     
 }

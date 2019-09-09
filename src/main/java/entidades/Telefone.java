@@ -1,8 +1,10 @@
 package entidades;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,8 +27,8 @@ public class Telefone implements Serializable {
     @Column(name = "TEL_DDD", nullable = false)
     private int ddd;
     
-    @ManyToOne
-    @JoinColumn(name = "FK_ID_CLIE", referencedColumnName = "PESS_ID", nullable = false)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "FK_ID_CLI", referencedColumnName = "PESS_ID", nullable = false)
     private Cliente cliente;
 
     @Override
