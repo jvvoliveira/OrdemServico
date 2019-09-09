@@ -42,10 +42,9 @@ public class Cliente extends Pessoa implements Serializable{
         return telefones;
     }
 
-    public void setTelefones(List<Telefone> telefones) {
-        this.telefones = telefones;
+    public void setTelefones(Telefone telefone) {
+        this.telefones.add(telefone);
     }
-
     public Endereco getEndereco() {
         return endereco;
     }
@@ -57,11 +56,19 @@ public class Cliente extends Pessoa implements Serializable{
     public List<Servico> getServicos() {
         return servicos;
     }
-
-    public void setServicos(List<Servico> servicos) {
-        this.servicos = servicos;
-    }
     
+    public Servico getServico(long id){
+        for(Servico serv :servicos){
+            if(serv.getId() == id){
+                return serv;
+            }
+        }
+        return null;
+    }
+
+    public void setServicos(Servico servico) {
+        this.servicos.add(servico);
+    }
     
     
 }
