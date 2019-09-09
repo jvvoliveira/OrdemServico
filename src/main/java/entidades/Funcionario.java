@@ -1,6 +1,8 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -29,8 +31,9 @@ public class Funcionario extends Pessoa implements Serializable {
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setMatricula() {
+        GregorianCalendar.getInstance().get(Calendar.YEAR);
+        this.matricula = GregorianCalendar.getInstance().get(Calendar.YEAR)+this.getDataNasc().getMonth()+"OS"+this.getId();
     }
 
     public String getCargo() {
@@ -45,8 +48,8 @@ public class Funcionario extends Pessoa implements Serializable {
         return servicos;
     }
 
-    public void setServicos(List<Servico> servicos) {
-        this.servicos = servicos;
+    public void setServicos(Servico servico) {
+        this.servicos.add(servico);
     }
     
     
