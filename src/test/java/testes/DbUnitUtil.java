@@ -34,7 +34,7 @@ public class DbUnitUtil {
             InputStream in = DbUnitUtil.class.getResourceAsStream(XML_FILE);
             IDataSet dataSet = builder.build(in);
             System.out.println("------------------começou----------------");
-//            DatabaseOperation.CLEAN_INSERT.execute(db_conn, dataSet);
+            DatabaseOperation.CLEAN_INSERT.execute(db_conn, dataSet);
             System.out.println("------------------terminou----------------");
         } catch (Exception ex) {
             throw new RuntimeException(ex.getMessage(), ex);
