@@ -1,0 +1,8 @@
+#surefire
+#Tue Sep 10 01:01:42 GFT 2019
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.2\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=C\:\\Users\\Victor Oliveira\\Documents\\IFPE\\5\u00B0 periodo\\Software_Corporativo\\OrdemServico
+file.encoding=UTF-8
+localRepository=C\:\\Users\\Victor Oliveira\\.m2\\repository
+basedir=C\:\\Users\\Victor Oliveira\\Documents\\IFPE\\5\u00B0 periodo\\Software_Corporativo\\OrdemServico
+test=testes.ServicoCrudTest

@@ -57,6 +57,13 @@ public class Funcionario extends Pessoa implements Serializable {
     public void setServicos(Servico servico) {
         this.servicos.add(servico);
     }
+
+    public List<Equipamento> getEquipamentos() {
+        return equipamentos;
+    }
     
+    public void setEquipamentos(Equipamento equipamento) {
+        this.equipamentos.add(equipamento);
+    }
     
 }

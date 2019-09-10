@@ -65,7 +65,7 @@ public class Servico implements Serializable {
     @JoinColumn(name = "FK_FUNC", nullable = false, referencedColumnName = "PESS_ID")
     private Funcionario funcionario;
     
-    @OneToMany(mappedBy = "servico", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "servico", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Equipamento> equipamentos;
     
     public Servico(){

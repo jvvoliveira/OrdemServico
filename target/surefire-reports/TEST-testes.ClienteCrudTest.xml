@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="testes.ClienteCrudTest" time="32.885" errors="1" skipped="0">
+<testsuite tests="7" failures="4" name="testes.ClienteCrudTest" time="40.141" errors="2" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin"/>
@@ -14,7 +14,7 @@
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="test" value="testes.ClienteCrudTest#persistirCliente"/>
+    <property name="test" value="testes.ClienteCrudTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="C:\Users\Victor Oliveira\Documents\IFPE\5° periodo\Software_Corporativo\OrdemServico"/>
     <property name="java.runtime.version" value="1.8.0_201-b09"/>
@@ -45,7 +45,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_201\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=testes.ClienteCrudTest#persistirCliente -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=testes.ClienteCrudTest -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="pt"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -62,10 +62,20 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="testes.ClienteCrudTest" name="testes.ClienteCrudTest" time="0">
-    <error message="Exception processing table name=&apos;TB_PESSOA&apos;" type="java.lang.RuntimeException">java.lang.RuntimeException: Exception processing table name=&apos;TB_PESSOA&apos;
-	at testes.DbUnitUtil.inserirDados(DbUnitUtil.java:40)
-	at testes.GenericTest.setUpClass(GenericTest.java:37)
+  <testcase classname="testes.ClienteCrudTest" name="atualizarCliente" time="0.363">
+    <error message="Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column &apos;TEL_NUMERO&apos; at row 1
+Error Code: 1406
+Call: INSERT INTO TB_TELEFONE (TEL_DDD, TEL_NUMERO, FK_ID_CLI) VALUES (?, ?, ?)
+	bind =&gt; [81, (81) 999999999, null]
+Query: InsertObjectQuery(entidades.Telefone@2a7)" type="javax.persistence.PersistenceException">javax.persistence.PersistenceException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column &apos;TEL_NUMERO&apos; at row 1
+Error Code: 1406
+Call: INSERT INTO TB_TELEFONE (TEL_DDD, TEL_NUMERO, FK_ID_CLI) VALUES (?, ?, ?)
+	bind =&gt; [81, (81) 999999999, null]
+Query: InsertObjectQuery(entidades.Telefone@2a7)
+	at org.eclipse.persistence.internal.jpa.EntityManagerImpl.flush(EntityManagerImpl.java:879)
+	at testes.ClienteCrudTest.atualizarCliente(ClienteCrudTest.java:55)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -73,10 +83,21 @@
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:45)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
 	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
 	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -88,12 +109,518 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-Caused by: org.dbunit.DatabaseUnitException: Exception processing table name=&apos;TB_PESSOA&apos;
-	at org.dbunit.operation.AbstractBatchOperation.execute(AbstractBatchOperation.java:240)
-	at org.dbunit.operation.CompositeOperation.execute(CompositeOperation.java:79)
-	at testes.DbUnitUtil.inserirDados(DbUnitUtil.java:37)
-	... 23 more
-Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`ordemservico`.`tb_pessoa`, CONSTRAINT `FK_TB_PESSOA_FK_END` FOREIGN KEY (`FK_END`) REFERENCES `tb_endereco` (`END_ID`))
+Caused by: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column &apos;TEL_NUMERO&apos; at row 1
+Error Code: 1406
+Call: INSERT INTO TB_TELEFONE (TEL_DDD, TEL_NUMERO, FK_ID_CLI) VALUES (?, ?, ?)
+	bind =&gt; [81, (81) 999999999, null]
+Query: InsertObjectQuery(entidades.Telefone@2a7)
+	at org.eclipse.persistence.exceptions.DatabaseException.sqlException(DatabaseException.java:331)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:902)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeNoSelect(DatabaseAccessor.java:964)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:633)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:560)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:2062)
+	at org.eclipse.persistence.sessions.server.ClientSession.executeCall(ClientSession.java:309)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:260)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:246)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.insertObject(DatasourceCallQueryMechanism.java:395)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:165)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:180)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.insertObjectForWrite(DatabaseQueryMechanism.java:489)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommit(InsertObjectQuery.java:80)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommitWithChangeSet(InsertObjectQuery.java:90)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.executeWriteWithChangeSet(DatabaseQueryMechanism.java:301)
+	at org.eclipse.persistence.queries.WriteObjectQuery.executeDatabaseQuery(WriteObjectQuery.java:58)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:911)
+	at org.eclipse.persistence.queries.DatabaseQuery.executeInUnitOfWork(DatabaseQuery.java:810)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWorkObjectLevelModifyQuery(ObjectLevelModifyQuery.java:108)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWork(ObjectLevelModifyQuery.java:85)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:2899)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1863)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1845)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1796)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitNewObjectsForClassWithChangeSet(CommitManager.java:227)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsForClassWithChangeSet(CommitManager.java:194)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsWithChangeSet(CommitManager.java:139)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.writeAllObjectsWithChangeSet(AbstractSession.java:4279)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabase(UnitOfWorkImpl.java:1444)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabaseWithPreBuiltChangeSet(UnitOfWorkImpl.java:1590)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.writeChanges(RepeatableWriteUnitOfWork.java:455)
+	at org.eclipse.persistence.internal.jpa.EntityManagerImpl.flush(EntityManagerImpl.java:874)
+	... 34 more
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column &apos;TEL_NUMERO&apos; at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3974)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3912)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2486)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2079)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2013)
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:892)
+	... 65 more
+</error>
+    <system-out>[EL Fine]: server: 2019-09-10 00:35:21.626--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2019-09-10 00:35:21.788--ServerSession(775931202)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Pessoa] is set to [FIELD].
+[EL Config]: metadata: 2019-09-10 00:35:21.813--ServerSession(775931202)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Funcionario] is set to [FIELD].
+[EL Config]: metadata: 2019-09-10 00:35:21.821--ServerSession(775931202)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class entidades.Servico.
+[EL Config]: metadata: 2019-09-10 00:35:21.822--ServerSession(775931202)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field equipamentos] is being defaulted to: class entidades.Equipamento.
+[EL Config]: metadata: 2019-09-10 00:35:21.822--ServerSession(775931202)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Equipamento] is set to [FIELD].
+[EL Config]: metadata: 2019-09-10 00:35:21.826--ServerSession(775931202)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field funcionario] is being defaulted to: class entidades.Funcionario.
+[EL Config]: metadata: 2019-09-10 00:35:21.826--ServerSession(775931202)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field servico] is being defaulted to: class entidades.Servico.
+[EL Config]: metadata: 2019-09-10 00:35:21.827--ServerSession(775931202)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Telefone] is set to [FIELD].
+[EL Config]: metadata: 2019-09-10 00:35:21.827--ServerSession(775931202)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
+[EL Config]: metadata: 2019-09-10 00:35:21.828--ServerSession(775931202)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Cliente] is set to [FIELD].
+[EL Config]: metadata: 2019-09-10 00:35:21.828--ServerSession(775931202)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class entidades.Servico.
+[EL Config]: metadata: 2019-09-10 00:35:21.829--ServerSession(775931202)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field endereco] is being defaulted to: class entidades.Endereco.
+[EL Config]: metadata: 2019-09-10 00:35:21.829--ServerSession(775931202)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field telefones] is being defaulted to: class entidades.Telefone.
+[EL Config]: metadata: 2019-09-10 00:35:21.83--ServerSession(775931202)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Endereco] is set to [FIELD].
+[EL Config]: metadata: 2019-09-10 00:35:21.83--ServerSession(775931202)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
+[EL Config]: metadata: 2019-09-10 00:35:21.831--ServerSession(775931202)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Servico] is set to [FIELD].
+[EL Config]: metadata: 2019-09-10 00:35:21.831--ServerSession(775931202)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
+[EL Config]: metadata: 2019-09-10 00:35:21.832--ServerSession(775931202)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field funcionario] is being defaulted to: class entidades.Funcionario.
+[EL Config]: metadata: 2019-09-10 00:35:21.832--ServerSession(775931202)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field equipamentos] is being defaulted to: class entidades.Equipamento.
+[EL Config]: metadata: 2019-09-10 00:35:21.834--ServerSession(775931202)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Funcionario] is being defaulted to: Funcionario.
+[EL Config]: metadata: 2019-09-10 00:35:21.834--ServerSession(775931202)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Pessoa] is being defaulted to: Pessoa.
+[EL Config]: metadata: 2019-09-10 00:35:21.86--ServerSession(775931202)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Equipamento] is being defaulted to: Equipamento.
+[EL Config]: metadata: 2019-09-10 00:35:21.86--ServerSession(775931202)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Telefone] is being defaulted to: Telefone.
+[EL Config]: metadata: 2019-09-10 00:35:21.861--ServerSession(775931202)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Cliente] is being defaulted to: Cliente.
+[EL Config]: metadata: 2019-09-10 00:35:21.862--ServerSession(775931202)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Endereco] is being defaulted to: Endereco.
+[EL Config]: metadata: 2019-09-10 00:35:21.862--ServerSession(775931202)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Servico] is being defaulted to: Servico.
+[EL Config]: weaver: 2019-09-10 00:35:21.897--ServerSession(775931202)--Thread(Thread[main,5,main])--Class entidades.Servico could not be weaved for change tracking as it is not supported by its mappings.
+[EL Info]: 2019-09-10 00:35:22.406--ServerSession(775931202)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd
+[EL Config]: connection: 2019-09-10 00:35:22.412--ServerSession(775931202)--Connection(1606304070)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+	platform=&gt;MySQLPlatform
+	user name=&gt; &quot;root&quot;
+	datasource URL=&gt; &quot;jdbc:mysql://localhost:3306/ordemservico&quot;
+))
+[EL Config]: connection: 2019-09-10 00:35:22.992--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--Connected: jdbc:mysql://localhost:3306/ordemservico
+	User: root@localhost
+	Database: MySQL  Version: 8.0.17
+	Driver: MySQL Connector Java  Version: mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )
+[EL Info]: connection: 2019-09-10 00:35:23.076--ServerSession(775931202)--Thread(Thread[main,5,main])--/file:/C:/Users/Victor Oliveira/Documents/IFPE/5° periodo/Software_Corporativo/OrdemServico/target/classes/_ordemservico login successful
+[EL Fine]: sql: 2019-09-10 00:35:23.101--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--ALTER TABLE TB_PESSOA DROP FOREIGN KEY FK_TB_PESSOA_FK_END
+[EL Fine]: sql: 2019-09-10 00:35:24.934--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--ALTER TABLE TB_TELEFONE DROP FOREIGN KEY FK_TB_TELEFONE_FK_ID_CLI
+[EL Fine]: sql: 2019-09-10 00:35:25.257--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO DROP FOREIGN KEY FK_TB_SERVICO_FK_CLI
+[EL Fine]: sql: 2019-09-10 00:35:25.788--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO DROP FOREIGN KEY FK_TB_SERVICO_FK_FUNC
+[EL Fine]: sql: 2019-09-10 00:35:26.138--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO DROP FOREIGN KEY FK_TB_EQUIPAMENTO_FK_FUNC
+[EL Fine]: sql: 2019-09-10 00:35:26.322--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO DROP FOREIGN KEY FK_TB_EQUIPAMENTO_FK_SERV
+[EL Fine]: sql: 2019-09-10 00:35:26.543--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--DROP TABLE TB_PESSOA
+[EL Fine]: sql: 2019-09-10 00:35:27.236--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--DROP TABLE TB_TELEFONE
+[EL Fine]: sql: 2019-09-10 00:35:27.762--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--DROP TABLE TB_ENDERECO
+[EL Fine]: sql: 2019-09-10 00:35:28.323--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--DROP TABLE TB_SERVICO
+[EL Fine]: sql: 2019-09-10 00:35:28.837--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--DROP TABLE TB_EQUIPAMENTO
+[EL Fine]: sql: 2019-09-10 00:35:29.529--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--CREATE TABLE TB_PESSOA (PESS_ID BIGINT AUTO_INCREMENT NOT NULL, PESS_TIPO VARCHAR(1), PESS_DATA_NASCIMENTO DATE, PESS_EMAIL VARCHAR(100), PESS_NOME VARCHAR(100) NOT NULL, CLI_CPF VARCHAR(18) UNIQUE, FK_END BIGINT, FUNC_CARGO VARCHAR(30), FUNC_MATRICULA VARCHAR(10) UNIQUE, PRIMARY KEY (PESS_ID))
+[EL Fine]: sql: 2019-09-10 00:35:30.659--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--CREATE TABLE TB_TELEFONE (TEL_ID BIGINT AUTO_INCREMENT NOT NULL, TEL_DDD INTEGER NOT NULL, TEL_NUMERO VARCHAR(12) NOT NULL, FK_ID_CLI BIGINT NOT NULL, PRIMARY KEY (TEL_ID))
+[EL Fine]: sql: 2019-09-10 00:35:31.783--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--CREATE TABLE TB_ENDERECO (END_ID BIGINT AUTO_INCREMENT NOT NULL, END_BAIRRO VARCHAR(100), END_CEP VARCHAR(9) NOT NULL, END_CIDADE VARCHAR(80) NOT NULL, END_COMPLEMENTO VARCHAR(150), END_NUMERO INTEGER NOT NULL, END_LOGRADOURO VARCHAR(100) NOT NULL, PRIMARY KEY (END_ID))
+[EL Fine]: sql: 2019-09-10 00:35:32.546--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--CREATE TABLE TB_SERVICO (SERV_ID BIGINT AUTO_INCREMENT NOT NULL, SERV_DATA_FIM DATE, SERV_DATA_INICIO DATE, SERV_DATA_PREV_FIM DATE, SERV_STATUS VARCHAR(255), FK_CLI BIGINT NOT NULL, FK_FUNC BIGINT NOT NULL, PRIMARY KEY (SERV_ID))
+[EL Fine]: sql: 2019-09-10 00:35:34.36--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--CREATE TABLE TB_EQUIPAMENTO (EQUIP_ID BIGINT AUTO_INCREMENT NOT NULL, EQUIP_CUSTO_PECAS DOUBLE, EQUIP_DEFEITO VARCHAR(300) NOT NULL, EQUIP_DESCRICAO VARCHAR(300), EQUIP_MAO_OBRA DOUBLE, EQUIP_MARCA VARCHAR(30) NOT NULL, EQUIP_MODELO VARCHAR(30) NOT NULL, EQUIP_SERIE VARCHAR(30) NOT NULL, EQUIP_SOLUCAO VARCHAR(400), FK_FUNC BIGINT, FK_SERV BIGINT, PRIMARY KEY (EQUIP_ID))
+[EL Fine]: sql: 2019-09-10 00:35:35.178--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--ALTER TABLE TB_PESSOA ADD CONSTRAINT FK_TB_PESSOA_FK_END FOREIGN KEY (FK_END) REFERENCES TB_ENDERECO (END_ID)
+[EL Fine]: sql: 2019-09-10 00:35:37.929--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--ALTER TABLE TB_TELEFONE ADD CONSTRAINT FK_TB_TELEFONE_FK_ID_CLI FOREIGN KEY (FK_ID_CLI) REFERENCES TB_PESSOA (PESS_ID)
+[EL Fine]: sql: 2019-09-10 00:35:40.604--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO ADD CONSTRAINT FK_TB_SERVICO_FK_CLI FOREIGN KEY (FK_CLI) REFERENCES TB_PESSOA (PESS_ID)
+[EL Fine]: sql: 2019-09-10 00:35:42.961--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO ADD CONSTRAINT FK_TB_SERVICO_FK_FUNC FOREIGN KEY (FK_FUNC) REFERENCES TB_PESSOA (PESS_ID)
+[EL Fine]: sql: 2019-09-10 00:35:45.716--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO ADD CONSTRAINT FK_TB_EQUIPAMENTO_FK_FUNC FOREIGN KEY (FK_FUNC) REFERENCES TB_PESSOA (PESS_ID)
+[EL Fine]: sql: 2019-09-10 00:35:49.718--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO ADD CONSTRAINT FK_TB_EQUIPAMENTO_FK_SERV FOREIGN KEY (FK_SERV) REFERENCES TB_SERVICO (SERV_ID)
+------------------começou----------------
+------------------terminou----------------
+[EL Fine]: sql: 2019-09-10 00:36:00.516--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--SELECT PESS_ID, PESS_TIPO, PESS_DATA_NASCIMENTO, PESS_EMAIL, PESS_NOME, CLI_CPF, FK_END FROM TB_PESSOA WHERE ((PESS_ID = ?) AND (PESS_TIPO = ?))
+	bind =&gt; [5, C]
+[EL Fine]: sql: 2019-09-10 00:36:00.528--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--SELECT TEL_ID, TEL_DDD, TEL_NUMERO, FK_ID_CLI FROM TB_TELEFONE WHERE (FK_ID_CLI = ?)
+	bind =&gt; [5]
+[EL Fine]: sql: 2019-09-10 00:36:00.539--ClientSession(271379554)--Connection(1409545055)--Thread(Thread[main,5,main])--UPDATE TB_PESSOA SET PESS_EMAIL = ? WHERE (PESS_ID = ?)
+	bind =&gt; [fulano_de_tal@gmail.com, 5]
+[EL Fine]: sql: 2019-09-10 00:36:00.576--ClientSession(271379554)--Connection(1409545055)--Thread(Thread[main,5,main])--INSERT INTO TB_TELEFONE (TEL_DDD, TEL_NUMERO, FK_ID_CLI) VALUES (?, ?, ?)
+	bind =&gt; [81, (81) 999999999, null]
+[EL Fine]: sql: 2019-09-10 00:36:00.638--ClientSession(271379554)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-09-10 00:36:00.641--UnitOfWork(26970580)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column &apos;TEL_NUMERO&apos; at row 1
+Error Code: 1406
+Call: INSERT INTO TB_TELEFONE (TEL_DDD, TEL_NUMERO, FK_ID_CLI) VALUES (?, ?, ?)
+	bind =&gt; [81, (81) 999999999, null]
+Query: InsertObjectQuery(entidades.Telefone@2a7)
+</system-out>
+    <system-err>Tue Sep 10 00:35:22 GFT 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Tue Sep 10 00:35:53 GFT 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+set 10, 2019 12:36:00 AM testes.ClienteCrudTest atualizarCliente
+INFORMAÇÕES: Executando atualizarCliente()
+set 10, 2019 12:36:00 AM testes.ClienteCrudTest atualizarCliente
+INFORMAÇÕES: Pegando do banco ------------------------------
+set 10, 2019 12:36:00 AM testes.ClienteCrudTest atualizarCliente
+INFORMAÇÕES: mandando pro banco ------------------------------
+set 10, 2019 12:36:00 AM testes.GenericTest commitTransaction
+GRAVE: Transaction &quot;rolled back&quot; because transaction was set to RollbackOnly.
+javax.persistence.RollbackException: Transaction &quot;rolled back&quot; because transaction was set to RollbackOnly.
+	at org.eclipse.persistence.internal.jpa.transaction.EntityTransactionImpl.commit(EntityTransactionImpl.java:143)
+	at testes.GenericTest.commitTransaction(GenericTest.java:64)
+	at testes.GenericTest.tearDown(GenericTest.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+
+</system-err>
+  </testcase>
+  <testcase classname="testes.ClienteCrudTest" name="atualizarCliente" time="0.369">
+    <failure message="Transaction &quot;rolled back&quot; because transaction was set to RollbackOnly." type="java.lang.AssertionError">java.lang.AssertionError: Transaction &quot;rolled back&quot; because transaction was set to RollbackOnly.
+	at org.junit.Assert.fail(Assert.java:88)
+	at testes.GenericTest.commitTransaction(GenericTest.java:67)
+	at testes.GenericTest.tearDown(GenericTest.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</failure>
+  </testcase>
+  <testcase classname="testes.ClienteCrudTest" name="atualizarClienteMerge" time="0.208">
+    <failure message="expected:&lt;[34648400]&gt; but was:&lt;[(81) 888888888]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[34648400]&gt; but was:&lt;[(81) 888888888]&gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at testes.ClienteCrudTest.atualizarClienteMerge(ClienteCrudTest.java:91)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</failure>
+    <system-out>[EL Fine]: sql: 2019-09-10 00:36:00.832--ServerSession(775931202)--Connection(1409545055)--Thread(Thread[main,5,main])--SELECT PESS_ID, PESS_TIPO, PESS_DATA_NASCIMENTO, PESS_EMAIL, PESS_NOME, CLI_CPF, FK_END FROM TB_PESSOA WHERE ((PESS_ID = ?) AND (PESS_TIPO = ?))
+	bind =&gt; [5, C]
+[EL Fine]: sql: 2019-09-10 00:36:00.836--ClientSession(541698497)--Connection(1409545055)--Thread(Thread[main,5,main])--UPDATE TB_PESSOA SET PESS_EMAIL = ? WHERE (PESS_ID = ?)
+	bind =&gt; [fulano_de_tal2@gmail.com, 5]
+[EL Fine]: sql: 2019-09-10 00:36:00.86--ClientSession(541698497)--Connection(1409545055)--Thread(Thread[main,5,main])--INSERT INTO TB_TELEFONE (TEL_DDD, TEL_NUMERO, FK_ID_CLI) VALUES (?, ?, ?)
+	bind =&gt; [81, (81) 888888888, null]
+[EL Fine]: sql: 2019-09-10 00:36:00.862--ClientSession(541698497)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-09-10 00:36:00.863--UnitOfWork(1928301845)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column &apos;TEL_NUMERO&apos; at row 1
+Error Code: 1406
+Call: INSERT INTO TB_TELEFONE (TEL_DDD, TEL_NUMERO, FK_ID_CLI) VALUES (?, ?, ?)
+	bind =&gt; [81, (81) 888888888, null]
+Query: InsertObjectQuery(entidades.Telefone@2a7)
+</system-out>
+    <system-err>set 10, 2019 12:36:00 AM testes.ClienteCrudTest atualizarClienteMerge
+INFORMAÇÕES: Executando atualizarClienteMerge()
+set 10, 2019 12:36:00 AM testes.GenericTest commitTransaction
+GRAVE: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column &apos;TEL_NUMERO&apos; at row 1
+Error Code: 1406
+Call: INSERT INTO TB_TELEFONE (TEL_DDD, TEL_NUMERO, FK_ID_CLI) VALUES (?, ?, ?)
+	bind =&gt; [81, (81) 888888888, null]
+Query: InsertObjectQuery(entidades.Telefone@2a7)
+javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column &apos;TEL_NUMERO&apos; at row 1
+Error Code: 1406
+Call: INSERT INTO TB_TELEFONE (TEL_DDD, TEL_NUMERO, FK_ID_CLI) VALUES (?, ?, ?)
+	bind =&gt; [81, (81) 888888888, null]
+Query: InsertObjectQuery(entidades.Telefone@2a7)
+	at org.eclipse.persistence.internal.jpa.transaction.EntityTransactionImpl.commit(EntityTransactionImpl.java:159)
+	at testes.GenericTest.commitTransaction(GenericTest.java:64)
+	at testes.GenericTest.tearDown(GenericTest.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Caused by: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column &apos;TEL_NUMERO&apos; at row 1
+Error Code: 1406
+Call: INSERT INTO TB_TELEFONE (TEL_DDD, TEL_NUMERO, FK_ID_CLI) VALUES (?, ?, ?)
+	bind =&gt; [81, (81) 888888888, null]
+Query: InsertObjectQuery(entidades.Telefone@2a7)
+	at org.eclipse.persistence.exceptions.DatabaseException.sqlException(DatabaseException.java:331)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:902)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeNoSelect(DatabaseAccessor.java:964)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:633)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:560)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:2062)
+	at org.eclipse.persistence.sessions.server.ClientSession.executeCall(ClientSession.java:309)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:260)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:246)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.insertObject(DatasourceCallQueryMechanism.java:395)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:165)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:180)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.insertObjectForWrite(DatabaseQueryMechanism.java:489)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommit(InsertObjectQuery.java:80)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommitWithChangeSet(InsertObjectQuery.java:90)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.executeWriteWithChangeSet(DatabaseQueryMechanism.java:301)
+	at org.eclipse.persistence.queries.WriteObjectQuery.executeDatabaseQuery(WriteObjectQuery.java:58)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:911)
+	at org.eclipse.persistence.queries.DatabaseQuery.executeInUnitOfWork(DatabaseQuery.java:810)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWorkObjectLevelModifyQuery(ObjectLevelModifyQuery.java:108)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWork(ObjectLevelModifyQuery.java:85)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:2899)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1863)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1845)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1796)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitNewObjectsForClassWithChangeSet(CommitManager.java:227)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsForClassWithChangeSet(CommitManager.java:194)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsWithChangeSet(CommitManager.java:139)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.writeAllObjectsWithChangeSet(AbstractSession.java:4279)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabase(UnitOfWorkImpl.java:1444)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabaseWithChangeSet(UnitOfWorkImpl.java:1534)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.commitRootUnitOfWork(RepeatableWriteUnitOfWork.java:278)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitAndResume(UnitOfWorkImpl.java:1172)
+	at org.eclipse.persistence.internal.jpa.transaction.EntityTransactionImpl.commit(EntityTransactionImpl.java:134)
+	... 33 more
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column &apos;TEL_NUMERO&apos; at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3974)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3912)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2486)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2079)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2013)
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:892)
+	... 65 more
+
+</system-err>
+  </testcase>
+  <testcase classname="testes.ClienteCrudTest" name="atualizarClienteMerge" time="0.209">
+    <failure message="Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column &apos;TEL_NUMERO&apos; at row 1
+Error Code: 1406
+Call: INSERT INTO TB_TELEFONE (TEL_DDD, TEL_NUMERO, FK_ID_CLI) VALUES (?, ?, ?)
+	bind =&gt; [81, (81) 888888888, null]
+Query: InsertObjectQuery(entidades.Telefone@2a7)" type="java.lang.AssertionError">java.lang.AssertionError: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column &apos;TEL_NUMERO&apos; at row 1
+Error Code: 1406
+Call: INSERT INTO TB_TELEFONE (TEL_DDD, TEL_NUMERO, FK_ID_CLI) VALUES (?, ?, ?)
+	bind =&gt; [81, (81) 888888888, null]
+Query: InsertObjectQuery(entidades.Telefone@2a7)
+	at org.junit.Assert.fail(Assert.java:88)
+	at testes.GenericTest.commitTransaction(GenericTest.java:67)
+	at testes.GenericTest.tearDown(GenericTest.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</failure>
+  </testcase>
+  <testcase classname="testes.ClienteCrudTest" name="persistirCliente" time="0.127"/>
+  <testcase classname="testes.ClienteCrudTest" name="removerCliente" time="0.175">
+    <error message="Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`ordemservico`.`tb_servico`, CONSTRAINT `FK_TB_SERVICO_FK_CLI` FOREIGN KEY (`FK_CLI`) REFERENCES `tb_pessoa` (`PESS_ID`))
+Error Code: 1451
+Call: DELETE FROM TB_PESSOA WHERE (PESS_ID = ?)
+	bind =&gt; [5]
+Query: DeleteObjectQuery(entidades.Cliente@a4)" type="javax.persistence.PersistenceException">javax.persistence.PersistenceException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`ordemservico`.`tb_servico`, CONSTRAINT `FK_TB_SERVICO_FK_CLI` FOREIGN KEY (`FK_CLI`) REFERENCES `tb_pessoa` (`PESS_ID`))
+Error Code: 1451
+Call: DELETE FROM TB_PESSOA WHERE (PESS_ID = ?)
+	bind =&gt; [5]
+Query: DeleteObjectQuery(entidades.Cliente@a4)
+	at org.eclipse.persistence.internal.jpa.EntityManagerImpl.flush(EntityManagerImpl.java:879)
+	at testes.ClienteCrudTest.removerCliente(ClienteCrudTest.java:100)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Caused by: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`ordemservico`.`tb_servico`, CONSTRAINT `FK_TB_SERVICO_FK_CLI` FOREIGN KEY (`FK_CLI`) REFERENCES `tb_pessoa` (`PESS_ID`))
+Error Code: 1451
+Call: DELETE FROM TB_PESSOA WHERE (PESS_ID = ?)
+	bind =&gt; [5]
+Query: DeleteObjectQuery(entidades.Cliente@a4)
+	at org.eclipse.persistence.exceptions.DatabaseException.sqlException(DatabaseException.java:331)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:902)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeNoSelect(DatabaseAccessor.java:964)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:633)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:560)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:2062)
+	at org.eclipse.persistence.sessions.server.ClientSession.executeCall(ClientSession.java:309)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:260)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:246)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.deleteObject(DatasourceCallQueryMechanism.java:228)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.deleteObject(StatementQueryMechanism.java:104)
+	at org.eclipse.persistence.queries.DeleteObjectQuery.executeDatabaseQuery(DeleteObjectQuery.java:218)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:911)
+	at org.eclipse.persistence.queries.DatabaseQuery.executeInUnitOfWork(DatabaseQuery.java:810)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWorkObjectLevelModifyQuery(ObjectLevelModifyQuery.java:108)
+	at org.eclipse.persistence.queries.DeleteObjectQuery.executeInUnitOfWorkObjectLevelModifyQuery(DeleteObjectQuery.java:119)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWork(ObjectLevelModifyQuery.java:85)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:2899)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1863)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1845)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1796)
+	at org.eclipse.persistence.internal.sessions.CommitManager.deleteAllObjects(CommitManager.java:342)
+	at org.eclipse.persistence.internal.sessions.CommitManager.deleteAllObjects(CommitManager.java:291)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabase(UnitOfWorkImpl.java:1447)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabaseWithPreBuiltChangeSet(UnitOfWorkImpl.java:1590)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.writeChanges(RepeatableWriteUnitOfWork.java:455)
+	at org.eclipse.persistence.internal.jpa.EntityManagerImpl.flush(EntityManagerImpl.java:874)
+	... 34 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`ordemservico`.`tb_servico`, CONSTRAINT `FK_TB_SERVICO_FK_CLI` FOREIGN KEY (`FK_CLI`) REFERENCES `tb_pessoa` (`PESS_ID`))
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -107,83 +634,101 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExce
 	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
 	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2486)
 	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
-	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1197)
-	at org.dbunit.database.statement.SimplePreparedStatement.addBatch(SimplePreparedStatement.java:80)
-	at org.dbunit.database.statement.AutomaticPreparedBatchStatement.addBatch(AutomaticPreparedBatchStatement.java:70)
-	at org.dbunit.operation.AbstractBatchOperation.execute(AbstractBatchOperation.java:224)
-	... 25 more
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2079)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2013)
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:892)
+	... 59 more
 </error>
-    <system-out>[EL Fine]: server: 2019-09-09 22:11:05.417--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
-[EL Config]: metadata: 2019-09-09 22:11:05.566--ServerSession(246550802)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Pessoa] is set to [FIELD].
-[EL Config]: metadata: 2019-09-09 22:11:05.59--ServerSession(246550802)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Funcionario] is set to [FIELD].
-[EL Config]: metadata: 2019-09-09 22:11:05.598--ServerSession(246550802)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class entidades.Servico.
-[EL Config]: metadata: 2019-09-09 22:11:05.599--ServerSession(246550802)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field equipamentos] is being defaulted to: class entidades.Equipamento.
-[EL Config]: metadata: 2019-09-09 22:11:05.599--ServerSession(246550802)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Equipamento] is set to [FIELD].
-[EL Config]: metadata: 2019-09-09 22:11:05.602--ServerSession(246550802)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field funcionario] is being defaulted to: class entidades.Funcionario.
-[EL Config]: metadata: 2019-09-09 22:11:05.603--ServerSession(246550802)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field servico] is being defaulted to: class entidades.Servico.
-[EL Config]: metadata: 2019-09-09 22:11:05.603--ServerSession(246550802)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Telefone] is set to [FIELD].
-[EL Config]: metadata: 2019-09-09 22:11:05.604--ServerSession(246550802)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
-[EL Config]: metadata: 2019-09-09 22:11:05.604--ServerSession(246550802)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Cliente] is set to [FIELD].
-[EL Config]: metadata: 2019-09-09 22:11:05.605--ServerSession(246550802)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class entidades.Servico.
-[EL Config]: metadata: 2019-09-09 22:11:05.605--ServerSession(246550802)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field endereco] is being defaulted to: class entidades.Endereco.
-[EL Config]: metadata: 2019-09-09 22:11:05.606--ServerSession(246550802)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field telefones] is being defaulted to: class entidades.Telefone.
-[EL Config]: metadata: 2019-09-09 22:11:05.606--ServerSession(246550802)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Endereco] is set to [FIELD].
-[EL Config]: metadata: 2019-09-09 22:11:05.607--ServerSession(246550802)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
-[EL Config]: metadata: 2019-09-09 22:11:05.608--ServerSession(246550802)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Servico] is set to [FIELD].
-[EL Config]: metadata: 2019-09-09 22:11:05.608--ServerSession(246550802)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
-[EL Config]: metadata: 2019-09-09 22:11:05.609--ServerSession(246550802)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field funcionario] is being defaulted to: class entidades.Funcionario.
-[EL Config]: metadata: 2019-09-09 22:11:05.61--ServerSession(246550802)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field equipamentos] is being defaulted to: class entidades.Equipamento.
-[EL Config]: metadata: 2019-09-09 22:11:05.611--ServerSession(246550802)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Funcionario] is being defaulted to: Funcionario.
-[EL Config]: metadata: 2019-09-09 22:11:05.611--ServerSession(246550802)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Pessoa] is being defaulted to: Pessoa.
-[EL Config]: metadata: 2019-09-09 22:11:05.637--ServerSession(246550802)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Equipamento] is being defaulted to: Equipamento.
-[EL Config]: metadata: 2019-09-09 22:11:05.638--ServerSession(246550802)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Telefone] is being defaulted to: Telefone.
-[EL Config]: metadata: 2019-09-09 22:11:05.638--ServerSession(246550802)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Cliente] is being defaulted to: Cliente.
-[EL Config]: metadata: 2019-09-09 22:11:05.639--ServerSession(246550802)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Endereco] is being defaulted to: Endereco.
-[EL Config]: metadata: 2019-09-09 22:11:05.64--ServerSession(246550802)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Servico] is being defaulted to: Servico.
-[EL Config]: weaver: 2019-09-09 22:11:05.672--ServerSession(246550802)--Thread(Thread[main,5,main])--Class entidades.Servico could not be weaved for change tracking as it is not supported by its mappings.
-[EL Info]: 2019-09-09 22:11:06.157--ServerSession(246550802)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd
-[EL Config]: connection: 2019-09-09 22:11:06.164--ServerSession(246550802)--Connection(1525409936)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
-	platform=&gt;MySQLPlatform
-	user name=&gt; &quot;root&quot;
-	datasource URL=&gt; &quot;jdbc:mysql://localhost:3306/ordemservico&quot;
-))
-[EL Config]: connection: 2019-09-09 22:11:06.832--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--Connected: jdbc:mysql://localhost:3306/ordemservico
-	User: root@localhost
-	Database: MySQL  Version: 8.0.17
-	Driver: MySQL Connector Java  Version: mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )
-[EL Info]: connection: 2019-09-09 22:11:06.952--ServerSession(246550802)--Thread(Thread[main,5,main])--/file:/C:/Users/Victor Oliveira/Documents/IFPE/5° periodo/Software_Corporativo/OrdemServico/target/classes/_ordemservico login successful
-[EL Fine]: sql: 2019-09-09 22:11:06.987--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--ALTER TABLE TB_PESSOA DROP FOREIGN KEY FK_TB_PESSOA_FK_END
-[EL Fine]: sql: 2019-09-09 22:11:08.137--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--ALTER TABLE TB_TELEFONE DROP FOREIGN KEY FK_TB_TELEFONE_FK_ID_CLI
-[EL Fine]: sql: 2019-09-09 22:11:08.899--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO DROP FOREIGN KEY FK_TB_SERVICO_FK_CLI
-[EL Fine]: sql: 2019-09-09 22:11:09.204--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO DROP FOREIGN KEY FK_TB_SERVICO_FK_FUNC
-[EL Fine]: sql: 2019-09-09 22:11:09.464--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO DROP FOREIGN KEY FK_TB_EQUIPAMENTO_FK_FUNC
-[EL Fine]: sql: 2019-09-09 22:11:09.864--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO DROP FOREIGN KEY FK_TB_EQUIPAMENTO_FK_SERV
-[EL Fine]: sql: 2019-09-09 22:11:10.041--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--DROP TABLE TB_PESSOA
-[EL Fine]: sql: 2019-09-09 22:11:10.664--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--DROP TABLE TB_TELEFONE
-[EL Fine]: sql: 2019-09-09 22:11:11.074--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--DROP TABLE TB_ENDERECO
-[EL Fine]: sql: 2019-09-09 22:11:11.627--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--DROP TABLE TB_SERVICO
-[EL Fine]: sql: 2019-09-09 22:11:12.053--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--DROP TABLE TB_EQUIPAMENTO
-[EL Fine]: sql: 2019-09-09 22:11:12.676--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--CREATE TABLE TB_PESSOA (PESS_ID BIGINT AUTO_INCREMENT NOT NULL, PESS_TIPO VARCHAR(1), PESS_DATA_NASCIMENTO DATE, PESS_EMAIL VARCHAR(100), PESS_NOME VARCHAR(100) NOT NULL, CLI_CPF VARCHAR(18) UNIQUE, FK_END BIGINT, FUNC_CARGO VARCHAR(30), FUNC_MATRICULA VARCHAR(10) UNIQUE, PRIMARY KEY (PESS_ID))
-[EL Fine]: sql: 2019-09-09 22:11:14.677--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--CREATE TABLE TB_TELEFONE (TEL_ID BIGINT AUTO_INCREMENT NOT NULL, TEL_DDD INTEGER NOT NULL, TEL_NUMERO VARCHAR(12) NOT NULL, FK_ID_CLI BIGINT NOT NULL, PRIMARY KEY (TEL_ID))
-[EL Fine]: sql: 2019-09-09 22:11:15.806--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--CREATE TABLE TB_ENDERECO (END_ID BIGINT AUTO_INCREMENT NOT NULL, END_BAIRRO VARCHAR(100), END_CEP VARCHAR(9) NOT NULL, END_CIDADE VARCHAR(80) NOT NULL, END_COMPLEMENTO VARCHAR(150), END_NUMERO INTEGER NOT NULL, END_LOGRADOURO VARCHAR(100) NOT NULL, PRIMARY KEY (END_ID))
-[EL Fine]: sql: 2019-09-09 22:11:16.534--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--CREATE TABLE TB_SERVICO (SERV_ID BIGINT AUTO_INCREMENT NOT NULL, SERV_DATA_FIM DATE, SERV_DATA_INICIO DATE, SERV_DATA_PREV_FIM DATE, SERV_STATUS VARCHAR(255), FK_CLI BIGINT NOT NULL, FK_FUNC BIGINT NOT NULL, PRIMARY KEY (SERV_ID))
-[EL Fine]: sql: 2019-09-09 22:11:18.91--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--CREATE TABLE TB_EQUIPAMENTO (EQUIP_ID BIGINT AUTO_INCREMENT NOT NULL, EQUIP_CUSTO_PECAS DOUBLE, EQUIP_DEFEITO VARCHAR(300) NOT NULL, EQUIP_DESCRICAO VARCHAR(300), EQUIP_MAO_OBRA DOUBLE, EQUIP_MARCA VARCHAR(30) NOT NULL, EQUIP_MODELO VARCHAR(30) NOT NULL, EQUIP_SERIE VARCHAR(30) NOT NULL, EQUIP_SOLUCAO VARCHAR(400), FK_FUNC BIGINT, FK_SERV BIGINT, PRIMARY KEY (EQUIP_ID))
-[EL Fine]: sql: 2019-09-09 22:11:19.622--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--ALTER TABLE TB_PESSOA ADD CONSTRAINT FK_TB_PESSOA_FK_END FOREIGN KEY (FK_END) REFERENCES TB_ENDERECO (END_ID)
-[EL Fine]: sql: 2019-09-09 22:11:22.799--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--ALTER TABLE TB_TELEFONE ADD CONSTRAINT FK_TB_TELEFONE_FK_ID_CLI FOREIGN KEY (FK_ID_CLI) REFERENCES TB_PESSOA (PESS_ID)
-[EL Fine]: sql: 2019-09-09 22:11:24.675--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO ADD CONSTRAINT FK_TB_SERVICO_FK_CLI FOREIGN KEY (FK_CLI) REFERENCES TB_PESSOA (PESS_ID)
-[EL Fine]: sql: 2019-09-09 22:11:27.128--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO ADD CONSTRAINT FK_TB_SERVICO_FK_FUNC FOREIGN KEY (FK_FUNC) REFERENCES TB_PESSOA (PESS_ID)
-[EL Fine]: sql: 2019-09-09 22:11:29.469--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO ADD CONSTRAINT FK_TB_EQUIPAMENTO_FK_FUNC FOREIGN KEY (FK_FUNC) REFERENCES TB_PESSOA (PESS_ID)
-[EL Fine]: sql: 2019-09-09 22:11:33.126--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO ADD CONSTRAINT FK_TB_EQUIPAMENTO_FK_SERV FOREIGN KEY (FK_SERV) REFERENCES TB_SERVICO (SERV_ID)
-------------------começou----------------
-[EL Config]: connection: 2019-09-09 22:11:37.809--ServerSession(246550802)--Connection(1833848849)--Thread(Thread[main,5,main])--disconnect
-[EL Info]: connection: 2019-09-09 22:11:37.81--ServerSession(246550802)--Thread(Thread[main,5,main])--/file:/C:/Users/Victor Oliveira/Documents/IFPE/5° periodo/Software_Corporativo/OrdemServico/target/classes/_ordemservico logout successful
-[EL Config]: connection: 2019-09-09 22:11:37.81--ServerSession(246550802)--Connection(1525409936)--Thread(Thread[main,5,main])--disconnect
+    <system-out>[EL Fine]: sql: 2019-09-10 00:36:01.102--ClientSession(665698670)--Connection(1409545055)--Thread(Thread[main,5,main])--DELETE FROM TB_PESSOA WHERE (PESS_ID = ?)
+	bind =&gt; [5]
+[EL Fine]: sql: 2019-09-10 00:36:01.145--ClientSession(665698670)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-09-10 00:36:01.147--UnitOfWork(1446922577)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`ordemservico`.`tb_servico`, CONSTRAINT `FK_TB_SERVICO_FK_CLI` FOREIGN KEY (`FK_CLI`) REFERENCES `tb_pessoa` (`PESS_ID`))
+Error Code: 1451
+Call: DELETE FROM TB_PESSOA WHERE (PESS_ID = ?)
+	bind =&gt; [5]
+Query: DeleteObjectQuery(entidades.Cliente@a4)
 </system-out>
-    <system-err>Mon Sep 09 22:11:06 GFT 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-Mon Sep 09 22:11:36 GFT 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+    <system-err>set 10, 2019 12:36:01 AM testes.ClienteCrudTest removerCliente
+INFORMAÇÕES: Executando removerCliente()
+set 10, 2019 12:36:01 AM testes.GenericTest commitTransaction
+GRAVE: Transaction &quot;rolled back&quot; because transaction was set to RollbackOnly.
+javax.persistence.RollbackException: Transaction &quot;rolled back&quot; because transaction was set to RollbackOnly.
+	at org.eclipse.persistence.internal.jpa.transaction.EntityTransactionImpl.commit(EntityTransactionImpl.java:143)
+	at testes.GenericTest.commitTransaction(GenericTest.java:64)
+	at testes.GenericTest.tearDown(GenericTest.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+
 </system-err>
+  </testcase>
+  <testcase classname="testes.ClienteCrudTest" name="removerCliente" time="0.176">
+    <failure message="Transaction &quot;rolled back&quot; because transaction was set to RollbackOnly." type="java.lang.AssertionError">java.lang.AssertionError: Transaction &quot;rolled back&quot; because transaction was set to RollbackOnly.
+	at org.junit.Assert.fail(Assert.java:88)
+	at testes.GenericTest.commitTransaction(GenericTest.java:67)
+	at testes.GenericTest.tearDown(GenericTest.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</failure>
   </testcase>
 </testsuite>

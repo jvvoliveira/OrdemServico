@@ -87,17 +87,7 @@ public class GenericTest {
         c.set(Calendar.DAY_OF_MONTH, 14);
         cliente.setDataNasc(c.getTime());
 
-        cliente.setCpf("534.585.765-40");
-
-        cliente.setTelefones(preencherTelefone("32683268", cliente));
-        Endereco end = criarEndereco("bairro", "cidade", "cep", "rua", 12, "complemento");
-        end.setCliente(cliente);
-        cliente.setEndereco(end);
-       
-        Servico serv = criarServico(Status.ABERTO);
-        serv.setCliente(cliente);
-        serv.setFuncionario(criarFuncionario("testeCicrano", "Técnico", "cicrano@empresa.com", "1236456"));
-        cliente.setServicos(serv);
+        cliente.setCpf(cpf);
 
         return cliente;
     }

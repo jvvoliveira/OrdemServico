@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package testes;
 
 import entidades.Cliente;
@@ -18,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import javax.persistence.CacheRetrieveMode;
 import javax.persistence.TypedQuery;
+import org.eclipse.persistence.jpa.JpaCache;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -52,7 +48,7 @@ public class ServicoCrudTest extends GenericTest{
     public void atualizarServico() {
         logger.info("Executando atualizarServico()");
         
-        Long id = 1L; //saber ID exato do cliente
+        Long id = 2L; //saber ID exato do cliente
         Servico servico = em.find(Servico.class, id);
         servico.setStatus(Status.ANDAMENTO);
         Calendar c = Calendar.getInstance();
@@ -77,7 +73,7 @@ public class ServicoCrudTest extends GenericTest{
     public void atualizarServicoMerge() {
         logger.info("Executando atualizarServicoMerge()");
         
-        Long id = 1L; //saber ID exato do cliente
+        Long id = 3L; //saber ID exato do cliente
         Servico servico = em.find(Servico.class, id);
         servico.setStatus(Status.CANCELADO);
         Calendar c = Calendar.getInstance();
@@ -101,7 +97,19 @@ public class ServicoCrudTest extends GenericTest{
     public void removerServico() {
         logger.info("Executando removerServico()");
         Servico servico = em.find(Servico.class, 1L);
+        assertNotNull(servico);
+        
+        Cliente cliente = em.find(Cliente.class, servico.getCliente().getId());
+        Funcionario funcionario = em.find(Funcionario.class, servico.getFuncionario().getId());
+        Equipamento equipamento = em.find(Equipamento.class, servico.getEquipamentos().get(0).getId());
+        
+        cliente.setServicos(null);
+        funcionario.setServicos(null);
+        equipamento.setServico(null);
+        em.flush();
+        
         em.remove(servico);
+        ((JpaCache)emf.getCache()).clear();
         
         Servico checkServico = em.find(Servico.class, 1L);
         assertNull(checkServico);
