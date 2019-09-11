@@ -37,7 +37,7 @@ public class Endereco implements Serializable {
     @Column(name = "END_CEP", nullable = false, length = 9)
     private String cep;
     
-    @OneToOne(mappedBy = "endereco")
+    @OneToOne(mappedBy = "endereco", orphanRemoval = true)
     private Cliente cliente;
 
     @Override

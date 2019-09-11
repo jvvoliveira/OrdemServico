@@ -21,7 +21,7 @@ public class Cliente extends Pessoa implements Serializable{
     @Column(name = "CLI_CPF", length = 18, nullable = true, unique = true)
     private String cpf;
     
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<Telefone> telefones;
     
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
