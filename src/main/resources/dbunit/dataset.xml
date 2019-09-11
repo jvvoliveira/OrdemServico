@@ -3,16 +3,16 @@
     <!-- ========================= FUNCIONÁRIO =============================== -->
     <!-- Funcionario Pessoa(1) -->
     <TB_PESSOA pess_tipo="F" pess_nome="Camila Alvarenga Moraes" pess_email="camila.moraes@mail.com" pess_data_nascimento="1993-11-09" 
-        func_matricula="201811OS1"/>
+        func_matricula="201811OS1" func_cargo="atendente"/>
     <!-- Funcionario Pessoa(2) -->
     <TB_PESSOA pess_tipo="F" pess_nome="Pedro Marcell Dias Rabello" pess_email="pedro.rabello@mail.com" pess_data_nascimento="1995-05-16" 
-        func_matricula="20175OS2"/>
+        func_matricula="20175OS2" func_cargo="atendente"/>
     <!-- Funcionario Pessoa(3) -->
     <TB_PESSOA pess_tipo="F" pess_nome="Natalia Shonda Feltrao Silva" pess_email="natalia.silva@mail.com" pess_data_nascimento="1994-08-27" 
-        func_matricula="20188OS3"/>
+        func_matricula="20188OS3" func_cargo="técnico"/>
     <!-- Funcionario Pessoa(4) -->
     <TB_PESSOA pess_tipo="F" pess_nome="Natanael Maior Couto" pess_email="natanael.couto@mail.com" pess_data_nascimento="1995-12-21" 
-        func_matricula="201812OS4"/>
+        func_matricula="201812OS4" func_cargo="técnico"/>
     <!-- ============================================================== -->
     
     <!-- ########################## CLIENTE ############################################ -->
@@ -20,7 +20,7 @@
     <TB_ENDERECO end_cidade="Recife" end_logradouro="R. des Virgílio de Sá Pereira" end_complemento="Próximo ao hospital Getúlio Vargas" end_bairro="Cordeiro" end_numero="200" end_cep="50721040"/>
     <!-- Cliente Pessoa(5) -->
     <TB_PESSOA pess_tipo="C" pess_nome="Amanda Costa e Silva" pess_email="a_costaesilva@mail.com" pess_data_nascimento="1986-03-09" 
-        cli_cpf="29712152022"/>
+        cli_cpf="29712152022" />
     <!-- telefone(1) -->
     <TB_TELEFONE tel_numero="34648400" tel_ddd="81" fk_id_cli="5"/>
     <!-- telefone(2) -->
@@ -52,10 +52,10 @@
     <!-- *********************** SERVICOS DESTE CLIENTE *********************** -->
     <!-- Servico(2) -->
     <TB_SERVICO serv_status="ENTREGUE" serv_data_inicio="2019-02-20" serv_data_fim="2019-03-02" serv_data_prev_fim="2019-02-04" 
-        fk_cli="6" fk_func="3"/>
+        fk_cli="6" fk_func="1"/>
     <!-- Servico(3) -->
     <TB_SERVICO serv_status="ABERTO" serv_data_inicio="2019-08-30" serv_data_fim="2019-09-15" serv_data_prev_fim="2019-09-15" 
-        fk_cli="6" fk_func="4"/>
+        fk_cli="6" fk_func="1"/>
     <!-- *********************** EQUIPAMENTOS DESTE CLIENTE *********************** -->
     <!-- Equipamento(2) -->
     <TB_EQUIPAMENTO equip_descricao="Notebook em boas condições, na garantia de fábrica" equip_marca="dell" 
@@ -63,10 +63,10 @@
         equip_solucao="Formatação da máquina, restaurar para os padrões de fábrica" equip_mao_obra="95.0" equip_custo_pecas="0.0" fk_serv="2"  fk_func="3"/>
     <!-- Equipamento(3) -->
     <TB_EQUIPAMENTO equip_descricao="Celular bem gasto com trincos na tela, veio com capa transparente" equip_marca="Samsung" equip_modelo="Galaxy S5" equip_serie="AKG98" 
-        equip_defeito="Esqueceu a senha do celular" equip_solucao="Resetar o android do celular" equip_mao_obra="48.67" equip_custo_pecas="0" fk_serv="3"  fk_func="2"/>
+        equip_defeito="Esqueceu a senha do celular" equip_solucao="Resetar o android do celular" equip_mao_obra="48.67" equip_custo_pecas="0" fk_serv="3"  fk_func="4"/>
     <!-- Equipamento(4) -->
     <TB_EQUIPAMENTO equip_descricao="Celular em bom estado, sem acessórios" equip_marca="Sony" equip_modelo="xperia z5" equip_serie="HJ8756OI" 
-        equip_defeito="Entrada e fone de ouvido está com mau contato" equip_solucao="" equip_mao_obra="0.0" equip_custo_pecas="0.0" fk_serv="3"  fk_func="1"/>
+        equip_defeito="Entrada e fone de ouvido está com mau contato" equip_solucao="" equip_mao_obra="0.0" equip_custo_pecas="0.0" fk_serv="3"  fk_func="3"/>
     <!-- ############################################################################### -->
     
     <!-- ########################## CLIENTE ############################################ -->
@@ -83,7 +83,7 @@
     <!-- *********************** SERVICOS DESTE CLIENTE *********************** -->
     <!-- Servico(4) -->
     <TB_SERVICO serv_status="ANDAMENTO" serv_data_inicio="2019-09-09" serv_data_fim="2019-09-22" serv_data_prev_fim="2019-09-22" 
-        fk_cli="7" fk_func="4"/>
+        fk_cli="7" fk_func="2"/>
     <!-- *********************** EQUIPAMENTOS DESTE CLIENTE *********************** -->
     <!-- Equipamento(5) -->
     <TB_EQUIPAMENTO equip_descricao="Computador bem gasto, com bastante uso" equip_marca="CorPC " equip_modelo="16100" equip_serie="ASD8766" 
@@ -96,7 +96,7 @@
     <!-- Equipamento(7) -->
     <TB_EQUIPAMENTO equip_descricao="Computador bem gasto, com bastante uso" equip_marca="CorPC " equip_modelo="16100" equip_serie="IJK877KJ" 
         equip_defeito="Computador lento, para limpeza e atualização de drives e softwares" equip_solucao="" 
-        equip_mao_obra="0.0" equip_custo_pecas="0.0" fk_serv="4" fk_func="1"/>
+        equip_mao_obra="0.0" equip_custo_pecas="0.0" fk_serv="4" fk_func="4"/>
     <!-- ############################################################################### -->
     
     <!-- ########################## CLIENTE ############################################ -->
@@ -110,7 +110,7 @@
     <!-- ========================= SERVICOS DESTE CLIENTE ======================= -->
     <!-- Servico(5) -->
     <TB_SERVICO serv_status="CANCELADO" serv_data_inicio="2019-09-03" serv_data_fim="2019-09-04" serv_data_prev_fim="2019-09-09" 
-        fk_cli="8" fk_func="4"/>
+        fk_cli="8" fk_func="1"/>
     <!-- ============================================================================ -->
     <!-- ========================= EQUIPAMENTOS DESTE CLIENTE ======================= -->
     <!-- Equipamento() -->

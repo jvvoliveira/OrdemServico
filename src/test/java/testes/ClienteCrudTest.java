@@ -26,13 +26,9 @@ public class ClienteCrudTest extends GenericTest{
         Cliente cliente = criarCliente("Ana Maria Silva", "anasilva@mail.com", "78767820387");
         Telefone telefone = preencherTelefone("987650987", cliente);
         Endereco endereco = criarEndereco("Peixinhos", "Olinda", "546778459", "Rua do Alvoroço", 76, "Apt");
-        //Servico servico = criarServico(Status.ABERTO);
         
-        //cliente.setServicos(servico);
         cliente.setEndereco(endereco);
         cliente.setTelefones(telefone);
-        //endereco.setCliente(cliente);
-        //telefone.setCliente(cliente);
         
         em.persist(cliente);
         em.flush();
@@ -78,7 +74,6 @@ public class ClienteCrudTest extends GenericTest{
         cliente.setNome(novoNome);
         cliente.setEmail(novoEmail);
         
-        
         em.clear();
         em.merge(cliente);
         
@@ -97,49 +92,26 @@ public class ClienteCrudTest extends GenericTest{
         Cliente cliente = em.find(Cliente.class, 8L);
         assertNotNull(cliente);
         
-        /*
         //retirar fk dos telefones desse cliente
-        String jpql = "SELECT t FROM Telefone t WHERE t.cliente.id = ?8";
+        String jpql = "SELECT t FROM Telefone t WHERE t.cliente.id = ?1";
         TypedQuery<Telefone> query = em.createQuery(jpql, Telefone.class);
         //obrigatoriamente ir para o banco
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS); 
         query.setParameter(1, 8L);
         List<Telefone> telefone = query.getResultList();
-        telefone.get(0).setCliente(null);
-        em.flush();
+        em.remove(telefone.get(0));
         
-        em.remove(cliente);
-        
-        ((JpaCache)emf.getCache()).clear();
-        Cliente checkCliente = em.find(Cliente.class, 9L);
-        assertNull(checkCliente);*/
-        
-        //removendo telefones - eles são apagados pois a coluna de fk não pode ter valores nulos
-        String jpql = "SELECT t FROM Telefone t";
-        TypedQuery<Telefone> query = em.createQuery(jpql, Telefone.class);
+        //retirar fk dos serviços desse cliente
+        jpql = "SELECT s FROM Servico s WHERE s.cliente.id = ?1";
+        TypedQuery<Servico> queryServico = em.createQuery(jpql, Servico.class);
         //obrigatoriamente ir para o banco
-        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS); 
-        //query.setParameter(1, 8L);
-        List<Telefone> telefones = query.getResultList();
-        for(Telefone tel : telefones){
-            if(tel.getCliente().getId() == cliente.getId()){
-               System.out.println("REMOVENDO: "+tel.getCliente().getNome()+" - "+tel.getCliente().getId()+" E TELEFONE: "+tel.getNumero());
-               em.remove(tel);
-            }
-        }
-        
-        //remover de cliente de servico - o CLiente id(8) tem servico de id(5)
-        Servico servico = em.find(Servico.class, 5L);
-        assertNotNull(servico);
-        Funcionario funcionario = em.find(Funcionario.class, servico.getFuncionario().getId());
-        Equipamento equipamento = em.find(Equipamento.class, servico.getEquipamentos().get(0).getId());
-        cliente.setServicos(null);
-        funcionario.setServicos(null);
-        equipamento.setServico(null);
-        //Apagar servico porque fk_cli não pode fica nula
-        em.remove(servico);
+        queryServico.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS); 
+        queryServico.setParameter(1, 8L);
+        List<Servico> servicos = queryServico.getResultList();
+        em.remove(servicos.get(0));
         
         em.remove(cliente);
+        em.flush();
         
         ((JpaCache)emf.getCache()).clear();
         Cliente checkCliente = em.find(Cliente.class, 8L);

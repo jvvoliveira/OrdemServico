@@ -85,7 +85,7 @@ public class FuncionarioCrudTest extends GenericTest{
     public void removerFuncionario() {
         logger.info("Executando removerFuncionario()");
         
-        Funcionario funcionario = em.find(Funcionario.class, 1L);
+        Funcionario funcionario = em.find(Funcionario.class, 3L);
         assertNotNull(funcionario);
         
         //retirar fk dos equipamentos desse funcionário
@@ -93,16 +93,18 @@ public class FuncionarioCrudTest extends GenericTest{
         TypedQuery<Equipamento> query = em.createQuery(jpql, Equipamento.class);
         //obrigatoriamente ir para o banco
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS); 
-        query.setParameter(1, 1L);
+        query.setParameter(1, 3L);
         List<Equipamento> equipamentos = query.getResultList();
         equipamentos.get(0).setFuncionario(null);
         equipamentos.get(1).setFuncionario(null);
+        equipamentos.get(2).setFuncionario(null);
+        equipamentos.get(3).setFuncionario(null);
         em.flush();
                 
         em.remove(funcionario);
         
         ((JpaCache)emf.getCache()).clear();
-        Funcionario checkFuncionario = em.find(Funcionario.class, 1L);
+        Funcionario checkFuncionario = em.find(Funcionario.class, 3L);
         assertNull(checkFuncionario);
     }
 }
