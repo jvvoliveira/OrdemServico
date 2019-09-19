@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="testes.FuncionarioCrudTest" time="38.1" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="testes.FuncionarioCrudTest" time="2.219" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin"/>
-    <property name="java.vm.version" value="25.201-b09"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin"/>
+    <property name="java.vm.version" value="25.131-b11"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
@@ -14,14 +14,14 @@
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="test" value="testes.FuncionarioCrudTest"/>
+    <property name="test" value="testes.**.*Test"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\Victor Oliveira\Documents\IFPE\5° periodo\Software_Corporativo\OrdemServico"/>
-    <property name="java.runtime.version" value="1.8.0_201-b09"/>
+    <property name="user.dir" value="C:\Users\ALUNO\Documents\NetBeansProjects\OrdemServico"/>
+    <property name="java.runtime.version" value="1.8.0_131-b11"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_201\jre\lib\endorsed"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_131\jre\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
-    <property name="java.io.tmpdir" value="C:\Users\VICTOR~1\AppData\Local\Temp\"/>
+    <property name="java.io.tmpdir" value="C:\Users\ALUNO\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
@@ -30,29 +30,29 @@
     <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.2\java\maven\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_201\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;&quot;C:\Users\Victor Oliveira\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk1.8.0_201\\bin&quot;;C:\Users\Victor Oliveira\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Victor Oliveira\AppData\Roaming\npm;C:\Program Files\MySQL\MySQL Server 8.0\bin;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Microsoft MPI\Bin\;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\BaseX\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\PuTTY\;C:\MinGW\bin;C:\cygwin\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\ALUNO\AppData\Local\Microsoft\WindowsApps;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.0"/>
-    <property name="user.home" value="C:\Users\Victor Oliveira"/>
-    <property name="user.timezone" value="America/Cayenne"/>
+    <property name="user.home" value="C:\Users\ALUNO"/>
+    <property name="user.timezone" value="America/Sao_Paulo"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="UTF-8"/>
-    <property name="user.name" value="Victor Oliveira"/>
+    <property name="user.name" value="ALUNO"/>
     <property name="java.class.path" value="C:\Program Files\NetBeans 8.2\java\maven\boot\plexus-classworlds-2.4.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_201\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=testes.FuncionarioCrudTest -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_131\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=testes.**.*Test -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="pt"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
     <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.version" value="1.8.0_201"/>
-    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_201\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
-    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_201\jre\classes"/>
+    <property name="java.version" value="1.8.0_131"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_131\jre\classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="maven.home" value="C:\Program Files\NetBeans 8.2\java\maven"/>
     <property name="file.separator" value="\"/>
@@ -62,8 +62,126 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="testes.FuncionarioCrudTest" name="atualizarFuncionarioMerge" time="0.264"/>
-  <testcase classname="testes.FuncionarioCrudTest" name="atualizarFuncionario" time="0.402"/>
-  <testcase classname="testes.FuncionarioCrudTest" name="removerFuncionario" time="0.204"/>
-  <testcase classname="testes.FuncionarioCrudTest" name="persistirFuncionario" time="0.133"/>
+  <testcase classname="testes.FuncionarioCrudTest" name="testes.FuncionarioCrudTest" time="6.594">
+    <error message="Exception processing table name=&apos;TB_PESSOA&apos;" type="java.lang.RuntimeException">java.lang.RuntimeException: Exception processing table name=&apos;TB_PESSOA&apos;
+	at testes.DbUnitUtil.inserirDados(DbUnitUtil.java:41)
+	at testes.GenericTest.setUpClass(GenericTest.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Caused by: org.dbunit.DatabaseUnitException: Exception processing table name=&apos;TB_PESSOA&apos;
+	at org.dbunit.operation.AbstractBatchOperation.execute(AbstractBatchOperation.java:240)
+	at org.dbunit.operation.CompositeOperation.execute(CompositeOperation.java:79)
+	at testes.DbUnitUtil.inserirDados(DbUnitUtil.java:38)
+	... 23 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column &apos;CLI_CPF&apos; cannot be null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:936)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3976)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3912)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2486)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1197)
+	at org.dbunit.database.statement.SimplePreparedStatement.addBatch(SimplePreparedStatement.java:80)
+	at org.dbunit.database.statement.AutomaticPreparedBatchStatement.addBatch(AutomaticPreparedBatchStatement.java:70)
+	at org.dbunit.operation.AbstractBatchOperation.execute(AbstractBatchOperation.java:224)
+	... 25 more
+</error>
+    <system-out>[EL Fine]: moxy: 2019-09-19 19:36:49.238--Thread(Thread[main,5,main])--SAXParserFactory instance: com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl@431e86b1
+[EL Fine]: server: 2019-09-19 19:36:49.238--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2019-09-19 19:36:49.269--ServerSession(1829496747)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Pessoa] is set to [FIELD].
+[EL Config]: metadata: 2019-09-19 19:36:49.316--ServerSession(1829496747)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Funcionario] is set to [FIELD].
+[EL Config]: metadata: 2019-09-19 19:36:49.332--ServerSession(1829496747)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class entidades.Servico.
+[EL Config]: metadata: 2019-09-19 19:36:49.332--ServerSession(1829496747)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field equipamentos] is being defaulted to: class entidades.Equipamento.
+[EL Config]: metadata: 2019-09-19 19:36:49.332--ServerSession(1829496747)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Equipamento] is set to [FIELD].
+[EL Config]: metadata: 2019-09-19 19:36:49.332--ServerSession(1829496747)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field funcionario] is being defaulted to: class entidades.Funcionario.
+[EL Config]: metadata: 2019-09-19 19:36:49.332--ServerSession(1829496747)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field servico] is being defaulted to: class entidades.Servico.
+[EL Config]: metadata: 2019-09-19 19:36:49.347--ServerSession(1829496747)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Telefone] is set to [FIELD].
+[EL Config]: metadata: 2019-09-19 19:36:49.347--ServerSession(1829496747)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
+[EL Config]: metadata: 2019-09-19 19:36:49.347--ServerSession(1829496747)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Cliente] is set to [FIELD].
+[EL Config]: metadata: 2019-09-19 19:36:49.347--ServerSession(1829496747)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class entidades.Servico.
+[EL Config]: metadata: 2019-09-19 19:36:49.347--ServerSession(1829496747)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field endereco] is being defaulted to: class entidades.Endereco.
+[EL Config]: metadata: 2019-09-19 19:36:49.347--ServerSession(1829496747)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field telefones] is being defaulted to: class entidades.Telefone.
+[EL Config]: metadata: 2019-09-19 19:36:49.347--ServerSession(1829496747)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Endereco] is set to [FIELD].
+[EL Config]: metadata: 2019-09-19 19:36:49.363--ServerSession(1829496747)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
+[EL Config]: metadata: 2019-09-19 19:36:49.363--ServerSession(1829496747)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Servico] is set to [FIELD].
+[EL Config]: metadata: 2019-09-19 19:36:49.363--ServerSession(1829496747)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class entidades.Cliente.
+[EL Config]: metadata: 2019-09-19 19:36:49.363--ServerSession(1829496747)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field funcionario] is being defaulted to: class entidades.Funcionario.
+[EL Config]: metadata: 2019-09-19 19:36:49.363--ServerSession(1829496747)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field equipamentos] is being defaulted to: class entidades.Equipamento.
+[EL Config]: metadata: 2019-09-19 19:36:49.363--ServerSession(1829496747)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Funcionario] is being defaulted to: Funcionario.
+[EL Config]: metadata: 2019-09-19 19:36:49.379--ServerSession(1829496747)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Pessoa] is being defaulted to: Pessoa.
+[EL Config]: metadata: 2019-09-19 19:36:49.379--ServerSession(1829496747)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Equipamento] is being defaulted to: Equipamento.
+[EL Config]: metadata: 2019-09-19 19:36:49.379--ServerSession(1829496747)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Telefone] is being defaulted to: Telefone.
+[EL Config]: metadata: 2019-09-19 19:36:49.379--ServerSession(1829496747)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Cliente] is being defaulted to: Cliente.
+[EL Config]: metadata: 2019-09-19 19:36:49.379--ServerSession(1829496747)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Endereco] is being defaulted to: Endereco.
+[EL Config]: metadata: 2019-09-19 19:36:49.394--ServerSession(1829496747)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Servico] is being defaulted to: Servico.
+[EL Config]: weaver: 2019-09-19 19:36:49.394--ServerSession(1829496747)--Thread(Thread[main,5,main])--Class entidades.Servico could not be weaved for change tracking as it is not supported by its mappings.
+[EL Info]: 2019-09-19 19:36:49.41--ServerSession(1829496747)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd
+[EL Config]: connection: 2019-09-19 19:36:49.41--ServerSession(1829496747)--Connection(842588842)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+	platform=&gt;MySQLPlatform
+	user name=&gt; &quot;root&quot;
+	datasource URL=&gt; &quot;jdbc:mysql://localhost:3306/ordemservico&quot;
+))
+[EL Config]: connection: 2019-09-19 19:36:49.426--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--Connected: jdbc:mysql://localhost:3306/ordemservico
+	User: root@localhost
+	Database: MySQL  Version: 5.7.18-log
+	Driver: MySQL Connector Java  Version: mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )
+[EL Info]: connection: 2019-09-19 19:36:49.441--ServerSession(1829496747)--Thread(Thread[main,5,main])--/file:/C:/Users/ALUNO/Documents/NetBeansProjects/OrdemServico/target/classes/_ordemservico login successful
+[EL Fine]: sql: 2019-09-19 19:36:49.457--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--ALTER TABLE TB_PESSOA DROP FOREIGN KEY FK_TB_PESSOA_FK_END
+[EL Fine]: sql: 2019-09-19 19:36:49.488--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--ALTER TABLE TB_TELEFONE DROP FOREIGN KEY FK_TB_TELEFONE_FK_ID_CLI
+[EL Fine]: sql: 2019-09-19 19:36:49.519--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO DROP FOREIGN KEY FK_TB_SERVICO_FK_CLI
+[EL Fine]: sql: 2019-09-19 19:36:49.551--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO DROP FOREIGN KEY FK_TB_SERVICO_FK_FUNC
+[EL Fine]: sql: 2019-09-19 19:36:49.566--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO DROP FOREIGN KEY FK_TB_EQUIPAMENTO_FK_FUNC
+[EL Fine]: sql: 2019-09-19 19:36:49.597--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO DROP FOREIGN KEY FK_TB_EQUIPAMENTO_FK_SERV
+[EL Fine]: sql: 2019-09-19 19:36:49.629--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--DROP TABLE TB_PESSOA
+[EL Fine]: sql: 2019-09-19 19:36:49.644--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--DROP TABLE TB_TELEFONE
+[EL Fine]: sql: 2019-09-19 19:36:49.676--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--DROP TABLE TB_ENDERECO
+[EL Fine]: sql: 2019-09-19 19:36:49.707--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--DROP TABLE TB_SERVICO
+[EL Fine]: sql: 2019-09-19 19:36:49.738--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--DROP TABLE TB_EQUIPAMENTO
+[EL Fine]: sql: 2019-09-19 19:36:49.754--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--CREATE TABLE TB_PESSOA (PESS_ID BIGINT AUTO_INCREMENT NOT NULL, PESS_TIPO VARCHAR(1), PESS_DATA_NASCIMENTO DATE, PESS_EMAIL VARCHAR(100), PESS_NOME VARCHAR(100) NOT NULL, CLI_CPF VARCHAR(18) NOT NULL UNIQUE, FK_END BIGINT, FUNC_CARGO VARCHAR(30) NOT NULL, FUNC_MATRICULA VARCHAR(10) NOT NULL UNIQUE, PRIMARY KEY (PESS_ID))
+[EL Fine]: sql: 2019-09-19 19:36:49.832--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--CREATE TABLE TB_TELEFONE (TEL_ID BIGINT AUTO_INCREMENT NOT NULL, TEL_DDD INTEGER NOT NULL, TEL_NUMERO VARCHAR(12) NOT NULL, FK_ID_CLI BIGINT NOT NULL, PRIMARY KEY (TEL_ID))
+[EL Fine]: sql: 2019-09-19 19:36:49.926--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--CREATE TABLE TB_ENDERECO (END_ID BIGINT AUTO_INCREMENT NOT NULL, END_BAIRRO VARCHAR(100), END_CEP VARCHAR(9) NOT NULL, END_CIDADE VARCHAR(80) NOT NULL, END_COMPLEMENTO VARCHAR(150), END_NUMERO INTEGER NOT NULL, END_LOGRADOURO VARCHAR(100) NOT NULL, PRIMARY KEY (END_ID))
+[EL Fine]: sql: 2019-09-19 19:36:50.035--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--CREATE TABLE TB_SERVICO (SERV_ID BIGINT AUTO_INCREMENT NOT NULL, SERV_DATA_FIM DATE, SERV_DATA_INICIO DATE NOT NULL, SERV_DATA_PREV_FIM DATE NOT NULL, SERV_STATUS VARCHAR(255) NOT NULL, FK_CLI BIGINT NOT NULL, FK_FUNC BIGINT NOT NULL, PRIMARY KEY (SERV_ID))
+[EL Fine]: sql: 2019-09-19 19:36:50.113--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--CREATE TABLE TB_EQUIPAMENTO (EQUIP_ID BIGINT AUTO_INCREMENT NOT NULL, EQUIP_CUSTO_PECAS DOUBLE, EQUIP_DEFEITO VARCHAR(300) NOT NULL, EQUIP_DESCRICAO VARCHAR(300), EQUIP_MAO_OBRA DOUBLE, EQUIP_MARCA VARCHAR(30) NOT NULL, EQUIP_MODELO VARCHAR(30) NOT NULL, EQUIP_SERIE VARCHAR(30) NOT NULL, EQUIP_SOLUCAO VARCHAR(400), FK_FUNC BIGINT, FK_SERV BIGINT NOT NULL, PRIMARY KEY (EQUIP_ID))
+[EL Fine]: sql: 2019-09-19 19:36:50.191--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--ALTER TABLE TB_PESSOA ADD CONSTRAINT FK_TB_PESSOA_FK_END FOREIGN KEY (FK_END) REFERENCES TB_ENDERECO (END_ID)
+[EL Fine]: sql: 2019-09-19 19:36:50.379--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--ALTER TABLE TB_TELEFONE ADD CONSTRAINT FK_TB_TELEFONE_FK_ID_CLI FOREIGN KEY (FK_ID_CLI) REFERENCES TB_PESSOA (PESS_ID)
+[EL Fine]: sql: 2019-09-19 19:36:50.535--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO ADD CONSTRAINT FK_TB_SERVICO_FK_CLI FOREIGN KEY (FK_CLI) REFERENCES TB_PESSOA (PESS_ID)
+[EL Fine]: sql: 2019-09-19 19:36:50.707--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--ALTER TABLE TB_SERVICO ADD CONSTRAINT FK_TB_SERVICO_FK_FUNC FOREIGN KEY (FK_FUNC) REFERENCES TB_PESSOA (PESS_ID)
+[EL Fine]: sql: 2019-09-19 19:36:50.848--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO ADD CONSTRAINT FK_TB_EQUIPAMENTO_FK_FUNC FOREIGN KEY (FK_FUNC) REFERENCES TB_PESSOA (PESS_ID)
+[EL Fine]: sql: 2019-09-19 19:36:51.254--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--ALTER TABLE TB_EQUIPAMENTO ADD CONSTRAINT FK_TB_EQUIPAMENTO_FK_SERV FOREIGN KEY (FK_SERV) REFERENCES TB_SERVICO (SERV_ID)
+------------------começou----------------
+[EL Config]: connection: 2019-09-19 19:36:51.457--ServerSession(1829496747)--Connection(1664093259)--Thread(Thread[main,5,main])--disconnect
+[EL Info]: connection: 2019-09-19 19:36:51.457--ServerSession(1829496747)--Thread(Thread[main,5,main])--/file:/C:/Users/ALUNO/Documents/NetBeansProjects/OrdemServico/target/classes/_ordemservico logout successful
+[EL Config]: connection: 2019-09-19 19:36:51.457--ServerSession(1829496747)--Connection(842588842)--Thread(Thread[main,5,main])--disconnect
+</system-out>
+    <system-err>Thu Sep 19 19:36:49 BRT 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Thu Sep 19 19:36:51 BRT 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+</system-err>
+  </testcase>
 </testsuite>

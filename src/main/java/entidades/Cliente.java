@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @DiscriminatorValue(value = "C")
 public class Cliente extends Pessoa implements Serializable{
 
-    @Column(name = "CLI_CPF", length = 18, nullable = true, unique = true)
+    @Column(name = "CLI_CPF", length = 18, nullable = false, unique = true)
     private String cpf;
     
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST, orphanRemoval = true)
