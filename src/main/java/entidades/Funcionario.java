@@ -1,10 +1,7 @@
 package entidades;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,10 +14,10 @@ import javax.persistence.OneToMany;
 @DiscriminatorValue(value = "F")
 public class Funcionario extends Pessoa implements Serializable {
     
-    @Column(name = "FUNC_MATRICULA", length = 10, nullable = true, unique = true)
+    @Column(name = "FUNC_MATRICULA", length = 10, nullable = false, unique = true)
     private String matricula;
     
-    @Column(name = "FUNC_CARGO", length = 30, nullable = true)
+    @Column(name = "FUNC_CARGO", length = 30, nullable = false)
     private String cargo;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "funcionario")

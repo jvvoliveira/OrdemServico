@@ -14,8 +14,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -33,11 +31,11 @@ public class Servico implements Serializable {
     private long id;
     
     @Enumerated(EnumType.STRING)
-    @Column(name = "SERV_STATUS")
+    @Column(name = "SERV_STATUS", nullable = false)
     private Status status;
     
     @Temporal(TemporalType.DATE)
-    @Column(name = "SERV_DATA_INICIO")
+    @Column(name = "SERV_DATA_INICIO", nullable = false)
     private Date inicio;
     
     @Temporal(TemporalType.DATE)
@@ -45,7 +43,7 @@ public class Servico implements Serializable {
     private Date fim;
     
     @Temporal(TemporalType.DATE)
-    @Column(name = "SERV_DATA_PREV_FIM")
+    @Column(name = "SERV_DATA_PREV_FIM", nullable = false)
     private Date prevFim;
     
     @Transient
