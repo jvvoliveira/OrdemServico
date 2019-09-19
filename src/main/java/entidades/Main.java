@@ -17,28 +17,22 @@ public class Main {
         Funcionario func = preencherFuncionario("cicrano", "cicrano.22@email.com", new Date(1990, 11, 15), "Gerente", "2019SO04");
         Funcionario func2 = preencherFuncionario("Fulano", "fulanoTeste@email.com", new Date(1990, 12, 28), "Técnico", "2019SO26");
         Telefone t1 = preencherTelefone(81, "32683268");
-        t1.setCliente(c1);
         Telefone t2 = preencherTelefone(81, "32686584");
-        t2.setCliente(c1);
         Endereco end1 = preencherEndereco("123", "Recife", "casa", 54, "rua", "bairroTeste");
-        end1.setCliente(c1);
         
         c1.setEndereco(end1);
-        c1.setTelefones(t1);
-        c1.setTelefones(t2);
+        c1.addTelefones(t1);
+        c1.addTelefones(t2);
         
         Servico serv = preencherServico(Status.ABERTO, new Date(2019, 9, 5), null, new Date(2019, 9, 10));
         
         serv.setCliente(c1);
         serv.setFuncionario(func);
-        c1.setServicos(serv);
-        func.setServicos(serv);
         
         Equipamento eq = preencherEquipamento("Samsung", "Celular já com tela trincada", "S10", "123klmy7", "Botão de volume não funciona", "Mal encaixe da peça", 12, 0);
         
-        eq.setServico(serv);
-        eq.setFuncionario(func2);
-        serv.setEquipamentos(eq);
+        func2.addEquipamentos(eq);
+        serv.addEquipamento(eq);
         
         EntityManagerFactory emf = null;
         EntityManager em = null;
@@ -49,7 +43,7 @@ public class Main {
             em = emf.createEntityManager(); //Criação do EntityManager.
             et = em.getTransaction(); //Recupera objeto responsável pelo gerenciamento de transação.
             et.begin();
-            em.persist(eq);
+            em.persist(serv);
             et.commit();
         } catch (Exception ex) {
             System.out.println(ex);

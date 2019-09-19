@@ -182,6 +182,7 @@ public class Servico implements Serializable {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+        this.cliente.addServicos(this);
     }
 
     public Funcionario getFuncionario() {
@@ -190,6 +191,7 @@ public class Servico implements Serializable {
 
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
+        this.funcionario.addServicos(this);
     }
 
     public List<Equipamento> getEquipamentos() {
@@ -205,9 +207,13 @@ public class Servico implements Serializable {
         return null;
     }
 
-    public void setEquipamentos(Equipamento equipamento) {
+    public void addEquipamento(Equipamento equipamento) {
         this.equipamentos.add(equipamento);
+        equipamento.setServico(this);
     }
-    
+
+    public void setEquipamentos(List<Equipamento> equipamentos) {
+        this.equipamentos = equipamentos;
+    }
     
 }

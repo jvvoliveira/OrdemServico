@@ -187,6 +187,4 @@ public class Equipamento implements Serializable {
         this.funcionario = funcionario;
     }
     
-    
-    
 }
