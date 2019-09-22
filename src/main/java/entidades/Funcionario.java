@@ -14,10 +14,10 @@ import javax.persistence.OneToMany;
 @DiscriminatorValue(value = "F")
 public class Funcionario extends Pessoa implements Serializable {
     
-    @Column(name = "FUNC_MATRICULA", length = 10, nullable = false, unique = true)
+    @Column(name = "FUNC_MATRICULA", length = 10, nullable = true, unique = true)
     private String matricula;
     
-    @Column(name = "FUNC_CARGO", length = 30, nullable = false)
+    @Column(name = "FUNC_CARGO", length = 30, nullable = true)
     private String cargo;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "funcionario")
