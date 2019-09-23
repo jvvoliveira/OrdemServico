@@ -1,7 +1,10 @@
 package testes;
 
+import entidades.Cliente;
 import entidades.Equipamento;
 import entidades.Funcionario;
+import entidades.Servico;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +16,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import org.junit.Test;
 import static testes.GenericTest.emf;
+import utils.Status;
 
 
 public class FuncionarioCrudTest extends GenericTest{
@@ -23,9 +27,21 @@ public class FuncionarioCrudTest extends GenericTest{
         Funcionario funcionario = criarFuncionario("João Funcionario", "Técnico", "jfunc@tecnico.com", "111111");
         Equipamento equipamento = criarEquipamento("xcv123", "não liga", "samsung", "32fg1654", "celular com capinha");
         Equipamento equipamento2 = criarEquipamento("asd321", "não liga", "motorola", "ftg765", "celular");
+        Servico servico = criarServico(Status.ABERTO);
+        Cliente cliente = new Cliente();
+        cliente.setNome("teste");
         
-        funcionario.setEquipamentos(equipamento);
-        funcionario.setEquipamentos(equipamento2);
+        //serviço não pode ficar sem cliente e sem funcionário atendente
+        servico.setInicio(new Date(2019, 9, 25));
+        servico.setPrevFim(new Date(2019, 9, 30));
+        servico.setCliente(cliente);
+        servico.setFuncionario(funcionario);
+        servico.addEquipamento(equipamento);
+        servico.addEquipamento(equipamento2);
+        
+        //equipamento não pode ficar sem serviço
+        funcionario.addEquipamentos(equipamento);
+        funcionario.addEquipamentos(equipamento2);
         
         em.persist(funcionario);
         em.flush();

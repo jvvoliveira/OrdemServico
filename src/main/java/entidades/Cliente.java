@@ -24,7 +24,7 @@ public class Cliente extends Pessoa implements Serializable{
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<Telefone> telefones;
     
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = true)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = true, orphanRemoval = true)
     @JoinColumn(name = "FK_END", referencedColumnName = "END_ID")
     private Endereco endereco;
     

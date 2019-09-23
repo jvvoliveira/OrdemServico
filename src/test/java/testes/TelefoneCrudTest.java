@@ -20,7 +20,7 @@ public class TelefoneCrudTest extends GenericTest{
         logger.info("Executando persistirTelefone()");
         Cliente cliente = criarCliente("teste João", "teste1.2@teste.com", "987654321");
         Telefone telefone = preencherTelefone("32683268", cliente);
-        telefone.setCliente(cliente);
+        cliente.addTelefones(telefone);
        
         em.persist(telefone);
         em.flush();

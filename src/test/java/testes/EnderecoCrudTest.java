@@ -20,7 +20,7 @@ public class EnderecoCrudTest extends GenericTest{
         Cliente cliente = criarCliente("teste Gideone", "gida17@teste.com", "987884323");
         Endereco endereco = criarEndereco("Centro", "São Lourenço da Mata", "54730-410", "Rua los Bolados", 17, "Casa");
         
-        endereco.setCliente(cliente);
+        cliente.setEndereco(endereco);
        
         em.persist(endereco);
         em.flush();
@@ -31,7 +31,7 @@ public class EnderecoCrudTest extends GenericTest{
     }
     
     @Test
-    public void atualizarTelefone() {
+    public void atualizarEndereco() {
         logger.info("Executando atualizarEndereco()");
         
         Long id = 2L; //saber ID exato do cliente
@@ -80,13 +80,3 @@ public class EnderecoCrudTest extends GenericTest{
         assertNull(checkEndereco);
     }
 }
-
-//String jpql = "SELECT c FROM Cliente c WHERE c.endereco.id = ?1";
-//        TypedQuery<Cliente> query = em.createQuery(jpql, Cliente.class);
-//        //obrigatoriamente ir para o banco
-//        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS); 
-//        query.setParameter(1, 1L);
-//        Cliente cliente = query.getSingleResult();
-//        if(cliente != null){
-//            em.remove(cliente);
-//        }

@@ -33,7 +33,7 @@ public class ServicoCrudTest extends GenericTest{
         
         servico.setFuncionario(funcionario);
         servico.setCliente(cliente);
-        servico.setEquipamentos(equipamento);
+        servico.addEquipamento(equipamento);
         
         em.persist(servico);
         em.flush();
@@ -105,7 +105,7 @@ public class ServicoCrudTest extends GenericTest{
         
         cliente.setServicos(null);
         funcionario.setServicos(null);
-        equipamento.setServico(null);
+        em.remove(equipamento);
         em.flush();
         
         em.remove(servico);

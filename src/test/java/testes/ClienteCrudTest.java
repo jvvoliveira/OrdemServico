@@ -28,7 +28,7 @@ public class ClienteCrudTest extends GenericTest{
         Endereco endereco = criarEndereco("Peixinhos", "Olinda", "546778459", "Rua do Alvoroço", 76, "Apt");
         
         cliente.setEndereco(endereco);
-        cliente.setTelefones(telefone);
+        cliente.addTelefones(telefone);
         
         em.persist(cliente);
         em.flush();
@@ -92,17 +92,8 @@ public class ClienteCrudTest extends GenericTest{
         Cliente cliente = em.find(Cliente.class, 8L);
         assertNotNull(cliente);
         
-        //retirar fk dos telefones desse cliente
-        String jpql = "SELECT t FROM Telefone t WHERE t.cliente.id = ?1";
-        TypedQuery<Telefone> query = em.createQuery(jpql, Telefone.class);
-        //obrigatoriamente ir para o banco
-        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS); 
-        query.setParameter(1, 8L);
-        List<Telefone> telefone = query.getResultList();
-        em.remove(telefone.get(0));
-        
         //retirar fk dos serviços desse cliente
-        jpql = "SELECT s FROM Servico s WHERE s.cliente.id = ?1";
+        String jpql = "SELECT s FROM Servico s WHERE s.cliente.id = ?1";
         TypedQuery<Servico> queryServico = em.createQuery(jpql, Servico.class);
         //obrigatoriamente ir para o banco
         queryServico.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS); 

@@ -5,6 +5,7 @@ import entidades.Cliente;
 import entidades.Equipamento;
 import entidades.Funcionario;
 import entidades.Servico;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javax.persistence.CacheRetrieveMode;
@@ -25,6 +26,8 @@ public class EquipamentoCrudTest extends GenericTest{
         Cliente cliente = criarCliente("joão Teste", "joaojoao@email.com", "123321654");
         Servico servico = criarServico(Status.ABERTO);
         servico.setCliente(cliente);
+        servico.setInicio(new Date(2019, 9, 20));
+        servico.setPrevFim(new Date(2019, 9, 30));
         servico.setFuncionario(func1);
         
         equipamento.setServico(servico);
