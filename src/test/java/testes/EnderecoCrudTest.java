@@ -26,7 +26,7 @@ public class EnderecoCrudTest extends GenericTest{
         em.flush();
         
         assertNotNull(endereco.getId());
-        assertNotNull(endereco.getCliente().getId());
+//        assertNotNull(endereco.getCliente().getId());
         
     }
     
@@ -74,6 +74,17 @@ public class EnderecoCrudTest extends GenericTest{
         logger.info("Executando removerEndereco()");
         Endereco endereco = em.find(Endereco.class, 1L);
         assertNotNull(endereco);
+        
+        //retirar fk os endereços dos clientes
+        String jpql = "SELECT c FROM Cliente c WHERE c.endereco.id = ?1";
+        TypedQuery<Cliente> queryCLiente = em.createQuery(jpql, Cliente.class);
+        //obrigatoriamente ir para o banco
+        queryCLiente.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS); 
+        queryCLiente.setParameter(1, 1L);
+        Cliente cliente = queryCLiente.getSingleResult();
+        cliente.setEndereco(null);
+        endereco.setCliente(null);
+        
         em.remove(endereco);
         
         Endereco checkEndereco = em.find(Endereco.class, 1L);
