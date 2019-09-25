@@ -24,7 +24,7 @@ public class Cliente extends Pessoa implements Serializable{
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<Telefone> telefones;
     
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = true, orphanRemoval = true)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, optional = false, orphanRemoval = true)
     @JoinColumn(name = "FK_END", referencedColumnName = "END_ID")
     private Endereco endereco;
     
@@ -63,7 +63,9 @@ public class Cliente extends Pessoa implements Serializable{
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
-        this.endereco.setCliente(this);
+        if(!(endereco == null)){
+            this.endereco.setCliente(this);
+        }
     }
 
     public List<Servico> getServicos() {
