@@ -1,4 +1,3 @@
-
 package entidades;
 
 import java.io.Serializable;
@@ -12,7 +11,6 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 @Entity
 @DiscriminatorValue(value = "C")

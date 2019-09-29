@@ -64,7 +64,7 @@ public class EquipamentoJPQLTest extends GenericTest {
         assertEquals(95.0, maiorMaoDeObra, 0);
         //valor esperado = 95, intervalo entre valores deve ser 0
     }
-
+    
     @Test
     public void quantidadeDeEquipamentosQueTiveramServicoCancelado() {
         String jpql = "SELECT COUNT(e) FROM Equipamento e where e.servico "
