@@ -22,12 +22,12 @@ public class EquipamentoCrudTest extends GenericTest{
     public void persistirEquipamento() {
         logger.info("Executando persistirEquipamento()");
         Equipamento equipamento = criarEquipamento("note 7", "toques na tela não funcionam", "redmi", "25ght6p", "celular com capinha transparente");
-        Funcionario func1 = criarFuncionario("funcNome", "Técnico", "func123@teste.com", "852369");
-        Cliente cliente = criarCliente("joão Teste", "joaojoao@email.com", "123321654");
+        Funcionario func1 = criarFuncionario("funcNome", "Técnico", "func123@teste.com", "852369OS4");
+        Cliente cliente = criarCliente("joão Teste", "joaojoao@email.com", "123.321.654-45");
         Servico servico = criarServico(Status.ABERTO);
         servico.setCliente(cliente);
-        servico.setInicio(new Date(2019, 9, 20));
-        servico.setPrevFim(new Date(2019, 9, 30));
+        servico.setInicio(getData(20, 9, 2019));
+        servico.setPrevFim(getData(30, 11, 2019));
         servico.setFuncionario(func1);
         
         equipamento.setServico(servico);

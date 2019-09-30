@@ -11,24 +11,32 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "TB_TELEFONE")
 public class Telefone implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     @Column(name = "TEL_ID")
+    @Column(name = "TEL_ID")
     private long id;
-    
-    @Column(name = "TEL_NUMERO", nullable = false, length = 12)
+
+    @NotNull(message = "Número de telefone não pode ser nulo")
+    @Size(min = 8, max = 12, message = "Quantidade incorreta de caracteres para número de telefone")
+    @Column(name = "TEL_NUMERO")
     private String numero;
-    
-    @Column(name = "TEL_DDD", nullable = false)
-    private int ddd;
-    
+
+    @NotNull(message = "DDD não pode ser nulo")
+    @Size(min = 2, max = 4, message = "Quantidade incorreta de caracteres para DDD")
+    @Column(name = "TEL_DDD")
+    private String ddd;
+
+    @NotNull(message = "Telefone precisa estar associado a um cliente")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_ID_CLI", referencedColumnName = "PESS_ID", nullable = false)
+    @JoinColumn(name = "FK_ID_CLI", referencedColumnName = "PESS_ID")
     private Cliente cliente;
 
     @Override
@@ -64,11 +72,11 @@ public class Telefone implements Serializable {
         this.id = id;
     }
 
-    public int getDdd() {
+    public String getDdd() {
         return ddd;
     }
 
-    public void setDdd(int ddd) {
+    public void setDdd(String ddd) {
         this.ddd = ddd;
     }
 
@@ -87,5 +95,5 @@ public class Telefone implements Serializable {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    
+
 }

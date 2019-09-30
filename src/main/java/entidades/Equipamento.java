@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "TB_EQUIPAMENTO")
@@ -20,22 +22,33 @@ public class Equipamento implements Serializable {
     @Column(name = "EQUIP_ID")
     private long id;
     
-    @Column(name = "EQUIP_DESCRICAO", length = 300)
+    @NotNull(message = "Descrição do equipamento não pode ser nulo")
+    @Size(max = 300, message = "Caracteres a mais na descrição do equipamento")
+    @Column(name = "EQUIP_DESCRICAO")
     private String descricao;
     
-    @Column(name = "EQUIP_MARCA", length = 30, nullable = false)
+    @NotNull(message = "Marca do equipamento não pode ser nulo")
+    @Size(max = 30, message = "Caracteres a mais na marca do equipamento")
+    @Column(name = "EQUIP_MARCA")
     private String marca;
     
-    @Column(name = "EQUIP_MODELO", length = 30, nullable = false)
+    @NotNull(message = "Modelo do equipamento não pode ser nulo")
+    @Size(max = 30, message = "Caracteres a mais no modelo do equipamento")
+    @Column(name = "EQUIP_MODELO")
     private String modelo;
     
-    @Column(name = "EQUIP_SERIE", length = 30, nullable = false)
+    @NotNull(message = "Série do equipamento não pode ser nulo")
+    @Size(max = 30, message = "Caracteres a mais na série do equipamento")
+    @Column(name = "EQUIP_SERIE")
     private String serie;
     
-    @Column(name = "EQUIP_DEFEITO", length = 300, nullable = false)
+    @NotNull(message = "Defeito do equipamento não pode ser nulo")
+    @Size(max = 300, message = "Caracteres a mais no defeito do equipamento")
+    @Column(name = "EQUIP_DEFEITO")
     private String defeito;
     
-    @Column(name = "EQUIP_SOLUCAO", length = 400)
+    @Size(max = 400, message = "Caracteres a mais na solução do equipamento")
+    @Column(name = "EQUIP_SOLUCAO")
     private String solucao;
     
     @Column(name = "EQUIP_MAO_OBRA")
@@ -47,8 +60,9 @@ public class Equipamento implements Serializable {
     @Transient
     private double valorTotal; //mão de obra + custo de peças
     
+    @NotNull(message = "Equipamento deve estar associado a um serviço")
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "FK_SERV", referencedColumnName = "SERV_ID", nullable = false)
+    @JoinColumn(name = "FK_SERV", referencedColumnName = "SERV_ID")
     private Servico servico;
 
     @ManyToOne(cascade = CascadeType.PERSIST)

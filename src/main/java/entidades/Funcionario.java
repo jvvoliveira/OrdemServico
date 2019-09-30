@@ -9,15 +9,20 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
+import validadores.Valida_Matricula;
 
 @Entity
 @DiscriminatorValue(value = "F")
 public class Funcionario extends Pessoa implements Serializable {
     
-    @Column(name = "FUNC_MATRICULA", length = 10, nullable = true, unique = true)
+    @Valida_Matricula(message = "Matrícula inválida")
+    @Size(min = 9, max = 9, message = "Matrícula com quantidade incorreta de caracteres")
+    @Column(name = "FUNC_MATRICULA", unique = true)
     private String matricula;
     
-    @Column(name = "FUNC_CARGO", length = 30, nullable = true)
+    @Size(max = 30, message = "Caracteres a mais para cargo")
+    @Column(name = "FUNC_CARGO")
     private String cargo;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "funcionario")

@@ -18,7 +18,7 @@ public class TelefoneCrudTest extends GenericTest{
     @Test
     public void persistirTelefone() {
         logger.info("Executando persistirTelefone()");
-        Cliente cliente = criarCliente("teste João", "teste1.2@teste.com", "987654321");
+        Cliente cliente = criarCliente("teste João", "teste1.2@teste.com", "987.654.321-31");
         Telefone telefone = preencherTelefone("32683268", cliente);
         cliente.addTelefones(telefone);
        
@@ -36,7 +36,7 @@ public class TelefoneCrudTest extends GenericTest{
         
         Long id = 2L; //saber ID exato do cliente
         Telefone telefone = em.find(Telefone.class, id);
-        int ddd = 11;
+        String ddd = "11";
         telefone.setDdd(ddd);
         em.flush();
         
@@ -56,7 +56,7 @@ public class TelefoneCrudTest extends GenericTest{
         
         Long id = 3L; //saber ID exato do cliente
         Telefone telefone = em.find(Telefone.class, id);
-        int ddd = 21;
+        String ddd = "21";
         telefone.setDdd(ddd);
         
         em.clear();

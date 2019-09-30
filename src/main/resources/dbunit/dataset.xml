@@ -21,10 +21,10 @@
         func_matricula="201811OS1" func_cargo="atendente"/>
     <!-- Funcionario Pessoa(2) -->
     <TB_PESSOA pess_tipo="F" pess_nome="Pedro Marcell Dias Rabello" pess_email="pedro.rabello@mail.com" pess_data_nascimento="1995-05-16" 
-        func_matricula="20175OS2" func_cargo="atendente"/>
+        func_matricula="201705OS2" func_cargo="atendente"/>
     <!-- Funcionario Pessoa(3) -->
     <TB_PESSOA pess_tipo="F" pess_nome="Natalia Shonda Feltrao Silva" pess_email="natalia.silva@mail.com" pess_data_nascimento="1994-08-27" 
-        func_matricula="20188OS3" func_cargo="técnico"/>
+        func_matricula="201808OS3" func_cargo="técnico"/>
     <!-- Funcionario Pessoa(4) -->
     <TB_PESSOA pess_tipo="F" pess_nome="Natanael Maior Couto" pess_email="natanael.couto@mail.com" pess_data_nascimento="1995-12-21" 
         func_matricula="201812OS4" func_cargo="técnico"/>
@@ -33,7 +33,7 @@
     <!-- ########################## CLIENTE ############################################ -->
     <!-- Cliente Pessoa(5) -->
     <TB_PESSOA pess_tipo="C" pess_nome="Amanda Costa e Silva" pess_email="a_costaesilva@mail.com" pess_data_nascimento="1986-03-09" 
-        cli_cpf="29712152022" fk_end="1"/>
+        cli_cpf="297.121.520-22" fk_end="1"/>
     <!-- telefone(1) -->
     <TB_TELEFONE tel_numero="34648400" tel_ddd="81" fk_id_cli="5"/>
     <!-- telefone(2) -->
@@ -42,7 +42,7 @@
     <TB_TELEFONE tel_numero="987652079" tel_ddd="81" fk_id_cli="5"/>
     <!-- ******************* SERVICOS DESTE CLIENTE ****************************** -->
     <!-- Servico(1) -->
-    <TB_SERVICO serv_status="FINALIZADO" serv_data_inicio="2019-08-28" serv_data_fim="2019-09-06" serv_data_prev_fim="2019-09-06" 
+    <TB_SERVICO serv_status="FINALIZADO" serv_data_inicio="2019-08-28" serv_data_fim="2019-12-6" serv_data_prev_fim="2019-12-10" 
         fk_cli="5" fk_func="2"/>
     <!-- ******************** EQUIPAMENTOS DESTE CLIENTE ************************ -->
     <!-- Equipamento(1) -->
@@ -55,17 +55,17 @@
     <!-- ########################## CLIENTE ############################################ -->
     <!-- Cliente Pessoa(6) -->
     <TB_PESSOA pess_tipo="C" pess_nome="Arlindo Cavalcanti Filho" pess_email="acf@mail.com" pess_data_nascimento="1984-04-19" 
-        cli_cpf="02569683060" fk_end="2"/>
+        cli_cpf="025.696.830-60" fk_end="2"/>
     <!-- telefone(4) -->
     <TB_TELEFONE tel_numero="35679007" tel_ddd="81" fk_id_cli="6"/>
     <!-- telefone(5) -->
     <TB_TELEFONE tel_numero="987600987" tel_ddd="81" fk_id_cli="6"/>
     <!-- *********************** SERVICOS DESTE CLIENTE *********************** -->
     <!-- Servico(2) -->
-    <TB_SERVICO serv_status="ENTREGUE" serv_data_inicio="2019-02-20" serv_data_fim="2019-03-02" serv_data_prev_fim="2019-02-04" 
+    <TB_SERVICO serv_status="ENTREGUE" serv_data_inicio="2019-02-20" serv_data_fim="2019-10-2" serv_data_prev_fim="2019-10-10" 
         fk_cli="6" fk_func="1"/>
     <!-- Servico(3) -->
-    <TB_SERVICO serv_status="ABERTO" serv_data_inicio="2019-08-30" serv_data_fim="2019-09-15" serv_data_prev_fim="2019-09-15" 
+    <TB_SERVICO serv_status="ABERTO" serv_data_inicio="2019-08-30" serv_data_prev_fim="2019-11-15" 
         fk_cli="6" fk_func="1"/>
     <!-- *********************** EQUIPAMENTOS DESTE CLIENTE *********************** -->
     <!-- Equipamento(2) -->
@@ -83,14 +83,14 @@
     <!-- ########################## CLIENTE ############################################ -->
     <!-- Cliente Pessoa(7) -->
     <TB_PESSOA pess_tipo="C" pess_nome="Boa Vista Paraiso das Frutas ME" pess_email="bvpf@parisofrutas.com" pess_data_nascimento="1975-09-27" 
-        cli_cpf="81230771000177" fk_end="3"/>
+        cli_cpf="812.307.710-00" fk_end="3"/>
     <!-- telefone(6) -->
     <TB_TELEFONE tel_numero="34658709" tel_ddd="81" fk_id_cli="7"/>
     <!-- telefone(7) -->
     <TB_TELEFONE tel_numero="34658708" tel_ddd="81" fk_id_cli="7"/>
     <!-- *********************** SERVICOS DESTE CLIENTE *********************** -->
     <!-- Servico(4) -->
-    <TB_SERVICO serv_status="ANDAMENTO" serv_data_inicio="2019-09-09" serv_data_fim="2019-09-22" serv_data_prev_fim="2019-09-22" 
+    <TB_SERVICO serv_status="ANDAMENTO" serv_data_inicio="2019-09-09" serv_data_prev_fim="2019-10-22" 
         fk_cli="7" fk_func="2"/>
     <!-- *********************** EQUIPAMENTOS DESTE CLIENTE *********************** -->
     <!-- Equipamento(5) -->
@@ -110,12 +110,12 @@
     <!-- ########################## CLIENTE ############################################ -->
     <!-- Cliente Pessoa(8) -->
     <TB_PESSOA pess_tipo="C" pess_nome="Bruna Amancio Vilanova" pess_email="brunavilanova@mail.com" pess_data_nascimento="1995-08-30" 
-        cli_cpf="32739258097" fk_end="4"/>
+        cli_cpf="327.392.580-97" fk_end="4"/>
     <!-- telefone(8) -->
     <TB_TELEFONE tel_numero="987609908" tel_ddd="81" fk_id_cli="8"/>
     <!-- ========================= SERVICOS DESTE CLIENTE ======================= -->
     <!-- Servico(5) -->
-    <TB_SERVICO serv_status="CANCELADO" serv_data_inicio="2019-09-03" serv_data_fim="2019-09-04" serv_data_prev_fim="2019-09-09" 
+    <TB_SERVICO serv_status="CANCELADO" serv_data_inicio="2019-09-03" serv_data_fim="2019-09-04" serv_data_prev_fim="2019-12-25" 
         fk_cli="8" fk_func="1"/>
     <!-- ============================================================================ -->
     <!-- ========================= EQUIPAMENTOS DESTE CLIENTE ======================= -->

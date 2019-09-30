@@ -20,6 +20,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
 import utils.Status;
 
 @Entity
@@ -30,20 +32,24 @@ public class Servico implements Serializable {
     @Column(name = "SERV_ID")
     private long id;
     
+    @NotNull(message = "Status do serviço não pode ser nulo")
     @Enumerated(EnumType.STRING)
-    @Column(name = "SERV_STATUS", nullable = false)
+    @Column(name = "SERV_STATUS")
     private Status status;
     
+    @NotNull(message = "Data de início do serviço não pode ser nulo")
     @Temporal(TemporalType.DATE)
-    @Column(name = "SERV_DATA_INICIO", nullable = false)
+    @Column(name = "SERV_DATA_INICIO")
     private Date inicio;
     
     @Temporal(TemporalType.DATE)
     @Column(name = "SERV_DATA_FIM")
     private Date fim;
     
+    @NotNull(message = "Data de previsão de fim do serviço não pode ser nulo")
+    @Future(message = "Data de previsão de fim inválida")
     @Temporal(TemporalType.DATE)
-    @Column(name = "SERV_DATA_PREV_FIM", nullable = false)
+    @Column(name = "SERV_DATA_PREV_FIM")
     private Date prevFim;
     
     @Transient
@@ -55,12 +61,14 @@ public class Servico implements Serializable {
     @Transient
     private double valorTotal; //mão de obra + custo de peças
    
+    @NotNull(message = "Serviço deve estar associado a um cliente")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_CLI", nullable = false, referencedColumnName = "PESS_ID")
+    @JoinColumn(name = "FK_CLI", referencedColumnName = "PESS_ID")
     private Cliente cliente;
     
+    @NotNull(message = "Serviço deve estar associado a um funcionário atendente")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_FUNC", nullable = false, referencedColumnName = "PESS_ID")
+    @JoinColumn(name = "FK_FUNC", referencedColumnName = "PESS_ID")
     private Funcionario funcionario;
     
     @OneToMany(mappedBy = "servico", cascade = CascadeType.ALL, fetch = FetchType.EAGER)

@@ -11,18 +11,22 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Size;
+import validadores.ValidaCPF_CNPJ;
 
 @Entity
 @DiscriminatorValue(value = "C")
 public class Cliente extends Pessoa implements Serializable{
 
-    @Column(name = "CLI_CPF", length = 18, nullable = true, unique = true)
+    @ValidaCPF_CNPJ
+    @Size(min = 11, max = 18, message = "CPF com quantidade incorreta de caracteres")
+    @Column(name = "CLI_CPF", unique = true)
     private String cpf;
     
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<Telefone> telefones;
     
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, optional = true, orphanRemoval = true)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, orphanRemoval = true)
     @JoinColumn(name = "FK_END", referencedColumnName = "END_ID")
     private Endereco endereco;
     

@@ -23,7 +23,7 @@ public class ClienteCrudTest extends GenericTest{
     @Test
     public void persistirCliente(){
         logger.info("Executando persistirCliente()");
-        Cliente cliente = criarCliente("Ana Maria Silva", "anasilva@mail.com", "78767820387");
+        Cliente cliente = criarCliente("Ana Maria Silva", "anasilva@mail.com", "787.678.203-87");
         Telefone telefone = preencherTelefone("987650987", cliente);
         Endereco endereco = criarEndereco("Peixinhos", "Olinda", "546778459", "Rua do Alvoroço", 76, "Apt");
         

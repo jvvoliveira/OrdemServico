@@ -81,11 +81,7 @@ public class GenericTest {
         cliente.setNome(nome);
         cliente.setEmail(email);
 
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, 1999);
-        c.set(Calendar.MONTH, Calendar.MARCH);
-        c.set(Calendar.DAY_OF_MONTH, 14);
-        cliente.setDataNasc(c.getTime());
+        cliente.setDataNasc(getData(6, 10, 1997));
 
         cliente.setCpf(cpf);
 
@@ -94,7 +90,7 @@ public class GenericTest {
 
     protected Telefone preencherTelefone(String numero, Cliente cliente) {
         Telefone t1 = new Telefone();
-        t1.setDdd(81);
+        t1.setDdd("81");
         t1.setNumero(numero);
         t1.setCliente(cliente);
         return t1;
@@ -115,17 +111,8 @@ public class GenericTest {
         Servico servico = new Servico();
         servico.setStatus(status);
         
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, 2019);
-        c.set(Calendar.MONTH, Calendar.SEPTEMBER);
-        c.set(Calendar.DAY_OF_MONTH, 2);
-        servico.setInicio(c.getTime());
-
-        Calendar c2 = Calendar.getInstance();
-        c2.set(Calendar.YEAR, 2019);
-        c2.set(Calendar.MONTH, Calendar.SEPTEMBER);
-        c2.set(Calendar.DAY_OF_MONTH, 17);
-        servico.setPrevFim(c2.getTime());
+        servico.setInicio(getData(25, 9, 2019));
+        servico.setPrevFim(getData(12, 11, 2019));
 
         return servico;
     }
@@ -145,7 +132,7 @@ public class GenericTest {
         Funcionario func = new Funcionario();
         func.setNome(nome);
         func.setCargo(cargo);
-        func.setDataNasc(new Date(1999, 5, 31));
+        func.setDataNasc(getData(31, 5, 1999));
         func.setEmail(email);
         func.setMatricula(matricula);
 

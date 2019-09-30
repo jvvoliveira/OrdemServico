@@ -14,6 +14,10 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
 
 @Entity
 @Table(name = "TB_PESSOA")
@@ -26,12 +30,19 @@ public abstract class Pessoa implements Serializable {
     @Column(name = "PESS_ID")
     private long id;
     
-    @Column(name = "PESS_NOME", nullable = false, length = 100)
+    @NotNull(message = "Nome não pode ser nulo")
+    @Size(max = 100, message = "Caracteres a mais para nome")
+    @Column(name = "PESS_NOME")
     private String nome;
     
-    @Column(name = "PESS_EMAIL", length = 100)
+    @NotNull(message = "Email não pode ser nulo")
+    @Email(message = "Email inválido")
+    @Size(max = 100, message = "Caracteres a mais para email")
+    @Column(name = "PESS_EMAIL")
     private String email;
     
+    @NotNull(message = "Data de Nascimento não pode ser nulo")
+    @Past(message = "Data de Nascimento inválida")
     @Temporal(TemporalType.DATE)
     @Column(name = "PESS_DATA_NASCIMENTO")
     private Date dataNasc;

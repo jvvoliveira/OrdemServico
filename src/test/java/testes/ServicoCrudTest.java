@@ -8,6 +8,7 @@ import entidades.Servico;
 import entidades.Telefone;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,8 +28,8 @@ public class ServicoCrudTest extends GenericTest{
     public void persistirServico() {
         logger.info("Executando persistirServico()");
         Servico servico = criarServico(Status.ANDAMENTO);
-        Funcionario funcionario = criarFuncionario("funcBeltrano", "Atendente", "teste123@gmail.com", "654321");
-        Cliente cliente = criarCliente("Cicrano", "cicrano.21@teste.com", "999666325-56");
+        Funcionario funcionario = criarFuncionario("funcBeltrano", "Atendente", "teste123@gmail.com", "654321OS2");
+        Cliente cliente = criarCliente("Cicrano", "cicrano.21@teste.com", "999.666.325-56");
         Equipamento equipamento = criarEquipamento("note 7", "toques na tela não funcionam", "redmi", "25ght6p", "celular com capinha transparente");
         
         servico.setFuncionario(funcionario);
@@ -51,11 +52,8 @@ public class ServicoCrudTest extends GenericTest{
         Long id = 2L; //saber ID exato do cliente
         Servico servico = em.find(Servico.class, id);
         servico.setStatus(Status.ANDAMENTO);
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, 2019);
-        c.set(Calendar.MONTH, Calendar.SEPTEMBER);
-        c.set(Calendar.DAY_OF_MONTH, 22);
-        servico.setPrevFim(c.getTime());
+        Date d = getData(25, 10, 2019);
+        servico.setPrevFim(d);
         em.flush();
         
         String jpql = "SELECT s FROM Servico s WHERE s.id = ?1";
@@ -65,7 +63,7 @@ public class ServicoCrudTest extends GenericTest{
         query.setParameter(1, id);
         servico = query.getSingleResult();
         
-        assertEquals(c.getTime(), servico.getPrevFim());
+        assertEquals(d.getTime(), servico.getPrevFim().getTime());
         assertEquals(Status.ANDAMENTO, servico.getStatus());
     }
 
@@ -76,11 +74,8 @@ public class ServicoCrudTest extends GenericTest{
         Long id = 3L; //saber ID exato do cliente
         Servico servico = em.find(Servico.class, id);
         servico.setStatus(Status.CANCELADO);
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, 2019);
-        c.set(Calendar.MONTH, Calendar.SEPTEMBER);
-        c.set(Calendar.DAY_OF_MONTH, 25);
-        servico.setPrevFim(c.getTime());
+        Date d = getData(25, 10, 2019);
+        servico.setPrevFim(d);
         
         em.clear();
         em.merge(servico);
@@ -89,7 +84,7 @@ public class ServicoCrudTest extends GenericTest{
         properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         
         servico = em.find(Servico.class, id, properties);
-        assertEquals(c.getTime(), servico.getPrevFim());
+        assertEquals(d.getTime(), servico.getPrevFim().getTime());
         assertEquals(Status.CANCELADO, servico.getStatus());
     }
 
