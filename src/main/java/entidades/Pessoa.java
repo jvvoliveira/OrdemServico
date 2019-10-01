@@ -35,9 +35,9 @@ public abstract class Pessoa implements Serializable {
     @Column(name = "PESS_NOME")
     private String nome;
     
-    @NotNull(message = "Email não pode ser nulo")
-    @Email(message = "Email inválido")
     @Size(max = 100, message = "Caracteres a mais para email")
+    @Email(message = "Email inválido")
+    @NotNull(message = "Email não pode ser nulo")
     @Column(name = "PESS_EMAIL")
     private String email;
     
