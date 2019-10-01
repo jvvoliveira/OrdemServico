@@ -42,7 +42,7 @@
     <TB_TELEFONE tel_numero="987652079" tel_ddd="81" fk_id_cli="5"/>
     <!-- ******************* SERVICOS DESTE CLIENTE ****************************** -->
     <!-- Servico(1) -->
-    <TB_SERVICO serv_status="FINALIZADO" serv_data_inicio="2019-08-28" serv_data_fim="2019-12-6" serv_data_prev_fim="2019-12-10" 
+    <TB_SERVICO serv_status="FINALIZADO" serv_data_inicio="2019-08-28" serv_data_fim="2019-09-06" serv_data_prev_fim="2019-09-06" 
         fk_cli="5" fk_func="2"/>
     <!-- ******************** EQUIPAMENTOS DESTE CLIENTE ************************ -->
     <!-- Equipamento(1) -->
@@ -62,10 +62,10 @@
     <TB_TELEFONE tel_numero="987600987" tel_ddd="81" fk_id_cli="6"/>
     <!-- *********************** SERVICOS DESTE CLIENTE *********************** -->
     <!-- Servico(2) -->
-    <TB_SERVICO serv_status="ENTREGUE" serv_data_inicio="2019-02-20" serv_data_fim="2019-10-2" serv_data_prev_fim="2019-10-10" 
+    <TB_SERVICO serv_status="ENTREGUE" serv_data_inicio="2019-02-20" serv_data_fim="2019-03-02" serv_data_prev_fim="2019-02-04"  
         fk_cli="6" fk_func="1"/>
     <!-- Servico(3) -->
-    <TB_SERVICO serv_status="ABERTO" serv_data_inicio="2019-08-30" serv_data_prev_fim="2019-11-15" 
+    <TB_SERVICO serv_status="ABERTO" serv_data_inicio="2019-08-30"  serv_data_prev_fim="2019-09-15" 
         fk_cli="6" fk_func="1"/>
     <!-- *********************** EQUIPAMENTOS DESTE CLIENTE *********************** -->
     <!-- Equipamento(2) -->
@@ -74,10 +74,10 @@
         equip_solucao="Formatação da máquina, restaurar para os padrões de fábrica" equip_mao_obra="95.0" equip_custo_pecas="0.0" fk_serv="2"  fk_func="3"/>
     <!-- Equipamento(3) -->
     <TB_EQUIPAMENTO equip_descricao="Celular bem gasto com trincos na tela, veio com capa transparente" equip_marca="Samsung" equip_modelo="Galaxy S5" equip_serie="AKG98" 
-        equip_defeito="Esqueceu a senha do celular" equip_solucao="Resetar o android do celular" equip_mao_obra="48.67" equip_custo_pecas="0" fk_serv="3"  fk_func="4"/>
+        equip_defeito="Esqueceu a senha do celular" equip_solucao="Resetar o android do celular" equip_mao_obra="48.67" equip_custo_pecas="0" fk_serv="3" />
     <!-- Equipamento(4) -->
     <TB_EQUIPAMENTO equip_descricao="Celular em bom estado, sem acessórios" equip_marca="Sony" equip_modelo="xperia z5" equip_serie="HJ8756OI" 
-        equip_defeito="Entrada e fone de ouvido está com mau contato" equip_solucao="" equip_mao_obra="0.0" equip_custo_pecas="0.0" fk_serv="3"  fk_func="3"/>
+        equip_defeito="Entrada e fone de ouvido está com mau contato" equip_solucao="" equip_mao_obra="0.0" equip_custo_pecas="0.0" fk_serv="3" />
     <!-- ############################################################################### -->
     
     <!-- ########################## CLIENTE ############################################ -->
@@ -90,7 +90,7 @@
     <TB_TELEFONE tel_numero="34658708" tel_ddd="81" fk_id_cli="7"/>
     <!-- *********************** SERVICOS DESTE CLIENTE *********************** -->
     <!-- Servico(4) -->
-    <TB_SERVICO serv_status="ANDAMENTO" serv_data_inicio="2019-09-09" serv_data_prev_fim="2019-10-22" 
+    <TB_SERVICO serv_status="ANDAMENTO" serv_data_inicio="2019-09-09" serv_data_prev_fim="2019-09-22"
         fk_cli="7" fk_func="2"/>
     <!-- *********************** EQUIPAMENTOS DESTE CLIENTE *********************** -->
     <!-- Equipamento(5) -->

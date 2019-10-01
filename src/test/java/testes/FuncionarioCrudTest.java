@@ -121,7 +121,6 @@ public class FuncionarioCrudTest extends GenericTest {
         equipamentos.get(0).setFuncionario(null);
         equipamentos.get(1).setFuncionario(null);
         equipamentos.get(2).setFuncionario(null);
-        equipamentos.get(3).setFuncionario(null);
         em.flush();
 
         em.remove(funcionario);

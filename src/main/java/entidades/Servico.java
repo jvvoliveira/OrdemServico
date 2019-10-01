@@ -47,7 +47,7 @@ public class Servico implements Serializable {
     private Date fim;
     
     @NotNull(message = "Data de previsão de fim do serviço não pode ser nulo")
-    @Future(message = "Data de previsão de fim inválida")
+//    @Future(message = "Data de previsão de fim inválida")
     @Temporal(TemporalType.DATE)
     @Column(name = "SERV_DATA_PREV_FIM")
     private Date prevFim;
