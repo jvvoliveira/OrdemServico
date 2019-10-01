@@ -104,7 +104,7 @@
     <!-- Equipamento(7) -->
     <TB_EQUIPAMENTO equip_descricao="Computador bem gasto, com bastante uso" equip_marca="CorPC " equip_modelo="16100" equip_serie="IJK877KJ" 
         equip_defeito="Computador lento, para limpeza e atualização de drives e softwares" equip_solucao="" 
-        equip_mao_obra="0.0" equip_custo_pecas="0.0" fk_serv="4" fk_func="4"/>
+        equip_mao_obra="0.0" equip_custo_pecas="0.0" fk_serv="4" fk_func="2"/>
     <!-- ############################################################################### -->
     
     <!-- ########################## CLIENTE ############################################ -->
