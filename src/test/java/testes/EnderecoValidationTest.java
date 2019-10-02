@@ -63,12 +63,11 @@ public class EnderecoValidationTest extends GenericTest{
                         CoreMatchers.anyOf(
                                 startsWith("class entidades.Endereco.cidade: Cidade não pode ser nulo"),
                                 startsWith("class entidades.Endereco.rua: Logradouro não pode ser nulo"),
-                                startsWith("class entidades.Endereco.numero: Número não pode ser nulo"),
                                 startsWith("class entidades.Endereco.cep: CEP não pode ser nulo")
                         )
                 );
             });
-            assertEquals(4, constraintViolations.size());
+            assertEquals(3, constraintViolations.size());
             assertEquals(0, endereco.getId());
             throw ex;
         }
