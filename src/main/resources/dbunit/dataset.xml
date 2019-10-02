@@ -66,7 +66,7 @@
         fk_cli="6" fk_func="1"/>
     <!-- Servico(3) -->
     <TB_SERVICO serv_status="ABERTO" serv_data_inicio="2019-08-30"  serv_data_prev_fim="2019-09-15" 
-        fk_cli="6" fk_func="1"/>
+        fk_cli="6" fk_func="3"/>
     <!-- *********************** EQUIPAMENTOS DESTE CLIENTE *********************** -->
     <!-- Equipamento(2) -->
     <TB_EQUIPAMENTO equip_descricao="Notebook em boas condições, na garantia de fábrica" equip_marca="dell" 
@@ -119,7 +119,7 @@
         fk_cli="8" fk_func="1"/>
     <!-- ============================================================================ -->
     <!-- ========================= EQUIPAMENTOS DESTE CLIENTE ======================= -->
-    <!-- Equipamento() -->
+    <!-- Equipamento(8) -->
     <TB_EQUIPAMENTO equip_descricao="Notebook novo ainda na garantia" equip_marca="asus" equip_modelo="vivobook X510ua-BR1160T" equip_serie="X510uaDF60T" 
         equip_defeito="Cooler fazendo muito barulho" 
         equip_solucao="Manutenção cancelada, o cooler estava mau conectado por ter sido violado, e a loja vendora ter trocado peças do hardware por peças menos valiosa e inferiores as defábrica do aparelho"
