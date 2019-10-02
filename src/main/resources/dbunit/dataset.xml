@@ -66,7 +66,7 @@
         fk_cli="6" fk_func="1"/>
     <!-- Servico(3) -->
     <TB_SERVICO serv_status="ABERTO" serv_data_inicio="2019-08-30"  serv_data_prev_fim="2019-09-15" 
-        fk_cli="6" fk_func="1"/>
+        fk_cli="6" fk_func="3"/>
     <!-- *********************** EQUIPAMENTOS DESTE CLIENTE *********************** -->
     <!-- Equipamento(2) -->
     <TB_EQUIPAMENTO equip_descricao="Notebook em boas condições, na garantia de fábrica" equip_marca="dell" 
