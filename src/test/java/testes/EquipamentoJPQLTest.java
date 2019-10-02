@@ -24,7 +24,7 @@ public class EquipamentoJPQLTest extends GenericTest {
     }
 
     @Test
-    public void equipamentosDeUmFuncionarioAtendente() {
+    public void equipamentosDeUmServicoAtendidoPorUmDeterminadoFuncionarioAtendente() {
         String jpql = "SELECT e FROM Equipamento e WHERE e.servico.funcionario.id = ?1";
         TypedQuery<Equipamento> query = em.createQuery(jpql, Equipamento.class);
         //obrigatoriamente ir para o banco
@@ -32,7 +32,8 @@ public class EquipamentoJPQLTest extends GenericTest {
         query.setParameter(1, 1L);
         List<Equipamento> equipamentos = query.getResultList();
         assertEquals(2, equipamentos.get(0).getId());
-        assertEquals(4, equipamentos.size());
+        assertEquals(8, equipamentos.get(1).getId());
+        assertEquals(2, equipamentos.size());
     }
 
     @Test
